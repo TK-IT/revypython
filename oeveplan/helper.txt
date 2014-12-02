@@ -1,0 +1,1565 @@
+*Der' revy
+
+Skuespillere: Diana, Cecilie, Mads, FUZU, FUNS, Niels, Nanna, FUHR, Jonatan, Sabrina, 
+Sangere: Diana, Cecilie, Mads, FUZU, FUNS, Niels, 
+
+- Udkantskalenderen									1 (1) [0] Niels,  (Niels),  
+- Mat/Jur											0 (0) [0]   
+- Spraytanfeen										2 (2) [0] Diana, FUNS,  (Diana), (FUNS),  
+- Kaninens Klagesang								2 (1) [2] Niels, Sabrina,  (Niels),  [Sabrina], [Niels], 
+- Frk. Smillas fornemmelse for pant					2 (1) [0] Diana, Jonatan,  (Diana),  
+- Homo												1 (1) [1] FUNS,  (FUNS),  [FUNS], 
+- Lars Løkke på SU									1 (1) [0] FUZU,  (FUZU),  
+- Så blev det også en lummer jul i år				1 (0) [1] Sabrina,   [Sabrina], 
+- Alice, Bob og alle de andre rødder				1 (0) [0] FUHR,   
+- Den Store Klagedyst								2 (1) [0] Cecilie, Jonatan,  (Cecilie),  
+- Pop-UP											2 (1) [1] FUNS, FUHR,  (FUNS),  [FUNS], 
+- Retfærdighedsbevarelse							0 (0) [0]   
+- Kemi i Luften										3 (2) [3] Diana, Cecilie, Nanna,  (Diana), (Cecilie),  [Nanna], [Diana], [Cecilie], 
+- Hooliganfilosoffen								4 (3) [0] FUZU, FUNS, Niels, Jonatan,  (FUZU), (FUNS), (Niels),  
+- Diller!											1 (0) [0] Jonatan,   
+- Refærdighedsefterspil								1 (1) [0] FUNS,  (FUNS),  
+- Farsbrød											4 (3) [4] Diana, FUZU, Niels, Sabrina,  (Diana), (FUZU), (Niels),  [Niels], [Diana], [Sabrina], [FUZU], 
+- Hvem vurderes at ville vælge whiskas...?			1 (0) [0] Sabrina,   
+- Instrumentballet									1 (0) [0] Jonatan,   
+- Kammerhistorier på fiskermanér					4 (3) [4] Cecilie, FUNS, Niels, Nanna,  (Cecilie), (FUNS), (Niels),  [Cecilie], [Niels], [Nanna], [FUNS], 
+- Hvad Nu Hvis\dots									0 (0) [0]   
+- Er det en\dots afledt funktion?					1 (1) [0] Cecilie,  (Cecilie),  
+- Blasfemisk LynOpladning							1 (1) [0] FUZU,  (FUZU),  
+- 3 Nisser På et Bord								1 (0) [0] Nanna,   
+- Slexet ordkunstner								0 (0) [0]   
+- Var det fjong?									2 (2) [2] Diana, Mads,  (Diana), (Mads),  [Mads], [Diana], 
+- Aarhus 1900 										0 (0) [0]   
+- Duckface											3 (2) [2] Cecilie, FUNS, Nanna,  (Cecilie), (FUNS),  [Cecilie], [FUNS], 
+- Til Gældsfest i Nisseland							4 (2) [0] FUZU, Niels, Jonatan, Sabrina,  (FUZU), (Niels),  
+- Han bruger kridt									2 (1) [1] Mads, Nanna,  (Mads),  [Mads], 
+- Vi kører den ind med PENIS						2 (1) [1] Niels, Jonatan,  (Niels),  [Niels], 
+- Irrationelt bevis									3 (1) [3] Cecilie, Nanna, Sabrina,  (Cecilie),  [Sabrina], [Cecilie], [Nanna], 
+- Dr. Livingstone... Eller?							1 (1) [0] Mads,  (Mads),  
+- Jeopardy											1 (0) [0] Jonatan,   
+- Gief Julerevy nau, pl0x							5 (3) [3] Diana, FUZU, Niels, FUHR, Sabrina,  (Diana), (FUZU), (Niels),  [Diana], [Sabrina], [FUZU], 
+
+
+===============================================================
+
+*Udkantskalenderen
+
+Skuespillere: Andreas, Niels, 
+
+- Der' revy											1 (0) [1] Niels,   [Niels], 
+- Mat/Jur											0 (0) [0]   
+- Spraytanfeen										0 (0) [0]   
+- Kaninens Klagesang								1 (0) [1] Niels,   [Niels], 
+- Frk. Smillas fornemmelse for pant					1 (0) [0] Andreas,   
+- Homo												0 (0) [0]   
+- Lars Løkke på SU									0 (0) [0]   
+- Så blev det også en lummer jul i år				0 (0) [0]   
+- Alice, Bob og alle de andre rødder				0 (0) [0]   
+- Den Store Klagedyst								0 (0) [0]   
+- Pop-UP											0 (0) [0]   
+- Retfærdighedsbevarelse							1 (0) [0] Andreas,   
+- Kemi i Luften										0 (0) [0]   
+- Hooliganfilosoffen								1 (0) [0] Niels,   
+- Diller!											0 (0) [0]   
+- Refærdighedsefterspil								1 (0) [0] Andreas,   
+- Farsbrød											1 (0) [1] Niels,   [Niels], 
+- Hvem vurderes at ville vælge whiskas...?			0 (0) [0]   
+- Instrumentballet									0 (0) [0]   
+- Kammerhistorier på fiskermanér					2 (0) [2] Andreas, Niels,   [Andreas], [Niels], 
+- Hvad Nu Hvis\dots									0 (0) [0]   
+- Er det en\dots afledt funktion?					0 (0) [0]   
+- Blasfemisk LynOpladning							1 (0) [0] Andreas,   
+- 3 Nisser På et Bord								0 (0) [0]   
+- Slexet ordkunstner								0 (0) [0]   
+- Var det fjong?									0 (0) [0]   
+- Aarhus 1900 										0 (0) [0]   
+- Duckface											0 (0) [0]   
+- Til Gældsfest i Nisseland							1 (0) [0] Niels,   
+- Han bruger kridt									0 (0) [0]   
+- Vi kører den ind med PENIS						1 (0) [1] Niels,   [Niels], 
+- Irrationelt bevis									0 (0) [0]   
+- Dr. Livingstone... Eller?							1 (0) [0] Andreas,   
+- Jeopardy											0 (0) [0]   
+- Gief Julerevy nau, pl0x							1 (0) [0] Niels,   
+
+
+===============================================================
+
+*Mat/Jur
+
+Skuespillere: Aske, Philip, Morten, Sean, 
+
+- Der' revy											0 (0) [0]   
+- Udkantskalenderen									0 (0) [0]   
+- Spraytanfeen										0 (0) [0]   
+- Kaninens Klagesang								1 (0) [1] Sean,   [Sean], 
+- Frk. Smillas fornemmelse for pant					3 (0) [0] Aske, Philip, Morten,   
+- Homo												0 (0) [0]   
+- Lars Løkke på SU									1 (0) [0] Morten,   
+- Så blev det også en lummer jul i år				1 (0) [1] Sean,   [Sean], 
+- Alice, Bob og alle de andre rødder				1 (0) [0] Philip,   
+- Den Store Klagedyst								1 (0) [0] Morten,   
+- Pop-UP											0 (0) [0]   
+- Retfærdighedsbevarelse							0 (0) [0]   
+- Kemi i Luften										0 (0) [0]   
+- Hooliganfilosoffen								2 (0) [0] Aske, Philip,   
+- Diller!											2 (0) [0] Philip, Sean,   
+- Refærdighedsefterspil								0 (0) [0]   
+- Farsbrød											1 (0) [1] Sean,   [Sean], 
+- Hvem vurderes at ville vælge whiskas...?			2 (0) [0] Philip, Morten,   
+- Instrumentballet									1 (0) [0] Aske,   
+- Kammerhistorier på fiskermanér					1 (0) [1] Sean,   [Sean], 
+- Hvad Nu Hvis\dots									0 (0) [0]   
+- Er det en\dots afledt funktion?					3 (0) [0] Philip, Morten, Sean,   
+- Blasfemisk LynOpladning							0 (0) [0]   
+- 3 Nisser På et Bord								1 (0) [0] Morten,   
+- Slexet ordkunstner								0 (0) [0]   
+- Var det fjong?									0 (0) [0]   
+- Aarhus 1900 										2 (0) [0] Aske, Sean,   
+- Duckface											2 (0) [0] Aske, Philip,   
+- Til Gældsfest i Nisseland							1 (0) [0] Morten,   
+- Han bruger kridt									1 (0) [1] Aske,   [Aske], 
+- Vi kører den ind med PENIS						1 (0) [1] Sean,   [Sean], 
+- Irrationelt bevis									1 (0) [0] Morten,   
+- Dr. Livingstone... Eller?							0 (0) [0]   
+- Jeopardy											1 (0) [0] Sean,   
+- Gief Julerevy nau, pl0x							1 (0) [0] Philip,   
+
+
+===============================================================
+
+*Spraytanfeen
+
+Skuespillere: Diana, FUNS, Diderik, 
+
+- Der' revy											2 (0) [2] Diana, FUNS,   [Diana], [FUNS], 
+- Udkantskalenderen									0 (0) [0]   
+- Mat/Jur											0 (0) [0]   
+- Kaninens Klagesang								0 (0) [0]   
+- Frk. Smillas fornemmelse for pant					1 (0) [0] Diana,   
+- Homo												1 (0) [1] FUNS,   [FUNS], 
+- Lars Løkke på SU									0 (0) [0]   
+- Så blev det også en lummer jul i år				0 (0) [0]   
+- Alice, Bob og alle de andre rødder				0 (0) [0]   
+- Den Store Klagedyst								0 (0) [0]   
+- Pop-UP											1 (0) [1] FUNS,   [FUNS], 
+- Retfærdighedsbevarelse							1 (0) [0] Diderik,   
+- Kemi i Luften										1 (0) [1] Diana,   [Diana], 
+- Hooliganfilosoffen								1 (0) [0] FUNS,   
+- Diller!											0 (0) [0]   
+- Refærdighedsefterspil								1 (0) [0] FUNS,   
+- Farsbrød											1 (0) [1] Diana,   [Diana], 
+- Hvem vurderes at ville vælge whiskas...?			0 (0) [0]   
+- Instrumentballet									0 (0) [0]   
+- Kammerhistorier på fiskermanér					1 (0) [1] FUNS,   [FUNS], 
+- Hvad Nu Hvis\dots									0 (0) [0]   
+- Er det en\dots afledt funktion?					0 (0) [0]   
+- Blasfemisk LynOpladning							0 (0) [0]   
+- 3 Nisser På et Bord								1 (0) [0] Diderik,   
+- Slexet ordkunstner								0 (0) [0]   
+- Var det fjong?									1 (0) [1] Diana,   [Diana], 
+- Aarhus 1900 										0 (0) [0]   
+- Duckface											1 (0) [1] FUNS,   [FUNS], 
+- Til Gældsfest i Nisseland							1 (0) [0] Diderik,   
+- Han bruger kridt									0 (0) [0]   
+- Vi kører den ind med PENIS						0 (0) [0]   
+- Irrationelt bevis									0 (0) [0]   
+- Dr. Livingstone... Eller?							0 (0) [0]   
+- Jeopardy											1 (0) [0] Diderik,   
+- Gief Julerevy nau, pl0x							1 (0) [1] Diana,   [Diana], 
+
+
+===============================================================
+
+*Kaninens Klagesang
+
+Skuespillere: Sabrina, Niels, Sean, Hans, 
+Sangere: Sabrina, Niels, Sean, Hans, 
+
+- Der' revy											2 (2) [1] Sabrina, Niels,  (Sabrina), (Niels),  [Niels], 
+- Udkantskalenderen									1 (1) [0] Niels,  (Niels),  
+- Mat/Jur											1 (1) [0] Sean,  (Sean),  
+- Spraytanfeen										0 (0) [0]   
+- Frk. Smillas fornemmelse for pant					0 (0) [0]   
+- Homo												0 (0) [0]   
+- Lars Løkke på SU									0 (0) [0]   
+- Så blev det også en lummer jul i år				2 (2) [2] Sabrina, Sean,  (Sabrina), (Sean),  [Sean], [Sabrina], 
+- Alice, Bob og alle de andre rødder				0 (0) [0]   
+- Den Store Klagedyst								0 (0) [0]   
+- Pop-UP											1 (1) [1] Hans,  (Hans),  [Hans], 
+- Retfærdighedsbevarelse							0 (0) [0]   
+- Kemi i Luften										0 (0) [0]   
+- Hooliganfilosoffen								1 (1) [0] Niels,  (Niels),  
+- Diller!											2 (2) [0] Sean, Hans,  (Sean), (Hans),  
+- Refærdighedsefterspil								0 (0) [0]   
+- Farsbrød											3 (3) [3] Sabrina, Niels, Sean,  (Sabrina), (Niels), (Sean),  [Niels], [Sabrina], [Sean], 
+- Hvem vurderes at ville vælge whiskas...?			1 (1) [0] Sabrina,  (Sabrina),  
+- Instrumentballet									0 (0) [0]   
+- Kammerhistorier på fiskermanér					2 (2) [2] Niels, Sean,  (Niels), (Sean),  [Niels], [Sean], 
+- Hvad Nu Hvis\dots									0 (0) [0]   
+- Er det en\dots afledt funktion?					1 (1) [0] Sean,  (Sean),  
+- Blasfemisk LynOpladning							0 (0) [0]   
+- 3 Nisser På et Bord								0 (0) [0]   
+- Slexet ordkunstner								0 (0) [0]   
+- Var det fjong?									0 (0) [0]   
+- Aarhus 1900 										1 (1) [0] Sean,  (Sean),  
+- Duckface											1 (1) [0] Hans,  (Hans),  
+- Til Gældsfest i Nisseland							2 (2) [0] Sabrina, Niels,  (Sabrina), (Niels),  
+- Han bruger kridt									0 (0) [0]   
+- Vi kører den ind med PENIS						2 (2) [2] Niels, Sean,  (Niels), (Sean),  [Niels], [Sean], 
+- Irrationelt bevis									2 (2) [2] Sabrina, Hans,  (Sabrina), (Hans),  [Hans], [Sabrina], 
+- Dr. Livingstone... Eller?							0 (0) [0]   
+- Jeopardy											1 (1) [0] Sean,  (Sean),  
+- Gief Julerevy nau, pl0x							3 (3) [2] Sabrina, Niels, Hans,  (Sabrina), (Niels), (Hans),  [Sabrina], [Hans], 
+
+
+===============================================================
+
+*Frk. Smillas fornemmelse for pant
+
+Skuespillere: Jonatan, Morten, Philip, Diana, Bastian, Aske, Andreas, 
+
+- Der' revy											2 (0) [1] Jonatan, Diana,   [Diana], 
+- Udkantskalenderen									1 (0) [0] Andreas,   
+- Mat/Jur											3 (0) [0] Morten, Philip, Aske,   
+- Spraytanfeen										1 (0) [0] Diana,   
+- Kaninens Klagesang								0 (0) [0]   
+- Homo												0 (0) [0]   
+- Lars Løkke på SU									1 (0) [0] Morten,   
+- Så blev det også en lummer jul i år				0 (0) [0]   
+- Alice, Bob og alle de andre rødder				1 (0) [0] Philip,   
+- Den Store Klagedyst								2 (0) [0] Jonatan, Morten,   
+- Pop-UP											0 (0) [0]   
+- Retfærdighedsbevarelse							1 (0) [0] Andreas,   
+- Kemi i Luften										1 (0) [1] Diana,   [Diana], 
+- Hooliganfilosoffen								3 (0) [0] Jonatan, Philip, Aske,   
+- Diller!											2 (0) [0] Jonatan, Philip,   
+- Refærdighedsefterspil								2 (0) [0] Bastian, Andreas,   
+- Farsbrød											1 (0) [1] Diana,   [Diana], 
+- Hvem vurderes at ville vælge whiskas...?			2 (0) [0] Morten, Philip,   
+- Instrumentballet									2 (0) [0] Jonatan, Aske,   
+- Kammerhistorier på fiskermanér					1 (0) [1] Andreas,   [Andreas], 
+- Hvad Nu Hvis\dots									0 (0) [0]   
+- Er det en\dots afledt funktion?					3 (0) [0] Morten, Philip, Bastian,   
+- Blasfemisk LynOpladning							1 (0) [0] Andreas,   
+- 3 Nisser På et Bord								1 (0) [0] Morten,   
+- Slexet ordkunstner								0 (0) [0]   
+- Var det fjong?									1 (0) [1] Diana,   [Diana], 
+- Aarhus 1900 										1 (0) [0] Aske,   
+- Duckface											3 (0) [0] Philip, Bastian, Aske,   
+- Til Gældsfest i Nisseland							2 (0) [0] Jonatan, Morten,   
+- Han bruger kridt									2 (0) [1] Bastian, Aske,   [Aske], 
+- Vi kører den ind med PENIS						1 (0) [0] Jonatan,   
+- Irrationelt bevis									1 (0) [0] Morten,   
+- Dr. Livingstone... Eller?							1 (0) [0] Andreas,   
+- Jeopardy											1 (0) [0] Jonatan,   
+- Gief Julerevy nau, pl0x							2 (0) [1] Philip, Diana,   [Diana], 
+
+
+===============================================================
+
+*Homo
+
+Skuespillere: FUNS, iEva, Casper, Eva, 
+Sangere: FUNS, iEva, 
+
+- Der' revy											1 (1) [1] FUNS,  (FUNS),  [FUNS], 
+- Udkantskalenderen									0 (0) [0]   
+- Mat/Jur											0 (0) [0]   
+- Spraytanfeen										1 (1) [0] FUNS,  (FUNS),  
+- Kaninens Klagesang								0 (0) [0]   
+- Frk. Smillas fornemmelse for pant					0 (0) [0]   
+- Lars Løkke på SU									0 (0) [0]   
+- Så blev det også en lummer jul i år				0 (0) [0]   
+- Alice, Bob og alle de andre rødder				1 (0) [0] Eva,   
+- Den Store Klagedyst								0 (0) [0]   
+- Pop-UP											3 (2) [2] FUNS, iEva, Eva,  (FUNS), (iEva),  [FUNS], [iEva], 
+- Retfærdighedsbevarelse							1 (0) [0] Eva,   
+- Kemi i Luften										1 (1) [1] iEva,  (iEva),  [iEva], 
+- Hooliganfilosoffen								1 (1) [0] FUNS,  (FUNS),  
+- Diller!											0 (0) [0]   
+- Refærdighedsefterspil								1 (1) [0] FUNS,  (FUNS),  
+- Farsbrød											0 (0) [0]   
+- Hvem vurderes at ville vælge whiskas...?			0 (0) [0]   
+- Instrumentballet									1 (0) [0] Eva,   
+- Kammerhistorier på fiskermanér					2 (2) [2] FUNS, iEva,  (FUNS), (iEva),  [iEva], [FUNS], 
+- Hvad Nu Hvis\dots									0 (0) [0]   
+- Er det en\dots afledt funktion?					1 (1) [0] iEva,  (iEva),  
+- Blasfemisk LynOpladning							1 (0) [0] Eva,   
+- 3 Nisser På et Bord								1 (1) [1] iEva,  (iEva),  [iEva], 
+- Slexet ordkunstner								1 (0) [0] Eva,   
+- Var det fjong?									0 (0) [0]   
+- Aarhus 1900 										1 (0) [0] Casper,   
+- Duckface											1 (1) [1] FUNS,  (FUNS),  [FUNS], 
+- Til Gældsfest i Nisseland							1 (1) [0] iEva,  (iEva),  
+- Han bruger kridt									0 (0) [0]   
+- Vi kører den ind med PENIS						0 (0) [0]   
+- Irrationelt bevis									1 (0) [1] Casper,   [Casper], 
+- Dr. Livingstone... Eller?							0 (0) [0]   
+- Jeopardy											1 (1) [0] iEva,  (iEva),  
+- Gief Julerevy nau, pl0x							2 (0) [0] Casper, Eva,   
+
+
+===============================================================
+
+*Lars Løkke på SU
+
+Skuespillere: FUZU, Morten, 
+
+- Der' revy											1 (0) [1] FUZU,   [FUZU], 
+- Udkantskalenderen									0 (0) [0]   
+- Mat/Jur											1 (0) [0] Morten,   
+- Spraytanfeen										0 (0) [0]   
+- Kaninens Klagesang								0 (0) [0]   
+- Frk. Smillas fornemmelse for pant					1 (0) [0] Morten,   
+- Homo												0 (0) [0]   
+- Så blev det også en lummer jul i år				0 (0) [0]   
+- Alice, Bob og alle de andre rødder				0 (0) [0]   
+- Den Store Klagedyst								1 (0) [0] Morten,   
+- Pop-UP											0 (0) [0]   
+- Retfærdighedsbevarelse							0 (0) [0]   
+- Kemi i Luften										0 (0) [0]   
+- Hooliganfilosoffen								1 (0) [0] FUZU,   
+- Diller!											0 (0) [0]   
+- Refærdighedsefterspil								0 (0) [0]   
+- Farsbrød											1 (0) [1] FUZU,   [FUZU], 
+- Hvem vurderes at ville vælge whiskas...?			1 (0) [0] Morten,   
+- Instrumentballet									0 (0) [0]   
+- Kammerhistorier på fiskermanér					0 (0) [0]   
+- Hvad Nu Hvis\dots									0 (0) [0]   
+- Er det en\dots afledt funktion?					1 (0) [0] Morten,   
+- Blasfemisk LynOpladning							1 (0) [0] FUZU,   
+- 3 Nisser På et Bord								1 (0) [0] Morten,   
+- Slexet ordkunstner								0 (0) [0]   
+- Var det fjong?									0 (0) [0]   
+- Aarhus 1900 										0 (0) [0]   
+- Duckface											0 (0) [0]   
+- Til Gældsfest i Nisseland							2 (0) [0] FUZU, Morten,   
+- Han bruger kridt									0 (0) [0]   
+- Vi kører den ind med PENIS						0 (0) [0]   
+- Irrationelt bevis									1 (0) [0] Morten,   
+- Dr. Livingstone... Eller?							0 (0) [0]   
+- Jeopardy											0 (0) [0]   
+- Gief Julerevy nau, pl0x							1 (0) [1] FUZU,   [FUZU], 
+
+
+===============================================================
+
+*Så blev det også en lummer jul i år
+
+Skuespillere: Sean, Sabrina, 
+Sangere: Sean, Sabrina, 
+
+- Der' revy											1 (1) [0] Sabrina,  (Sabrina),  
+- Udkantskalenderen									0 (0) [0]   
+- Mat/Jur											1 (1) [0] Sean,  (Sean),  
+- Spraytanfeen										0 (0) [0]   
+- Kaninens Klagesang								2 (2) [2] Sean, Sabrina,  (Sean), (Sabrina),  [Sabrina], [Sean], 
+- Frk. Smillas fornemmelse for pant					0 (0) [0]   
+- Homo												0 (0) [0]   
+- Lars Løkke på SU									0 (0) [0]   
+- Alice, Bob og alle de andre rødder				0 (0) [0]   
+- Den Store Klagedyst								0 (0) [0]   
+- Pop-UP											0 (0) [0]   
+- Retfærdighedsbevarelse							0 (0) [0]   
+- Kemi i Luften										0 (0) [0]   
+- Hooliganfilosoffen								0 (0) [0]   
+- Diller!											1 (1) [0] Sean,  (Sean),  
+- Refærdighedsefterspil								0 (0) [0]   
+- Farsbrød											2 (2) [2] Sean, Sabrina,  (Sean), (Sabrina),  [Sabrina], [Sean], 
+- Hvem vurderes at ville vælge whiskas...?			1 (1) [0] Sabrina,  (Sabrina),  
+- Instrumentballet									0 (0) [0]   
+- Kammerhistorier på fiskermanér					1 (1) [1] Sean,  (Sean),  [Sean], 
+- Hvad Nu Hvis\dots									0 (0) [0]   
+- Er det en\dots afledt funktion?					1 (1) [0] Sean,  (Sean),  
+- Blasfemisk LynOpladning							0 (0) [0]   
+- 3 Nisser På et Bord								0 (0) [0]   
+- Slexet ordkunstner								0 (0) [0]   
+- Var det fjong?									0 (0) [0]   
+- Aarhus 1900 										1 (1) [0] Sean,  (Sean),  
+- Duckface											0 (0) [0]   
+- Til Gældsfest i Nisseland							1 (1) [0] Sabrina,  (Sabrina),  
+- Han bruger kridt									0 (0) [0]   
+- Vi kører den ind med PENIS						1 (1) [1] Sean,  (Sean),  [Sean], 
+- Irrationelt bevis									1 (1) [1] Sabrina,  (Sabrina),  [Sabrina], 
+- Dr. Livingstone... Eller?							0 (0) [0]   
+- Jeopardy											1 (1) [0] Sean,  (Sean),  
+- Gief Julerevy nau, pl0x							1 (1) [1] Sabrina,  (Sabrina),  [Sabrina], 
+
+
+===============================================================
+
+*Alice, Bob og alle de andre rødder
+
+Skuespillere: FUHR, Philip, Eva, Poul, 
+
+- Der' revy											1 (0) [0] FUHR,   
+- Udkantskalenderen									0 (0) [0]   
+- Mat/Jur											1 (0) [0] Philip,   
+- Spraytanfeen										0 (0) [0]   
+- Kaninens Klagesang								0 (0) [0]   
+- Frk. Smillas fornemmelse for pant					1 (0) [0] Philip,   
+- Homo												1 (0) [0] Eva,   
+- Lars Løkke på SU									0 (0) [0]   
+- Så blev det også en lummer jul i år				0 (0) [0]   
+- Den Store Klagedyst								0 (0) [0]   
+- Pop-UP											2 (0) [0] FUHR, Eva,   
+- Retfærdighedsbevarelse							1 (0) [0] Eva,   
+- Kemi i Luften										0 (0) [0]   
+- Hooliganfilosoffen								1 (0) [0] Philip,   
+- Diller!											2 (0) [1] Philip, Poul,   [Poul], 
+- Refærdighedsefterspil								0 (0) [0]   
+- Farsbrød											0 (0) [0]   
+- Hvem vurderes at ville vælge whiskas...?			1 (0) [0] Philip,   
+- Instrumentballet									1 (0) [0] Eva,   
+- Kammerhistorier på fiskermanér					0 (0) [0]   
+- Hvad Nu Hvis\dots									1 (0) [1] Poul,   [Poul], 
+- Er det en\dots afledt funktion?					1 (0) [0] Philip,   
+- Blasfemisk LynOpladning							1 (0) [0] Eva,   
+- 3 Nisser På et Bord								0 (0) [0]   
+- Slexet ordkunstner								1 (0) [0] Eva,   
+- Var det fjong?									0 (0) [0]   
+- Aarhus 1900 										0 (0) [0]   
+- Duckface											1 (0) [0] Philip,   
+- Til Gældsfest i Nisseland							1 (0) [0] Poul,   
+- Han bruger kridt									1 (0) [0] Poul,   
+- Vi kører den ind med PENIS						0 (0) [0]   
+- Irrationelt bevis									0 (0) [0]   
+- Dr. Livingstone... Eller?							0 (0) [0]   
+- Jeopardy											0 (0) [0]   
+- Gief Julerevy nau, pl0x							4 (0) [0] FUHR, Philip, Eva, Poul,   
+
+
+===============================================================
+
+*Den Store Klagedyst
+
+Skuespillere: Cecilie, Morten, Jonatan, 
+
+- Der' revy											2 (0) [1] Cecilie, Jonatan,   [Cecilie], 
+- Udkantskalenderen									0 (0) [0]   
+- Mat/Jur											1 (0) [0] Morten,   
+- Spraytanfeen										0 (0) [0]   
+- Kaninens Klagesang								0 (0) [0]   
+- Frk. Smillas fornemmelse for pant					2 (0) [0] Morten, Jonatan,   
+- Homo												0 (0) [0]   
+- Lars Løkke på SU									1 (0) [0] Morten,   
+- Så blev det også en lummer jul i år				0 (0) [0]   
+- Alice, Bob og alle de andre rødder				0 (0) [0]   
+- Pop-UP											0 (0) [0]   
+- Retfærdighedsbevarelse							0 (0) [0]   
+- Kemi i Luften										1 (0) [1] Cecilie,   [Cecilie], 
+- Hooliganfilosoffen								1 (0) [0] Jonatan,   
+- Diller!											1 (0) [0] Jonatan,   
+- Refærdighedsefterspil								0 (0) [0]   
+- Farsbrød											0 (0) [0]   
+- Hvem vurderes at ville vælge whiskas...?			1 (0) [0] Morten,   
+- Instrumentballet									1 (0) [0] Jonatan,   
+- Kammerhistorier på fiskermanér					1 (0) [1] Cecilie,   [Cecilie], 
+- Hvad Nu Hvis\dots									0 (0) [0]   
+- Er det en\dots afledt funktion?					2 (0) [0] Cecilie, Morten,   
+- Blasfemisk LynOpladning							0 (0) [0]   
+- 3 Nisser På et Bord								1 (0) [0] Morten,   
+- Slexet ordkunstner								0 (0) [0]   
+- Var det fjong?									0 (0) [0]   
+- Aarhus 1900 										0 (0) [0]   
+- Duckface											1 (0) [1] Cecilie,   [Cecilie], 
+- Til Gældsfest i Nisseland							2 (0) [0] Morten, Jonatan,   
+- Han bruger kridt									0 (0) [0]   
+- Vi kører den ind med PENIS						1 (0) [0] Jonatan,   
+- Irrationelt bevis									2 (0) [1] Cecilie, Morten,   [Cecilie], 
+- Dr. Livingstone... Eller?							0 (0) [0]   
+- Jeopardy											1 (0) [0] Jonatan,   
+- Gief Julerevy nau, pl0x							0 (0) [0]   
+
+
+===============================================================
+
+*Pop-UP
+
+Skuespillere: FUNS, Hans, iEva, Eva, FUHR, 
+Sangere: FUNS, Hans, iEva, 
+
+- Der' revy											2 (1) [1] FUNS, FUHR,  (FUNS),  [FUNS], 
+- Udkantskalenderen									0 (0) [0]   
+- Mat/Jur											0 (0) [0]   
+- Spraytanfeen										1 (1) [0] FUNS,  (FUNS),  
+- Kaninens Klagesang								1 (1) [1] Hans,  (Hans),  [Hans], 
+- Frk. Smillas fornemmelse for pant					0 (0) [0]   
+- Homo												3 (2) [2] FUNS, iEva, Eva,  (FUNS), (iEva),  [FUNS], [iEva], 
+- Lars Løkke på SU									0 (0) [0]   
+- Så blev det også en lummer jul i år				0 (0) [0]   
+- Alice, Bob og alle de andre rødder				2 (0) [0] Eva, FUHR,   
+- Den Store Klagedyst								0 (0) [0]   
+- Retfærdighedsbevarelse							1 (0) [0] Eva,   
+- Kemi i Luften										1 (1) [1] iEva,  (iEva),  [iEva], 
+- Hooliganfilosoffen								1 (1) [0] FUNS,  (FUNS),  
+- Diller!											1 (1) [0] Hans,  (Hans),  
+- Refærdighedsefterspil								1 (1) [0] FUNS,  (FUNS),  
+- Farsbrød											0 (0) [0]   
+- Hvem vurderes at ville vælge whiskas...?			0 (0) [0]   
+- Instrumentballet									1 (0) [0] Eva,   
+- Kammerhistorier på fiskermanér					2 (2) [2] FUNS, iEva,  (FUNS), (iEva),  [iEva], [FUNS], 
+- Hvad Nu Hvis\dots									0 (0) [0]   
+- Er det en\dots afledt funktion?					1 (1) [0] iEva,  (iEva),  
+- Blasfemisk LynOpladning							1 (0) [0] Eva,   
+- 3 Nisser På et Bord								1 (1) [1] iEva,  (iEva),  [iEva], 
+- Slexet ordkunstner								1 (0) [0] Eva,   
+- Var det fjong?									0 (0) [0]   
+- Aarhus 1900 										0 (0) [0]   
+- Duckface											2 (2) [1] FUNS, Hans,  (FUNS), (Hans),  [FUNS], 
+- Til Gældsfest i Nisseland							1 (1) [0] iEva,  (iEva),  
+- Han bruger kridt									0 (0) [0]   
+- Vi kører den ind med PENIS						0 (0) [0]   
+- Irrationelt bevis									1 (1) [1] Hans,  (Hans),  [Hans], 
+- Dr. Livingstone... Eller?							0 (0) [0]   
+- Jeopardy											1 (1) [0] iEva,  (iEva),  
+- Gief Julerevy nau, pl0x							3 (1) [1] Hans, Eva, FUHR,  (Hans),  [Hans], 
+
+
+===============================================================
+
+*Retfærdighedsbevarelse
+
+Skuespillere: Andreas, Diderik, Eva, 
+
+- Der' revy											0 (0) [0]   
+- Udkantskalenderen									1 (0) [0] Andreas,   
+- Mat/Jur											0 (0) [0]   
+- Spraytanfeen										1 (0) [0] Diderik,   
+- Kaninens Klagesang								0 (0) [0]   
+- Frk. Smillas fornemmelse for pant					1 (0) [0] Andreas,   
+- Homo												1 (0) [0] Eva,   
+- Lars Løkke på SU									0 (0) [0]   
+- Så blev det også en lummer jul i år				0 (0) [0]   
+- Alice, Bob og alle de andre rødder				1 (0) [0] Eva,   
+- Den Store Klagedyst								0 (0) [0]   
+- Pop-UP											1 (0) [0] Eva,   
+- Kemi i Luften										0 (0) [0]   
+- Hooliganfilosoffen								0 (0) [0]   
+- Diller!											0 (0) [0]   
+- Refærdighedsefterspil								1 (0) [0] Andreas,   
+- Farsbrød											0 (0) [0]   
+- Hvem vurderes at ville vælge whiskas...?			0 (0) [0]   
+- Instrumentballet									1 (0) [0] Eva,   
+- Kammerhistorier på fiskermanér					1 (0) [1] Andreas,   [Andreas], 
+- Hvad Nu Hvis\dots									0 (0) [0]   
+- Er det en\dots afledt funktion?					0 (0) [0]   
+- Blasfemisk LynOpladning							2 (0) [0] Andreas, Eva,   
+- 3 Nisser På et Bord								1 (0) [0] Diderik,   
+- Slexet ordkunstner								1 (0) [0] Eva,   
+- Var det fjong?									0 (0) [0]   
+- Aarhus 1900 										0 (0) [0]   
+- Duckface											0 (0) [0]   
+- Til Gældsfest i Nisseland							1 (0) [0] Diderik,   
+- Han bruger kridt									0 (0) [0]   
+- Vi kører den ind med PENIS						0 (0) [0]   
+- Irrationelt bevis									0 (0) [0]   
+- Dr. Livingstone... Eller?							1 (0) [0] Andreas,   
+- Jeopardy											1 (0) [0] Diderik,   
+- Gief Julerevy nau, pl0x							1 (0) [0] Eva,   
+
+
+===============================================================
+
+*Kemi i Luften
+
+Skuespillere: Nanna, Diana, Cecilie, iEva, 
+Sangere: Nanna, Diana, Cecilie, iEva, 
+
+- Der' revy											3 (3) [2] Nanna, Diana, Cecilie,  (Nanna), (Diana), (Cecilie),  [Diana], [Cecilie], 
+- Udkantskalenderen									0 (0) [0]   
+- Mat/Jur											0 (0) [0]   
+- Spraytanfeen										1 (1) [0] Diana,  (Diana),  
+- Kaninens Klagesang								0 (0) [0]   
+- Frk. Smillas fornemmelse for pant					1 (1) [0] Diana,  (Diana),  
+- Homo												1 (1) [1] iEva,  (iEva),  [iEva], 
+- Lars Løkke på SU									0 (0) [0]   
+- Så blev det også en lummer jul i år				0 (0) [0]   
+- Alice, Bob og alle de andre rødder				0 (0) [0]   
+- Den Store Klagedyst								1 (1) [0] Cecilie,  (Cecilie),  
+- Pop-UP											1 (1) [1] iEva,  (iEva),  [iEva], 
+- Retfærdighedsbevarelse							0 (0) [0]   
+- Hooliganfilosoffen								0 (0) [0]   
+- Diller!											0 (0) [0]   
+- Refærdighedsefterspil								0 (0) [0]   
+- Farsbrød											1 (1) [1] Diana,  (Diana),  [Diana], 
+- Hvem vurderes at ville vælge whiskas...?			0 (0) [0]   
+- Instrumentballet									0 (0) [0]   
+- Kammerhistorier på fiskermanér					3 (3) [3] Nanna, Cecilie, iEva,  (Nanna), (Cecilie), (iEva),  [iEva], [Cecilie], [Nanna], 
+- Hvad Nu Hvis\dots									0 (0) [0]   
+- Er det en\dots afledt funktion?					2 (2) [0] Cecilie, iEva,  (Cecilie), (iEva),  
+- Blasfemisk LynOpladning							0 (0) [0]   
+- 3 Nisser På et Bord								2 (2) [1] Nanna, iEva,  (Nanna), (iEva),  [iEva], 
+- Slexet ordkunstner								0 (0) [0]   
+- Var det fjong?									1 (1) [1] Diana,  (Diana),  [Diana], 
+- Aarhus 1900 										0 (0) [0]   
+- Duckface											2 (2) [1] Nanna, Cecilie,  (Nanna), (Cecilie),  [Cecilie], 
+- Til Gældsfest i Nisseland							1 (1) [0] iEva,  (iEva),  
+- Han bruger kridt									1 (1) [0] Nanna,  (Nanna),  
+- Vi kører den ind med PENIS						0 (0) [0]   
+- Irrationelt bevis									2 (2) [2] Nanna, Cecilie,  (Nanna), (Cecilie),  [Cecilie], [Nanna], 
+- Dr. Livingstone... Eller?							0 (0) [0]   
+- Jeopardy											1 (1) [0] iEva,  (iEva),  
+- Gief Julerevy nau, pl0x							1 (1) [1] Diana,  (Diana),  [Diana], 
+
+
+===============================================================
+
+*Hooliganfilosoffen
+
+Skuespillere: Philip, Aske, Niels, FUNS, Jonatan, FUZU, 
+
+- Der' revy											4 (0) [3] Niels, FUNS, Jonatan, FUZU,   [FUZU], [FUNS], [Niels], 
+- Udkantskalenderen									1 (0) [0] Niels,   
+- Mat/Jur											2 (0) [0] Philip, Aske,   
+- Spraytanfeen										1 (0) [0] FUNS,   
+- Kaninens Klagesang								1 (0) [1] Niels,   [Niels], 
+- Frk. Smillas fornemmelse for pant					3 (0) [0] Philip, Aske, Jonatan,   
+- Homo												1 (0) [1] FUNS,   [FUNS], 
+- Lars Løkke på SU									1 (0) [0] FUZU,   
+- Så blev det også en lummer jul i år				0 (0) [0]   
+- Alice, Bob og alle de andre rødder				1 (0) [0] Philip,   
+- Den Store Klagedyst								1 (0) [0] Jonatan,   
+- Pop-UP											1 (0) [1] FUNS,   [FUNS], 
+- Retfærdighedsbevarelse							0 (0) [0]   
+- Kemi i Luften										0 (0) [0]   
+- Diller!											2 (0) [0] Philip, Jonatan,   
+- Refærdighedsefterspil								1 (0) [0] FUNS,   
+- Farsbrød											2 (0) [2] Niels, FUZU,   [Niels], [FUZU], 
+- Hvem vurderes at ville vælge whiskas...?			1 (0) [0] Philip,   
+- Instrumentballet									2 (0) [0] Aske, Jonatan,   
+- Kammerhistorier på fiskermanér					2 (0) [2] Niels, FUNS,   [Niels], [FUNS], 
+- Hvad Nu Hvis\dots									0 (0) [0]   
+- Er det en\dots afledt funktion?					1 (0) [0] Philip,   
+- Blasfemisk LynOpladning							1 (0) [0] FUZU,   
+- 3 Nisser På et Bord								0 (0) [0]   
+- Slexet ordkunstner								0 (0) [0]   
+- Var det fjong?									0 (0) [0]   
+- Aarhus 1900 										1 (0) [0] Aske,   
+- Duckface											3 (0) [1] Philip, Aske, FUNS,   [FUNS], 
+- Til Gældsfest i Nisseland							3 (0) [0] Niels, Jonatan, FUZU,   
+- Han bruger kridt									1 (0) [1] Aske,   [Aske], 
+- Vi kører den ind med PENIS						2 (0) [1] Niels, Jonatan,   [Niels], 
+- Irrationelt bevis									0 (0) [0]   
+- Dr. Livingstone... Eller?							0 (0) [0]   
+- Jeopardy											1 (0) [0] Jonatan,   
+- Gief Julerevy nau, pl0x							3 (0) [1] Philip, Niels, FUZU,   [FUZU], 
+
+
+===============================================================
+
+*Diller!
+
+Skuespillere: Poul, Philip, Sean, Hans, Jonatan, 
+Sangere: Poul, 
+
+- Der' revy											1 (0) [0] Jonatan,   
+- Udkantskalenderen									0 (0) [0]   
+- Mat/Jur											2 (0) [0] Philip, Sean,   
+- Spraytanfeen										0 (0) [0]   
+- Kaninens Klagesang								2 (0) [2] Sean, Hans,   [Sean], [Hans], 
+- Frk. Smillas fornemmelse for pant					2 (0) [0] Philip, Jonatan,   
+- Homo												0 (0) [0]   
+- Lars Løkke på SU									0 (0) [0]   
+- Så blev det også en lummer jul i år				1 (0) [1] Sean,   [Sean], 
+- Alice, Bob og alle de andre rødder				2 (1) [0] Poul, Philip,  (Poul),  
+- Den Store Klagedyst								1 (0) [0] Jonatan,   
+- Pop-UP											1 (0) [1] Hans,   [Hans], 
+- Retfærdighedsbevarelse							0 (0) [0]   
+- Kemi i Luften										0 (0) [0]   
+- Hooliganfilosoffen								2 (0) [0] Philip, Jonatan,   
+- Refærdighedsefterspil								0 (0) [0]   
+- Farsbrød											1 (0) [1] Sean,   [Sean], 
+- Hvem vurderes at ville vælge whiskas...?			1 (0) [0] Philip,   
+- Instrumentballet									1 (0) [0] Jonatan,   
+- Kammerhistorier på fiskermanér					1 (0) [1] Sean,   [Sean], 
+- Hvad Nu Hvis\dots									1 (1) [1] Poul,  (Poul),  [Poul], 
+- Er det en\dots afledt funktion?					2 (0) [0] Philip, Sean,   
+- Blasfemisk LynOpladning							0 (0) [0]   
+- 3 Nisser På et Bord								0 (0) [0]   
+- Slexet ordkunstner								0 (0) [0]   
+- Var det fjong?									0 (0) [0]   
+- Aarhus 1900 										1 (0) [0] Sean,   
+- Duckface											2 (0) [0] Philip, Hans,   
+- Til Gældsfest i Nisseland							2 (1) [0] Poul, Jonatan,  (Poul),  
+- Han bruger kridt									1 (1) [0] Poul,  (Poul),  
+- Vi kører den ind med PENIS						2 (0) [1] Sean, Jonatan,   [Sean], 
+- Irrationelt bevis									1 (0) [1] Hans,   [Hans], 
+- Dr. Livingstone... Eller?							0 (0) [0]   
+- Jeopardy											2 (0) [0] Sean, Jonatan,   
+- Gief Julerevy nau, pl0x							3 (1) [1] Poul, Philip, Hans,  (Poul),  [Hans], 
+
+
+===============================================================
+
+*Refærdighedsefterspil
+
+Skuespillere: Andreas, Bastian, FUNS, 
+
+- Der' revy											1 (0) [1] FUNS,   [FUNS], 
+- Udkantskalenderen									1 (0) [0] Andreas,   
+- Mat/Jur											0 (0) [0]   
+- Spraytanfeen										1 (0) [0] FUNS,   
+- Kaninens Klagesang								0 (0) [0]   
+- Frk. Smillas fornemmelse for pant					2 (0) [0] Andreas, Bastian,   
+- Homo												1 (0) [1] FUNS,   [FUNS], 
+- Lars Løkke på SU									0 (0) [0]   
+- Så blev det også en lummer jul i år				0 (0) [0]   
+- Alice, Bob og alle de andre rødder				0 (0) [0]   
+- Den Store Klagedyst								0 (0) [0]   
+- Pop-UP											1 (0) [1] FUNS,   [FUNS], 
+- Retfærdighedsbevarelse							1 (0) [0] Andreas,   
+- Kemi i Luften										0 (0) [0]   
+- Hooliganfilosoffen								1 (0) [0] FUNS,   
+- Diller!											0 (0) [0]   
+- Farsbrød											0 (0) [0]   
+- Hvem vurderes at ville vælge whiskas...?			0 (0) [0]   
+- Instrumentballet									0 (0) [0]   
+- Kammerhistorier på fiskermanér					2 (0) [2] Andreas, FUNS,   [Andreas], [FUNS], 
+- Hvad Nu Hvis\dots									0 (0) [0]   
+- Er det en\dots afledt funktion?					1 (0) [0] Bastian,   
+- Blasfemisk LynOpladning							1 (0) [0] Andreas,   
+- 3 Nisser På et Bord								0 (0) [0]   
+- Slexet ordkunstner								0 (0) [0]   
+- Var det fjong?									0 (0) [0]   
+- Aarhus 1900 										0 (0) [0]   
+- Duckface											2 (0) [1] Bastian, FUNS,   [FUNS], 
+- Til Gældsfest i Nisseland							0 (0) [0]   
+- Han bruger kridt									1 (0) [0] Bastian,   
+- Vi kører den ind med PENIS						0 (0) [0]   
+- Irrationelt bevis									0 (0) [0]   
+- Dr. Livingstone... Eller?							1 (0) [0] Andreas,   
+- Jeopardy											0 (0) [0]   
+- Gief Julerevy nau, pl0x							0 (0) [0]   
+
+
+===============================================================
+
+*Farsbrød
+
+Skuespillere: Niels, Diana, Sabrina, Sean, FUZU, 
+Sangere: Niels, Diana, Sabrina, Sean, FUZU, 
+
+- Der' revy											4 (4) [3] Niels, Diana, Sabrina, FUZU,  (Niels), (Diana), (Sabrina), (FUZU),  [Diana], [FUZU], [Niels], 
+- Udkantskalenderen									1 (1) [0] Niels,  (Niels),  
+- Mat/Jur											1 (1) [0] Sean,  (Sean),  
+- Spraytanfeen										1 (1) [0] Diana,  (Diana),  
+- Kaninens Klagesang								3 (3) [3] Niels, Sabrina, Sean,  (Niels), (Sabrina), (Sean),  [Sabrina], [Niels], [Sean], 
+- Frk. Smillas fornemmelse for pant					1 (1) [0] Diana,  (Diana),  
+- Homo												0 (0) [0]   
+- Lars Løkke på SU									1 (1) [0] FUZU,  (FUZU),  
+- Så blev det også en lummer jul i år				2 (2) [2] Sabrina, Sean,  (Sabrina), (Sean),  [Sean], [Sabrina], 
+- Alice, Bob og alle de andre rødder				0 (0) [0]   
+- Den Store Klagedyst								0 (0) [0]   
+- Pop-UP											0 (0) [0]   
+- Retfærdighedsbevarelse							0 (0) [0]   
+- Kemi i Luften										1 (1) [1] Diana,  (Diana),  [Diana], 
+- Hooliganfilosoffen								2 (2) [0] Niels, FUZU,  (Niels), (FUZU),  
+- Diller!											1 (1) [0] Sean,  (Sean),  
+- Refærdighedsefterspil								0 (0) [0]   
+- Hvem vurderes at ville vælge whiskas...?			1 (1) [0] Sabrina,  (Sabrina),  
+- Instrumentballet									0 (0) [0]   
+- Kammerhistorier på fiskermanér					2 (2) [2] Niels, Sean,  (Niels), (Sean),  [Niels], [Sean], 
+- Hvad Nu Hvis\dots									0 (0) [0]   
+- Er det en\dots afledt funktion?					1 (1) [0] Sean,  (Sean),  
+- Blasfemisk LynOpladning							1 (1) [0] FUZU,  (FUZU),  
+- 3 Nisser På et Bord								0 (0) [0]   
+- Slexet ordkunstner								0 (0) [0]   
+- Var det fjong?									1 (1) [1] Diana,  (Diana),  [Diana], 
+- Aarhus 1900 										1 (1) [0] Sean,  (Sean),  
+- Duckface											0 (0) [0]   
+- Til Gældsfest i Nisseland							3 (3) [0] Niels, Sabrina, FUZU,  (Niels), (Sabrina), (FUZU),  
+- Han bruger kridt									0 (0) [0]   
+- Vi kører den ind med PENIS						2 (2) [2] Niels, Sean,  (Niels), (Sean),  [Niels], [Sean], 
+- Irrationelt bevis									1 (1) [1] Sabrina,  (Sabrina),  [Sabrina], 
+- Dr. Livingstone... Eller?							0 (0) [0]   
+- Jeopardy											1 (1) [0] Sean,  (Sean),  
+- Gief Julerevy nau, pl0x							4 (4) [3] Niels, Diana, Sabrina, FUZU,  (Niels), (Diana), (Sabrina), (FUZU),  [Diana], [Sabrina], [FUZU], 
+
+
+===============================================================
+
+*Hvem vurderes at ville vælge whiskas...?
+
+Skuespillere: Philip, Morten, Sabrina, 
+
+- Der' revy											1 (0) [0] Sabrina,   
+- Udkantskalenderen									0 (0) [0]   
+- Mat/Jur											2 (0) [0] Philip, Morten,   
+- Spraytanfeen										0 (0) [0]   
+- Kaninens Klagesang								1 (0) [1] Sabrina,   [Sabrina], 
+- Frk. Smillas fornemmelse for pant					2 (0) [0] Philip, Morten,   
+- Homo												0 (0) [0]   
+- Lars Løkke på SU									1 (0) [0] Morten,   
+- Så blev det også en lummer jul i år				1 (0) [1] Sabrina,   [Sabrina], 
+- Alice, Bob og alle de andre rødder				1 (0) [0] Philip,   
+- Den Store Klagedyst								1 (0) [0] Morten,   
+- Pop-UP											0 (0) [0]   
+- Retfærdighedsbevarelse							0 (0) [0]   
+- Kemi i Luften										0 (0) [0]   
+- Hooliganfilosoffen								1 (0) [0] Philip,   
+- Diller!											1 (0) [0] Philip,   
+- Refærdighedsefterspil								0 (0) [0]   
+- Farsbrød											1 (0) [1] Sabrina,   [Sabrina], 
+- Instrumentballet									0 (0) [0]   
+- Kammerhistorier på fiskermanér					0 (0) [0]   
+- Hvad Nu Hvis\dots									0 (0) [0]   
+- Er det en\dots afledt funktion?					2 (0) [0] Philip, Morten,   
+- Blasfemisk LynOpladning							0 (0) [0]   
+- 3 Nisser På et Bord								1 (0) [0] Morten,   
+- Slexet ordkunstner								0 (0) [0]   
+- Var det fjong?									0 (0) [0]   
+- Aarhus 1900 										0 (0) [0]   
+- Duckface											1 (0) [0] Philip,   
+- Til Gældsfest i Nisseland							2 (0) [0] Morten, Sabrina,   
+- Han bruger kridt									0 (0) [0]   
+- Vi kører den ind med PENIS						0 (0) [0]   
+- Irrationelt bevis									2 (0) [1] Morten, Sabrina,   [Sabrina], 
+- Dr. Livingstone... Eller?							0 (0) [0]   
+- Jeopardy											0 (0) [0]   
+- Gief Julerevy nau, pl0x							2 (0) [1] Philip, Sabrina,   [Sabrina], 
+
+
+===============================================================
+
+*Instrumentballet
+
+Skuespillere: Eva, Aske, Jonatan, 
+
+- Der' revy											1 (0) [0] Jonatan,   
+- Udkantskalenderen									0 (0) [0]   
+- Mat/Jur											1 (0) [0] Aske,   
+- Spraytanfeen										0 (0) [0]   
+- Kaninens Klagesang								0 (0) [0]   
+- Frk. Smillas fornemmelse for pant					2 (0) [0] Aske, Jonatan,   
+- Homo												1 (0) [0] Eva,   
+- Lars Løkke på SU									0 (0) [0]   
+- Så blev det også en lummer jul i år				0 (0) [0]   
+- Alice, Bob og alle de andre rødder				1 (0) [0] Eva,   
+- Den Store Klagedyst								1 (0) [0] Jonatan,   
+- Pop-UP											1 (0) [0] Eva,   
+- Retfærdighedsbevarelse							1 (0) [0] Eva,   
+- Kemi i Luften										0 (0) [0]   
+- Hooliganfilosoffen								2 (0) [0] Aske, Jonatan,   
+- Diller!											1 (0) [0] Jonatan,   
+- Refærdighedsefterspil								0 (0) [0]   
+- Farsbrød											0 (0) [0]   
+- Hvem vurderes at ville vælge whiskas...?			0 (0) [0]   
+- Kammerhistorier på fiskermanér					0 (0) [0]   
+- Hvad Nu Hvis\dots									0 (0) [0]   
+- Er det en\dots afledt funktion?					0 (0) [0]   
+- Blasfemisk LynOpladning							1 (0) [0] Eva,   
+- 3 Nisser På et Bord								0 (0) [0]   
+- Slexet ordkunstner								1 (0) [0] Eva,   
+- Var det fjong?									0 (0) [0]   
+- Aarhus 1900 										1 (0) [0] Aske,   
+- Duckface											1 (0) [0] Aske,   
+- Til Gældsfest i Nisseland							1 (0) [0] Jonatan,   
+- Han bruger kridt									1 (0) [1] Aske,   [Aske], 
+- Vi kører den ind med PENIS						1 (0) [0] Jonatan,   
+- Irrationelt bevis									0 (0) [0]   
+- Dr. Livingstone... Eller?							0 (0) [0]   
+- Jeopardy											1 (0) [0] Jonatan,   
+- Gief Julerevy nau, pl0x							1 (0) [0] Eva,   
+
+
+===============================================================
+
+*Kammerhistorier på fiskermanér
+
+Skuespillere: iEva, Andreas, Cecilie, Niels, Nanna, Sean, FUNS, 
+Sangere: iEva, Andreas, Cecilie, Niels, Nanna, Sean, FUNS, 
+
+- Der' revy											4 (4) [3] Cecilie, Niels, Nanna, FUNS,  (Cecilie), (Niels), (Nanna), (FUNS),  [Cecilie], [FUNS], [Niels], 
+- Udkantskalenderen									2 (2) [0] Andreas, Niels,  (Andreas), (Niels),  
+- Mat/Jur											1 (1) [0] Sean,  (Sean),  
+- Spraytanfeen										1 (1) [0] FUNS,  (FUNS),  
+- Kaninens Klagesang								2 (2) [2] Niels, Sean,  (Niels), (Sean),  [Niels], [Sean], 
+- Frk. Smillas fornemmelse for pant					1 (1) [0] Andreas,  (Andreas),  
+- Homo												2 (2) [2] iEva, FUNS,  (iEva), (FUNS),  [FUNS], [iEva], 
+- Lars Løkke på SU									0 (0) [0]   
+- Så blev det også en lummer jul i år				1 (1) [1] Sean,  (Sean),  [Sean], 
+- Alice, Bob og alle de andre rødder				0 (0) [0]   
+- Den Store Klagedyst								1 (1) [0] Cecilie,  (Cecilie),  
+- Pop-UP											2 (2) [2] iEva, FUNS,  (iEva), (FUNS),  [FUNS], [iEva], 
+- Retfærdighedsbevarelse							1 (1) [0] Andreas,  (Andreas),  
+- Kemi i Luften										3 (3) [3] iEva, Cecilie, Nanna,  (iEva), (Cecilie), (Nanna),  [Nanna], [Cecilie], [iEva], 
+- Hooliganfilosoffen								2 (2) [0] Niels, FUNS,  (Niels), (FUNS),  
+- Diller!											1 (1) [0] Sean,  (Sean),  
+- Refærdighedsefterspil								2 (2) [0] Andreas, FUNS,  (Andreas), (FUNS),  
+- Farsbrød											2 (2) [2] Niels, Sean,  (Niels), (Sean),  [Niels], [Sean], 
+- Hvem vurderes at ville vælge whiskas...?			0 (0) [0]   
+- Instrumentballet									0 (0) [0]   
+- Hvad Nu Hvis\dots									0 (0) [0]   
+- Er det en\dots afledt funktion?					3 (3) [0] iEva, Cecilie, Sean,  (iEva), (Cecilie), (Sean),  
+- Blasfemisk LynOpladning							1 (1) [0] Andreas,  (Andreas),  
+- 3 Nisser På et Bord								2 (2) [1] iEva, Nanna,  (iEva), (Nanna),  [iEva], 
+- Slexet ordkunstner								0 (0) [0]   
+- Var det fjong?									0 (0) [0]   
+- Aarhus 1900 										1 (1) [0] Sean,  (Sean),  
+- Duckface											3 (3) [2] Cecilie, Nanna, FUNS,  (Cecilie), (Nanna), (FUNS),  [Cecilie], [FUNS], 
+- Til Gældsfest i Nisseland							2 (2) [0] iEva, Niels,  (iEva), (Niels),  
+- Han bruger kridt									1 (1) [0] Nanna,  (Nanna),  
+- Vi kører den ind med PENIS						2 (2) [2] Niels, Sean,  (Niels), (Sean),  [Niels], [Sean], 
+- Irrationelt bevis									2 (2) [2] Cecilie, Nanna,  (Cecilie), (Nanna),  [Cecilie], [Nanna], 
+- Dr. Livingstone... Eller?							1 (1) [0] Andreas,  (Andreas),  
+- Jeopardy											2 (2) [0] iEva, Sean,  (iEva), (Sean),  
+- Gief Julerevy nau, pl0x							1 (1) [0] Niels,  (Niels),  
+
+
+===============================================================
+
+*Hvad Nu Hvis\dots
+
+Skuespillere: Poul, 
+Sangere: Poul, 
+
+- Der' revy											0 (0) [0]   
+- Udkantskalenderen									0 (0) [0]   
+- Mat/Jur											0 (0) [0]   
+- Spraytanfeen										0 (0) [0]   
+- Kaninens Klagesang								0 (0) [0]   
+- Frk. Smillas fornemmelse for pant					0 (0) [0]   
+- Homo												0 (0) [0]   
+- Lars Løkke på SU									0 (0) [0]   
+- Så blev det også en lummer jul i år				0 (0) [0]   
+- Alice, Bob og alle de andre rødder				1 (1) [0] Poul,  (Poul),  
+- Den Store Klagedyst								0 (0) [0]   
+- Pop-UP											0 (0) [0]   
+- Retfærdighedsbevarelse							0 (0) [0]   
+- Kemi i Luften										0 (0) [0]   
+- Hooliganfilosoffen								0 (0) [0]   
+- Diller!											1 (1) [1] Poul,  (Poul),  [Poul], 
+- Refærdighedsefterspil								0 (0) [0]   
+- Farsbrød											0 (0) [0]   
+- Hvem vurderes at ville vælge whiskas...?			0 (0) [0]   
+- Instrumentballet									0 (0) [0]   
+- Kammerhistorier på fiskermanér					0 (0) [0]   
+- Er det en\dots afledt funktion?					0 (0) [0]   
+- Blasfemisk LynOpladning							0 (0) [0]   
+- 3 Nisser På et Bord								0 (0) [0]   
+- Slexet ordkunstner								0 (0) [0]   
+- Var det fjong?									0 (0) [0]   
+- Aarhus 1900 										0 (0) [0]   
+- Duckface											0 (0) [0]   
+- Til Gældsfest i Nisseland							1 (1) [0] Poul,  (Poul),  
+- Han bruger kridt									1 (1) [0] Poul,  (Poul),  
+- Vi kører den ind med PENIS						0 (0) [0]   
+- Irrationelt bevis									0 (0) [0]   
+- Dr. Livingstone... Eller?							0 (0) [0]   
+- Jeopardy											0 (0) [0]   
+- Gief Julerevy nau, pl0x							1 (1) [0] Poul,  (Poul),  
+
+
+===============================================================
+
+*Er det en\dots afledt funktion?
+
+Skuespillere: Sean, Bastian, Morten, Philip, Cecilie, iEva, 
+
+- Der' revy											1 (0) [1] Cecilie,   [Cecilie], 
+- Udkantskalenderen									0 (0) [0]   
+- Mat/Jur											3 (0) [0] Sean, Morten, Philip,   
+- Spraytanfeen										0 (0) [0]   
+- Kaninens Klagesang								1 (0) [1] Sean,   [Sean], 
+- Frk. Smillas fornemmelse for pant					3 (0) [0] Bastian, Morten, Philip,   
+- Homo												1 (0) [1] iEva,   [iEva], 
+- Lars Løkke på SU									1 (0) [0] Morten,   
+- Så blev det også en lummer jul i år				1 (0) [1] Sean,   [Sean], 
+- Alice, Bob og alle de andre rødder				1 (0) [0] Philip,   
+- Den Store Klagedyst								2 (0) [0] Morten, Cecilie,   
+- Pop-UP											1 (0) [1] iEva,   [iEva], 
+- Retfærdighedsbevarelse							0 (0) [0]   
+- Kemi i Luften										2 (0) [2] Cecilie, iEva,   [Cecilie], [iEva], 
+- Hooliganfilosoffen								1 (0) [0] Philip,   
+- Diller!											2 (0) [0] Sean, Philip,   
+- Refærdighedsefterspil								1 (0) [0] Bastian,   
+- Farsbrød											1 (0) [1] Sean,   [Sean], 
+- Hvem vurderes at ville vælge whiskas...?			2 (0) [0] Morten, Philip,   
+- Instrumentballet									0 (0) [0]   
+- Kammerhistorier på fiskermanér					3 (0) [3] Sean, Cecilie, iEva,   [iEva], [Cecilie], [Sean], 
+- Hvad Nu Hvis\dots									0 (0) [0]   
+- Blasfemisk LynOpladning							0 (0) [0]   
+- 3 Nisser På et Bord								2 (0) [1] Morten, iEva,   [iEva], 
+- Slexet ordkunstner								0 (0) [0]   
+- Var det fjong?									0 (0) [0]   
+- Aarhus 1900 										1 (0) [0] Sean,   
+- Duckface											3 (0) [1] Bastian, Philip, Cecilie,   [Cecilie], 
+- Til Gældsfest i Nisseland							2 (0) [0] Morten, iEva,   
+- Han bruger kridt									1 (0) [0] Bastian,   
+- Vi kører den ind med PENIS						1 (0) [1] Sean,   [Sean], 
+- Irrationelt bevis									2 (0) [1] Morten, Cecilie,   [Cecilie], 
+- Dr. Livingstone... Eller?							0 (0) [0]   
+- Jeopardy											2 (0) [0] Sean, iEva,   
+- Gief Julerevy nau, pl0x							1 (0) [0] Philip,   
+
+
+===============================================================
+
+*Blasfemisk LynOpladning
+
+Skuespillere: Andreas, Eva, FUZU, 
+
+- Der' revy											1 (0) [1] FUZU,   [FUZU], 
+- Udkantskalenderen									1 (0) [0] Andreas,   
+- Mat/Jur											0 (0) [0]   
+- Spraytanfeen										0 (0) [0]   
+- Kaninens Klagesang								0 (0) [0]   
+- Frk. Smillas fornemmelse for pant					1 (0) [0] Andreas,   
+- Homo												1 (0) [0] Eva,   
+- Lars Løkke på SU									1 (0) [0] FUZU,   
+- Så blev det også en lummer jul i år				0 (0) [0]   
+- Alice, Bob og alle de andre rødder				1 (0) [0] Eva,   
+- Den Store Klagedyst								0 (0) [0]   
+- Pop-UP											1 (0) [0] Eva,   
+- Retfærdighedsbevarelse							2 (0) [0] Andreas, Eva,   
+- Kemi i Luften										0 (0) [0]   
+- Hooliganfilosoffen								1 (0) [0] FUZU,   
+- Diller!											0 (0) [0]   
+- Refærdighedsefterspil								1 (0) [0] Andreas,   
+- Farsbrød											1 (0) [1] FUZU,   [FUZU], 
+- Hvem vurderes at ville vælge whiskas...?			0 (0) [0]   
+- Instrumentballet									1 (0) [0] Eva,   
+- Kammerhistorier på fiskermanér					1 (0) [1] Andreas,   [Andreas], 
+- Hvad Nu Hvis\dots									0 (0) [0]   
+- Er det en\dots afledt funktion?					0 (0) [0]   
+- 3 Nisser På et Bord								0 (0) [0]   
+- Slexet ordkunstner								1 (0) [0] Eva,   
+- Var det fjong?									0 (0) [0]   
+- Aarhus 1900 										0 (0) [0]   
+- Duckface											0 (0) [0]   
+- Til Gældsfest i Nisseland							1 (0) [0] FUZU,   
+- Han bruger kridt									0 (0) [0]   
+- Vi kører den ind med PENIS						0 (0) [0]   
+- Irrationelt bevis									0 (0) [0]   
+- Dr. Livingstone... Eller?							1 (0) [0] Andreas,   
+- Jeopardy											0 (0) [0]   
+- Gief Julerevy nau, pl0x							2 (0) [1] Eva, FUZU,   [FUZU], 
+
+
+===============================================================
+
+*3 Nisser På et Bord
+
+Skuespillere: iEva, Nanna, Morten, Diderik, 
+Sangere: iEva, 
+
+- Der' revy											1 (0) [0] Nanna,   
+- Udkantskalenderen									0 (0) [0]   
+- Mat/Jur											1 (0) [0] Morten,   
+- Spraytanfeen										1 (0) [0] Diderik,   
+- Kaninens Klagesang								0 (0) [0]   
+- Frk. Smillas fornemmelse for pant					1 (0) [0] Morten,   
+- Homo												1 (1) [1] iEva,  (iEva),  [iEva], 
+- Lars Løkke på SU									1 (0) [0] Morten,   
+- Så blev det også en lummer jul i år				0 (0) [0]   
+- Alice, Bob og alle de andre rødder				0 (0) [0]   
+- Den Store Klagedyst								1 (0) [0] Morten,   
+- Pop-UP											1 (1) [1] iEva,  (iEva),  [iEva], 
+- Retfærdighedsbevarelse							1 (0) [0] Diderik,   
+- Kemi i Luften										2 (1) [2] iEva, Nanna,  (iEva),  [Nanna], [iEva], 
+- Hooliganfilosoffen								0 (0) [0]   
+- Diller!											0 (0) [0]   
+- Refærdighedsefterspil								0 (0) [0]   
+- Farsbrød											0 (0) [0]   
+- Hvem vurderes at ville vælge whiskas...?			1 (0) [0] Morten,   
+- Instrumentballet									0 (0) [0]   
+- Kammerhistorier på fiskermanér					2 (1) [2] iEva, Nanna,  (iEva),  [iEva], [Nanna], 
+- Hvad Nu Hvis\dots									0 (0) [0]   
+- Er det en\dots afledt funktion?					2 (1) [0] iEva, Morten,  (iEva),  
+- Blasfemisk LynOpladning							0 (0) [0]   
+- Slexet ordkunstner								0 (0) [0]   
+- Var det fjong?									0 (0) [0]   
+- Aarhus 1900 										0 (0) [0]   
+- Duckface											1 (0) [0] Nanna,   
+- Til Gældsfest i Nisseland							3 (1) [0] iEva, Morten, Diderik,  (iEva),  
+- Han bruger kridt									1 (0) [0] Nanna,   
+- Vi kører den ind med PENIS						0 (0) [0]   
+- Irrationelt bevis									2 (0) [1] Nanna, Morten,   [Nanna], 
+- Dr. Livingstone... Eller?							0 (0) [0]   
+- Jeopardy											2 (1) [0] iEva, Diderik,  (iEva),  
+- Gief Julerevy nau, pl0x							0 (0) [0]   
+
+
+===============================================================
+
+*Slexet ordkunstner
+
+Skuespillere: Eva, 
+
+- Der' revy											0 (0) [0]   
+- Udkantskalenderen									0 (0) [0]   
+- Mat/Jur											0 (0) [0]   
+- Spraytanfeen										0 (0) [0]   
+- Kaninens Klagesang								0 (0) [0]   
+- Frk. Smillas fornemmelse for pant					0 (0) [0]   
+- Homo												1 (0) [0] Eva,   
+- Lars Løkke på SU									0 (0) [0]   
+- Så blev det også en lummer jul i år				0 (0) [0]   
+- Alice, Bob og alle de andre rødder				1 (0) [0] Eva,   
+- Den Store Klagedyst								0 (0) [0]   
+- Pop-UP											1 (0) [0] Eva,   
+- Retfærdighedsbevarelse							1 (0) [0] Eva,   
+- Kemi i Luften										0 (0) [0]   
+- Hooliganfilosoffen								0 (0) [0]   
+- Diller!											0 (0) [0]   
+- Refærdighedsefterspil								0 (0) [0]   
+- Farsbrød											0 (0) [0]   
+- Hvem vurderes at ville vælge whiskas...?			0 (0) [0]   
+- Instrumentballet									1 (0) [0] Eva,   
+- Kammerhistorier på fiskermanér					0 (0) [0]   
+- Hvad Nu Hvis\dots									0 (0) [0]   
+- Er det en\dots afledt funktion?					0 (0) [0]   
+- Blasfemisk LynOpladning							1 (0) [0] Eva,   
+- 3 Nisser På et Bord								0 (0) [0]   
+- Var det fjong?									0 (0) [0]   
+- Aarhus 1900 										0 (0) [0]   
+- Duckface											0 (0) [0]   
+- Til Gældsfest i Nisseland							0 (0) [0]   
+- Han bruger kridt									0 (0) [0]   
+- Vi kører den ind med PENIS						0 (0) [0]   
+- Irrationelt bevis									0 (0) [0]   
+- Dr. Livingstone... Eller?							0 (0) [0]   
+- Jeopardy											0 (0) [0]   
+- Gief Julerevy nau, pl0x							1 (0) [0] Eva,   
+
+
+===============================================================
+
+*Var det fjong?
+
+Skuespillere: Mads, Diana, 
+Sangere: Mads, Diana, 
+
+- Der' revy											2 (2) [2] Mads, Diana,  (Mads), (Diana),  [Diana], [Mads], 
+- Udkantskalenderen									0 (0) [0]   
+- Mat/Jur											0 (0) [0]   
+- Spraytanfeen										1 (1) [0] Diana,  (Diana),  
+- Kaninens Klagesang								0 (0) [0]   
+- Frk. Smillas fornemmelse for pant					1 (1) [0] Diana,  (Diana),  
+- Homo												0 (0) [0]   
+- Lars Løkke på SU									0 (0) [0]   
+- Så blev det også en lummer jul i år				0 (0) [0]   
+- Alice, Bob og alle de andre rødder				0 (0) [0]   
+- Den Store Klagedyst								0 (0) [0]   
+- Pop-UP											0 (0) [0]   
+- Retfærdighedsbevarelse							0 (0) [0]   
+- Kemi i Luften										1 (1) [1] Diana,  (Diana),  [Diana], 
+- Hooliganfilosoffen								0 (0) [0]   
+- Diller!											0 (0) [0]   
+- Refærdighedsefterspil								0 (0) [0]   
+- Farsbrød											1 (1) [1] Diana,  (Diana),  [Diana], 
+- Hvem vurderes at ville vælge whiskas...?			0 (0) [0]   
+- Instrumentballet									0 (0) [0]   
+- Kammerhistorier på fiskermanér					0 (0) [0]   
+- Hvad Nu Hvis\dots									0 (0) [0]   
+- Er det en\dots afledt funktion?					0 (0) [0]   
+- Blasfemisk LynOpladning							0 (0) [0]   
+- 3 Nisser På et Bord								0 (0) [0]   
+- Slexet ordkunstner								0 (0) [0]   
+- Aarhus 1900 										0 (0) [0]   
+- Duckface											0 (0) [0]   
+- Til Gældsfest i Nisseland							0 (0) [0]   
+- Han bruger kridt									1 (1) [1] Mads,  (Mads),  [Mads], 
+- Vi kører den ind med PENIS						0 (0) [0]   
+- Irrationelt bevis									0 (0) [0]   
+- Dr. Livingstone... Eller?							1 (1) [0] Mads,  (Mads),  
+- Jeopardy											0 (0) [0]   
+- Gief Julerevy nau, pl0x							1 (1) [1] Diana,  (Diana),  [Diana], 
+
+
+===============================================================
+
+*Aarhus 1900 
+
+Skuespillere: Aske, Casper, Sean, 
+
+- Der' revy											0 (0) [0]   
+- Udkantskalenderen									0 (0) [0]   
+- Mat/Jur											2 (0) [0] Aske, Sean,   
+- Spraytanfeen										0 (0) [0]   
+- Kaninens Klagesang								1 (0) [1] Sean,   [Sean], 
+- Frk. Smillas fornemmelse for pant					1 (0) [0] Aske,   
+- Homo												1 (0) [0] Casper,   
+- Lars Løkke på SU									0 (0) [0]   
+- Så blev det også en lummer jul i år				1 (0) [1] Sean,   [Sean], 
+- Alice, Bob og alle de andre rødder				0 (0) [0]   
+- Den Store Klagedyst								0 (0) [0]   
+- Pop-UP											0 (0) [0]   
+- Retfærdighedsbevarelse							0 (0) [0]   
+- Kemi i Luften										0 (0) [0]   
+- Hooliganfilosoffen								1 (0) [0] Aske,   
+- Diller!											1 (0) [0] Sean,   
+- Refærdighedsefterspil								0 (0) [0]   
+- Farsbrød											1 (0) [1] Sean,   [Sean], 
+- Hvem vurderes at ville vælge whiskas...?			0 (0) [0]   
+- Instrumentballet									1 (0) [0] Aske,   
+- Kammerhistorier på fiskermanér					1 (0) [1] Sean,   [Sean], 
+- Hvad Nu Hvis\dots									0 (0) [0]   
+- Er det en\dots afledt funktion?					1 (0) [0] Sean,   
+- Blasfemisk LynOpladning							0 (0) [0]   
+- 3 Nisser På et Bord								0 (0) [0]   
+- Slexet ordkunstner								0 (0) [0]   
+- Var det fjong?									0 (0) [0]   
+- Duckface											1 (0) [0] Aske,   
+- Til Gældsfest i Nisseland							0 (0) [0]   
+- Han bruger kridt									1 (0) [1] Aske,   [Aske], 
+- Vi kører den ind med PENIS						1 (0) [1] Sean,   [Sean], 
+- Irrationelt bevis									1 (0) [1] Casper,   [Casper], 
+- Dr. Livingstone... Eller?							0 (0) [0]   
+- Jeopardy											1 (0) [0] Sean,   
+- Gief Julerevy nau, pl0x							1 (0) [0] Casper,   
+
+
+===============================================================
+
+*Duckface
+
+Skuespillere: Cecilie, FUNS, Bastian, Nanna, Philip, Hans, Aske, 
+Sangere: Cecilie, FUNS, 
+
+- Der' revy											3 (2) [2] Cecilie, FUNS, Nanna,  (Cecilie), (FUNS),  [Cecilie], [FUNS], 
+- Udkantskalenderen									0 (0) [0]   
+- Mat/Jur											2 (0) [0] Philip, Aske,   
+- Spraytanfeen										1 (1) [0] FUNS,  (FUNS),  
+- Kaninens Klagesang								1 (0) [1] Hans,   [Hans], 
+- Frk. Smillas fornemmelse for pant					3 (0) [0] Bastian, Philip, Aske,   
+- Homo												1 (1) [1] FUNS,  (FUNS),  [FUNS], 
+- Lars Løkke på SU									0 (0) [0]   
+- Så blev det også en lummer jul i år				0 (0) [0]   
+- Alice, Bob og alle de andre rødder				1 (0) [0] Philip,   
+- Den Store Klagedyst								1 (1) [0] Cecilie,  (Cecilie),  
+- Pop-UP											2 (1) [2] FUNS, Hans,  (FUNS),  [FUNS], [Hans], 
+- Retfærdighedsbevarelse							0 (0) [0]   
+- Kemi i Luften										2 (1) [2] Cecilie, Nanna,  (Cecilie),  [Nanna], [Cecilie], 
+- Hooliganfilosoffen								3 (1) [0] FUNS, Philip, Aske,  (FUNS),  
+- Diller!											2 (0) [0] Philip, Hans,   
+- Refærdighedsefterspil								2 (1) [0] FUNS, Bastian,  (FUNS),  
+- Farsbrød											0 (0) [0]   
+- Hvem vurderes at ville vælge whiskas...?			1 (0) [0] Philip,   
+- Instrumentballet									1 (0) [0] Aske,   
+- Kammerhistorier på fiskermanér					3 (2) [3] Cecilie, FUNS, Nanna,  (Cecilie), (FUNS),  [Cecilie], [Nanna], [FUNS], 
+- Hvad Nu Hvis\dots									0 (0) [0]   
+- Er det en\dots afledt funktion?					3 (1) [0] Cecilie, Bastian, Philip,  (Cecilie),  
+- Blasfemisk LynOpladning							0 (0) [0]   
+- 3 Nisser På et Bord								1 (0) [0] Nanna,   
+- Slexet ordkunstner								0 (0) [0]   
+- Var det fjong?									0 (0) [0]   
+- Aarhus 1900 										1 (0) [0] Aske,   
+- Til Gældsfest i Nisseland							0 (0) [0]   
+- Han bruger kridt									3 (0) [1] Bastian, Nanna, Aske,   [Aske], 
+- Vi kører den ind med PENIS						0 (0) [0]   
+- Irrationelt bevis									3 (1) [3] Cecilie, Nanna, Hans,  (Cecilie),  [Hans], [Cecilie], [Nanna], 
+- Dr. Livingstone... Eller?							0 (0) [0]   
+- Jeopardy											0 (0) [0]   
+- Gief Julerevy nau, pl0x							2 (0) [1] Philip, Hans,   [Hans], 
+
+
+===============================================================
+
+*Til Gældsfest i Nisseland
+
+Skuespillere: FUZU, Niels, Diderik, Morten, Sabrina, iEva, Jonatan, Poul, 
+
+- Der' revy											4 (0) [2] FUZU, Niels, Sabrina, Jonatan,   [FUZU], [Niels], 
+- Udkantskalenderen									1 (0) [0] Niels,   
+- Mat/Jur											1 (0) [0] Morten,   
+- Spraytanfeen										1 (0) [0] Diderik,   
+- Kaninens Klagesang								2 (0) [2] Niels, Sabrina,   [Sabrina], [Niels], 
+- Frk. Smillas fornemmelse for pant					2 (0) [0] Morten, Jonatan,   
+- Homo												1 (0) [1] iEva,   [iEva], 
+- Lars Løkke på SU									2 (0) [0] FUZU, Morten,   
+- Så blev det også en lummer jul i år				1 (0) [1] Sabrina,   [Sabrina], 
+- Alice, Bob og alle de andre rødder				1 (0) [0] Poul,   
+- Den Store Klagedyst								2 (0) [0] Morten, Jonatan,   
+- Pop-UP											1 (0) [1] iEva,   [iEva], 
+- Retfærdighedsbevarelse							1 (0) [0] Diderik,   
+- Kemi i Luften										1 (0) [1] iEva,   [iEva], 
+- Hooliganfilosoffen								3 (0) [0] FUZU, Niels, Jonatan,   
+- Diller!											2 (0) [1] Jonatan, Poul,   [Poul], 
+- Refærdighedsefterspil								0 (0) [0]   
+- Farsbrød											3 (0) [3] FUZU, Niels, Sabrina,   [Niels], [Sabrina], [FUZU], 
+- Hvem vurderes at ville vælge whiskas...?			2 (0) [0] Morten, Sabrina,   
+- Instrumentballet									1 (0) [0] Jonatan,   
+- Kammerhistorier på fiskermanér					2 (0) [2] Niels, iEva,   [iEva], [Niels], 
+- Hvad Nu Hvis\dots									1 (0) [1] Poul,   [Poul], 
+- Er det en\dots afledt funktion?					2 (0) [0] Morten, iEva,   
+- Blasfemisk LynOpladning							1 (0) [0] FUZU,   
+- 3 Nisser På et Bord								3 (0) [1] Diderik, Morten, iEva,   [iEva], 
+- Slexet ordkunstner								0 (0) [0]   
+- Var det fjong?									0 (0) [0]   
+- Aarhus 1900 										0 (0) [0]   
+- Duckface											0 (0) [0]   
+- Han bruger kridt									1 (0) [0] Poul,   
+- Vi kører den ind med PENIS						2 (0) [1] Niels, Jonatan,   [Niels], 
+- Irrationelt bevis									2 (0) [1] Morten, Sabrina,   [Sabrina], 
+- Dr. Livingstone... Eller?							0 (0) [0]   
+- Jeopardy											3 (0) [0] Diderik, iEva, Jonatan,   
+- Gief Julerevy nau, pl0x							4 (0) [2] FUZU, Niels, Sabrina, Poul,   [Sabrina], [FUZU], 
+
+
+===============================================================
+
+*Han bruger kridt
+
+Skuespillere: Aske, Mads, Poul, Bastian, Nanna, 
+Sangere: Aske, Mads, 
+
+- Der' revy											2 (1) [1] Mads, Nanna,  (Mads),  [Mads], 
+- Udkantskalenderen									0 (0) [0]   
+- Mat/Jur											1 (1) [0] Aske,  (Aske),  
+- Spraytanfeen										0 (0) [0]   
+- Kaninens Klagesang								0 (0) [0]   
+- Frk. Smillas fornemmelse for pant					2 (1) [0] Aske, Bastian,  (Aske),  
+- Homo												0 (0) [0]   
+- Lars Løkke på SU									0 (0) [0]   
+- Så blev det også en lummer jul i år				0 (0) [0]   
+- Alice, Bob og alle de andre rødder				1 (0) [0] Poul,   
+- Den Store Klagedyst								0 (0) [0]   
+- Pop-UP											0 (0) [0]   
+- Retfærdighedsbevarelse							0 (0) [0]   
+- Kemi i Luften										1 (0) [1] Nanna,   [Nanna], 
+- Hooliganfilosoffen								1 (1) [0] Aske,  (Aske),  
+- Diller!											1 (0) [1] Poul,   [Poul], 
+- Refærdighedsefterspil								1 (0) [0] Bastian,   
+- Farsbrød											0 (0) [0]   
+- Hvem vurderes at ville vælge whiskas...?			0 (0) [0]   
+- Instrumentballet									1 (1) [0] Aske,  (Aske),  
+- Kammerhistorier på fiskermanér					1 (0) [1] Nanna,   [Nanna], 
+- Hvad Nu Hvis\dots									1 (0) [1] Poul,   [Poul], 
+- Er det en\dots afledt funktion?					1 (0) [0] Bastian,   
+- Blasfemisk LynOpladning							0 (0) [0]   
+- 3 Nisser På et Bord								1 (0) [0] Nanna,   
+- Slexet ordkunstner								0 (0) [0]   
+- Var det fjong?									1 (1) [1] Mads,  (Mads),  [Mads], 
+- Aarhus 1900 										1 (1) [0] Aske,  (Aske),  
+- Duckface											3 (1) [0] Aske, Bastian, Nanna,  (Aske),  
+- Til Gældsfest i Nisseland							1 (0) [0] Poul,   
+- Vi kører den ind med PENIS						0 (0) [0]   
+- Irrationelt bevis									1 (0) [1] Nanna,   [Nanna], 
+- Dr. Livingstone... Eller?							1 (1) [0] Mads,  (Mads),  
+- Jeopardy											0 (0) [0]   
+- Gief Julerevy nau, pl0x							1 (0) [0] Poul,   
+
+
+===============================================================
+
+*Vi kører den ind med PENIS
+
+Skuespillere: Jonatan, Niels, FUXA, Sean, 
+Sangere: Niels, FUXA, Sean, 
+
+- Der' revy											2 (1) [1] Jonatan, Niels,  (Niels),  [Niels], 
+- Udkantskalenderen									1 (1) [0] Niels,  (Niels),  
+- Mat/Jur											1 (1) [0] Sean,  (Sean),  
+- Spraytanfeen										0 (0) [0]   
+- Kaninens Klagesang								2 (2) [2] Niels, Sean,  (Niels), (Sean),  [Niels], [Sean], 
+- Frk. Smillas fornemmelse for pant					1 (0) [0] Jonatan,   
+- Homo												0 (0) [0]   
+- Lars Løkke på SU									0 (0) [0]   
+- Så blev det også en lummer jul i år				1 (1) [1] Sean,  (Sean),  [Sean], 
+- Alice, Bob og alle de andre rødder				0 (0) [0]   
+- Den Store Klagedyst								1 (0) [0] Jonatan,   
+- Pop-UP											0 (0) [0]   
+- Retfærdighedsbevarelse							0 (0) [0]   
+- Kemi i Luften										0 (0) [0]   
+- Hooliganfilosoffen								2 (1) [0] Jonatan, Niels,  (Niels),  
+- Diller!											2 (1) [0] Jonatan, Sean,  (Sean),  
+- Refærdighedsefterspil								0 (0) [0]   
+- Farsbrød											2 (2) [2] Niels, Sean,  (Niels), (Sean),  [Niels], [Sean], 
+- Hvem vurderes at ville vælge whiskas...?			0 (0) [0]   
+- Instrumentballet									1 (0) [0] Jonatan,   
+- Kammerhistorier på fiskermanér					2 (2) [2] Niels, Sean,  (Niels), (Sean),  [Niels], [Sean], 
+- Hvad Nu Hvis\dots									0 (0) [0]   
+- Er det en\dots afledt funktion?					1 (1) [0] Sean,  (Sean),  
+- Blasfemisk LynOpladning							0 (0) [0]   
+- 3 Nisser På et Bord								0 (0) [0]   
+- Slexet ordkunstner								0 (0) [0]   
+- Var det fjong?									0 (0) [0]   
+- Aarhus 1900 										1 (1) [0] Sean,  (Sean),  
+- Duckface											0 (0) [0]   
+- Til Gældsfest i Nisseland							2 (1) [0] Jonatan, Niels,  (Niels),  
+- Han bruger kridt									0 (0) [0]   
+- Irrationelt bevis									0 (0) [0]   
+- Dr. Livingstone... Eller?							0 (0) [0]   
+- Jeopardy											2 (1) [0] Jonatan, Sean,  (Sean),  
+- Gief Julerevy nau, pl0x							1 (1) [0] Niels,  (Niels),  
+
+
+===============================================================
+
+*Irrationelt bevis
+
+Skuespillere: Casper, Hans, Sabrina, Cecilie, Nanna, Morten, 
+Sangere: Casper, Hans, Sabrina, Cecilie, Nanna, 
+
+- Der' revy											3 (3) [1] Sabrina, Cecilie, Nanna,  (Sabrina), (Cecilie), (Nanna),  [Cecilie], 
+- Udkantskalenderen									0 (0) [0]   
+- Mat/Jur											1 (0) [0] Morten,   
+- Spraytanfeen										0 (0) [0]   
+- Kaninens Klagesang								2 (2) [2] Hans, Sabrina,  (Hans), (Sabrina),  [Sabrina], [Hans], 
+- Frk. Smillas fornemmelse for pant					1 (0) [0] Morten,   
+- Homo												1 (1) [0] Casper,  (Casper),  
+- Lars Løkke på SU									1 (0) [0] Morten,   
+- Så blev det også en lummer jul i år				1 (1) [1] Sabrina,  (Sabrina),  [Sabrina], 
+- Alice, Bob og alle de andre rødder				0 (0) [0]   
+- Den Store Klagedyst								2 (1) [0] Cecilie, Morten,  (Cecilie),  
+- Pop-UP											1 (1) [1] Hans,  (Hans),  [Hans], 
+- Retfærdighedsbevarelse							0 (0) [0]   
+- Kemi i Luften										2 (2) [2] Cecilie, Nanna,  (Cecilie), (Nanna),  [Nanna], [Cecilie], 
+- Hooliganfilosoffen								0 (0) [0]   
+- Diller!											1 (1) [0] Hans,  (Hans),  
+- Refærdighedsefterspil								0 (0) [0]   
+- Farsbrød											1 (1) [1] Sabrina,  (Sabrina),  [Sabrina], 
+- Hvem vurderes at ville vælge whiskas...?			2 (1) [0] Sabrina, Morten,  (Sabrina),  
+- Instrumentballet									0 (0) [0]   
+- Kammerhistorier på fiskermanér					2 (2) [2] Cecilie, Nanna,  (Cecilie), (Nanna),  [Cecilie], [Nanna], 
+- Hvad Nu Hvis\dots									0 (0) [0]   
+- Er det en\dots afledt funktion?					2 (1) [0] Cecilie, Morten,  (Cecilie),  
+- Blasfemisk LynOpladning							0 (0) [0]   
+- 3 Nisser På et Bord								2 (1) [0] Nanna, Morten,  (Nanna),  
+- Slexet ordkunstner								0 (0) [0]   
+- Var det fjong?									0 (0) [0]   
+- Aarhus 1900 										1 (1) [0] Casper,  (Casper),  
+- Duckface											3 (3) [1] Hans, Cecilie, Nanna,  (Hans), (Cecilie), (Nanna),  [Cecilie], 
+- Til Gældsfest i Nisseland							2 (1) [0] Sabrina, Morten,  (Sabrina),  
+- Han bruger kridt									1 (1) [0] Nanna,  (Nanna),  
+- Vi kører den ind med PENIS						0 (0) [0]   
+- Dr. Livingstone... Eller?							0 (0) [0]   
+- Jeopardy											0 (0) [0]   
+- Gief Julerevy nau, pl0x							3 (3) [2] Casper, Hans, Sabrina,  (Casper), (Hans), (Sabrina),  [Sabrina], [Hans], 
+
+
+===============================================================
+
+*Dr. Livingstone... Eller?
+
+Skuespillere: Mads, Andreas, 
+
+- Der' revy											1 (0) [1] Mads,   [Mads], 
+- Udkantskalenderen									1 (0) [0] Andreas,   
+- Mat/Jur											0 (0) [0]   
+- Spraytanfeen										0 (0) [0]   
+- Kaninens Klagesang								0 (0) [0]   
+- Frk. Smillas fornemmelse for pant					1 (0) [0] Andreas,   
+- Homo												0 (0) [0]   
+- Lars Løkke på SU									0 (0) [0]   
+- Så blev det også en lummer jul i år				0 (0) [0]   
+- Alice, Bob og alle de andre rødder				0 (0) [0]   
+- Den Store Klagedyst								0 (0) [0]   
+- Pop-UP											0 (0) [0]   
+- Retfærdighedsbevarelse							1 (0) [0] Andreas,   
+- Kemi i Luften										0 (0) [0]   
+- Hooliganfilosoffen								0 (0) [0]   
+- Diller!											0 (0) [0]   
+- Refærdighedsefterspil								1 (0) [0] Andreas,   
+- Farsbrød											0 (0) [0]   
+- Hvem vurderes at ville vælge whiskas...?			0 (0) [0]   
+- Instrumentballet									0 (0) [0]   
+- Kammerhistorier på fiskermanér					1 (0) [1] Andreas,   [Andreas], 
+- Hvad Nu Hvis\dots									0 (0) [0]   
+- Er det en\dots afledt funktion?					0 (0) [0]   
+- Blasfemisk LynOpladning							1 (0) [0] Andreas,   
+- 3 Nisser På et Bord								0 (0) [0]   
+- Slexet ordkunstner								0 (0) [0]   
+- Var det fjong?									1 (0) [1] Mads,   [Mads], 
+- Aarhus 1900 										0 (0) [0]   
+- Duckface											0 (0) [0]   
+- Til Gældsfest i Nisseland							0 (0) [0]   
+- Han bruger kridt									1 (0) [1] Mads,   [Mads], 
+- Vi kører den ind med PENIS						0 (0) [0]   
+- Irrationelt bevis									0 (0) [0]   
+- Jeopardy											0 (0) [0]   
+- Gief Julerevy nau, pl0x							0 (0) [0]   
+
+
+===============================================================
+
+*Jeopardy
+
+Skuespillere: Sean, Diderik, iEva, Jonatan, 
+
+- Der' revy											1 (0) [0] Jonatan,   
+- Udkantskalenderen									0 (0) [0]   
+- Mat/Jur											1 (0) [0] Sean,   
+- Spraytanfeen										1 (0) [0] Diderik,   
+- Kaninens Klagesang								1 (0) [1] Sean,   [Sean], 
+- Frk. Smillas fornemmelse for pant					1 (0) [0] Jonatan,   
+- Homo												1 (0) [1] iEva,   [iEva], 
+- Lars Løkke på SU									0 (0) [0]   
+- Så blev det også en lummer jul i år				1 (0) [1] Sean,   [Sean], 
+- Alice, Bob og alle de andre rødder				0 (0) [0]   
+- Den Store Klagedyst								1 (0) [0] Jonatan,   
+- Pop-UP											1 (0) [1] iEva,   [iEva], 
+- Retfærdighedsbevarelse							1 (0) [0] Diderik,   
+- Kemi i Luften										1 (0) [1] iEva,   [iEva], 
+- Hooliganfilosoffen								1 (0) [0] Jonatan,   
+- Diller!											2 (0) [0] Sean, Jonatan,   
+- Refærdighedsefterspil								0 (0) [0]   
+- Farsbrød											1 (0) [1] Sean,   [Sean], 
+- Hvem vurderes at ville vælge whiskas...?			0 (0) [0]   
+- Instrumentballet									1 (0) [0] Jonatan,   
+- Kammerhistorier på fiskermanér					2 (0) [2] Sean, iEva,   [iEva], [Sean], 
+- Hvad Nu Hvis\dots									0 (0) [0]   
+- Er det en\dots afledt funktion?					2 (0) [0] Sean, iEva,   
+- Blasfemisk LynOpladning							0 (0) [0]   
+- 3 Nisser På et Bord								2 (0) [1] Diderik, iEva,   [iEva], 
+- Slexet ordkunstner								0 (0) [0]   
+- Var det fjong?									0 (0) [0]   
+- Aarhus 1900 										1 (0) [0] Sean,   
+- Duckface											0 (0) [0]   
+- Til Gældsfest i Nisseland							3 (0) [0] Diderik, iEva, Jonatan,   
+- Han bruger kridt									0 (0) [0]   
+- Vi kører den ind med PENIS						2 (0) [1] Sean, Jonatan,   [Sean], 
+- Irrationelt bevis									0 (0) [0]   
+- Dr. Livingstone... Eller?							0 (0) [0]   
+- Gief Julerevy nau, pl0x							0 (0) [0]   
+
+
+===============================================================
+
+*Gief Julerevy nau, pl0x
+
+Skuespillere: Diana, Sabrina, Hans, FUZU, FUHR, Eva, Poul, Niels, Casper, Philip, 
+Sangere: Diana, Sabrina, Hans, FUZU, 
+
+- Der' revy											5 (3) [3] Diana, Sabrina, FUZU, FUHR, Niels,  (Diana), (Sabrina), (FUZU),  [Diana], [FUZU], [Niels], 
+- Udkantskalenderen									1 (0) [0] Niels,   
+- Mat/Jur											1 (0) [0] Philip,   
+- Spraytanfeen										1 (1) [0] Diana,  (Diana),  
+- Kaninens Klagesang								3 (2) [3] Sabrina, Hans, Niels,  (Sabrina), (Hans),  [Sabrina], [Niels], [Hans], 
+- Frk. Smillas fornemmelse for pant					2 (1) [0] Diana, Philip,  (Diana),  
+- Homo												2 (0) [0] Eva, Casper,   
+- Lars Løkke på SU									1 (1) [0] FUZU,  (FUZU),  
+- Så blev det også en lummer jul i år				1 (1) [1] Sabrina,  (Sabrina),  [Sabrina], 
+- Alice, Bob og alle de andre rødder				4 (0) [0] FUHR, Eva, Poul, Philip,   
+- Den Store Klagedyst								0 (0) [0]   
+- Pop-UP											3 (1) [1] Hans, FUHR, Eva,  (Hans),  [Hans], 
+- Retfærdighedsbevarelse							1 (0) [0] Eva,   
+- Kemi i Luften										1 (1) [1] Diana,  (Diana),  [Diana], 
+- Hooliganfilosoffen								3 (1) [0] FUZU, Niels, Philip,  (FUZU),  
+- Diller!											3 (1) [1] Hans, Poul, Philip,  (Hans),  [Poul], 
+- Refærdighedsefterspil								0 (0) [0]   
+- Farsbrød											4 (3) [4] Diana, Sabrina, FUZU, Niels,  (Diana), (Sabrina), (FUZU),  [Niels], [Diana], [Sabrina], [FUZU], 
+- Hvem vurderes at ville vælge whiskas...?			2 (1) [0] Sabrina, Philip,  (Sabrina),  
+- Instrumentballet									1 (0) [0] Eva,   
+- Kammerhistorier på fiskermanér					1 (0) [1] Niels,   [Niels], 
+- Hvad Nu Hvis\dots									1 (0) [1] Poul,   [Poul], 
+- Er det en\dots afledt funktion?					1 (0) [0] Philip,   
+- Blasfemisk LynOpladning							2 (1) [0] FUZU, Eva,  (FUZU),  
+- 3 Nisser På et Bord								0 (0) [0]   
+- Slexet ordkunstner								1 (0) [0] Eva,   
+- Var det fjong?									1 (1) [1] Diana,  (Diana),  [Diana], 
+- Aarhus 1900 										1 (0) [0] Casper,   
+- Duckface											2 (1) [0] Hans, Philip,  (Hans),  
+- Til Gældsfest i Nisseland							4 (2) [0] Sabrina, FUZU, Poul, Niels,  (Sabrina), (FUZU),  
+- Han bruger kridt									1 (0) [0] Poul,   
+- Vi kører den ind med PENIS						1 (0) [1] Niels,   [Niels], 
+- Irrationelt bevis									3 (2) [3] Sabrina, Hans, Casper,  (Sabrina), (Hans),  [Casper], [Hans], [Sabrina], 
+- Dr. Livingstone... Eller?							0 (0) [0]   
+- Jeopardy											0 (0) [0]   
+
+
+===============================================================
+

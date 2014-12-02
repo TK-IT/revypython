@@ -1,0 +1,191 @@
+*Der' revy
+--Sanger(inde) (A) Diana
+--Sanger(inde) (B) Cecilie
+--GCERM Mads
+--Revyist 1 (R) FUZU
+--Revyist 2 (R) FUNS
+--Revyist 3 (R) Niels
+-Nissepige 1 Nanna
+-Nissepige 2 FUHR
+-rensdyr med gevir Jonatan
+-rensdyr med gevir  Sabrina
+*Udkantskalenderen
+-Ordinær gymnasiegut (G) Andreas
+-Speaker (S) Niels
+*Mat/Jur
+-Dommer (D) Aske
+-Anklager (A) Philip
+-Forsvarer (F) Morten
+-Anklaget (U) Sean
+*Spraytanfeen
+-Far (F) Diana
+-Tanfe (T) FUNS
+-Barn med orange tan (B) Diderik
+*Kaninens Klagesang
+--Kanin (K) Sabrina
+--Kor 1 (C) Niels
+--Kor 2 (C) Sean
+--Kor 3 (C) Hans
+*Frk. Smillas fornemmelse for pant
+-Ordstyrer (O) Jonatan
+-Økonomiminster (Ø) Morten
+-Klimaminister (K) Philip
+-Uddannelses/Kulturminister (U) Diana
+-Repræsentant fra det flaske-grønne parti (F) Bastian
+-Den lyserøde pant-er Aske
+-Den økonomiske visbjørn Andreas
+*Homo
+--Mandlig sanger FUNS
+--Kvindelig sanger iEva
+-Bøsse Casper
+-Lebbe Eva
+*Lars Løkke på SU
+-Lars Løkke Rasmussen (L) FUZU
+-Studievejelder(S) Morten
+*Så blev det også en lummer jul i år
+--Gammel mand Sean
+--Gammel kone Sabrina
+*Alice, Bob og alle de andre rødder
+-Alice FUHR
+-Bob Philip
+-Eve (eksamensvagt) Eva
+-Speaker Poul
+*Den Store Klagedyst
+-Bager (B) Cecilie
+-Førsteklager (K1) Morten
+-Andenklager (K2) Jonatan
+*Pop-UP
+--Datalog (D) FUNS
+--Popupsanger (P1) Hans
+--Popupsanger (P2) iEva
+-Danser 1 Eva
+-Danser 2 FUHR
+*Retfærdighedsbevarelse
+-Forsker (F) Andreas
+-Forsøgsperson 1, Bjarne (B) Diderik
+-Forsøgsperson 2, lille pige (P) Eva
+*Kemi i Luften
+--Sanger$_A$ A Nanna
+--Sanger$_B$ B Diana
+--Sanger$_C$ C Cecilie
+--Sanger$_D$ D iEva
+*Hooliganfilosoffen
+-Interviewer (I) Philip
+-Ryan (GF) Aske
+-Niller (N) Niels
+-Sonni FUNS
+-Ronni (R) Jonatan
+-Lars (L) FUZU
+*Diller!
+--Mand, der er til fest (A) Poul
+-Danser 1 (D1) Philip
+-Danser 2 (D2) Sean
+-Danser 3 (D3) Hans
+-Danser 4 (D4) Jonatan
+*Refærdighedsefterspil
+-Forsker (F) Andreas
+-Betjent (B1) Bastian
+-Betjent (B2) FUNS
+*Farsbrød
+--Studievejleder 1 (S1) Niels
+--Studievejleder 2 (S2) Diana
+--Studievejleder 3 (S3) Sabrina
+--Studievejleder 4 (S4) Sean
+--Vejledningssøgende (V) FUZU
+*Hvem vurderes at ville vælge whiskas...?
+-Journalist (J) Philip
+-Mand der har en kat (M/K) Morten
+-(Kattelyde) Sabrina
+*Instrumentballet
+-Kvindelig violin (V) Eva
+-Mandlig basun (B) Aske
+-Mandlig elguitar (G) Jonatan
+*Kammerhistorier på fiskermanér
+--Sanger (S) iEva
+--Medstuderende 1 (R1) Andreas
+--Medstuderende 2 (R2) Cecilie
+--Kammerfolk 1 (K1) Niels
+--Kammerfolk 2 (K2) Nanna
+--Kammerfolk 3 (K3) Sean
+--Kammerfolk 4 (K4) FUNS
+*Hvad Nu Hvis\dots
+--Sanger (S) Poul
+*Er det en\dots afledt funktion?
+-Speak (S) Sean
+-Pythagoras (P) Bastian
+-Græker (G) Morten
+-Instruktor (I) Philip
+-Rus (R) Cecilie
+-Reklamegut/inde (Reklame) iEva
+*Blasfemisk LynOpladning
+-Fuld studerende 1 (A) Andreas
+-Fuld studerende 2 (B) Eva
+-Zeus (Z) FUZU
+*3 Nisser På et Bord
+--Sanger (S) iEva
+-Nisse 1 Nanna
+-Nisse 2 Morten
+-Nisse 3 Diderik
+*Slexet ordkunstner
+-Dyslektiker(X) Eva
+*Var det fjong?
+--Mand (M) Mads
+--Kvinde (K) Diana
+*Aarhus 1900 
+-Fremviser (F) Aske
+-Løber (K) Casper
+-Speaker (S) Sean
+*Duckface
+--Sanger (A) Cecilie
+--Sanger (B) FUNS
+-Almindelig fyr (F) Bastian
+-Duckface Nanna
+-Duckface  Philip
+-Duckface  Hans
+-Duckface  Aske
+*Til Gældsfest i Nisseland
+-Julemand (J) FUZU
+-Filibuster-nisse (F) Niels
+-Nisse 1 (N1) Diderik
+-Nisse 2 (N2) Morten
+-Nisse 3 (N3) Sabrina
+-Referat-nisse (R) iEva
+-Rudolf (Ru) Jonatan
+-Dekan (D) Poul
+*Han bruger kridt
+--Bosse Bo (A) Aske
+--Jazzy H (B) Mads
+-Professor (P) Poul
+-Studerende (S1) Bastian
+-Studerende (S2) Nanna
+*Vi kører den ind med PENIS
+-Producer (P) Jonatan
+--Sanger Niels
+--Sanger FUXA
+--Sanger Sean
+*Irrationelt bevis
+--Karim (K) Casper
+--Dolf (D) Hans
+--Pige 1 (P1) Sabrina
+--Pige 2 (P2) Cecilie
+--Pige 3 (P3) Nanna
+-Studerende (S) Morten
+*Dr. Livingstone... Eller?
+-Ikke-Livingstone [L] Mads
+-Machete-type [M] Andreas
+*Jeopardy
+-Verdenstræt Søren Kaster (S) Sean
+-En deltager, Claus (C) Diderik
+-En deltager, Dorte (D) iEva
+-En deltager, Edmund (E) Jonatan
+*Gief Julerevy nau, pl0x
+--Sangerinde (A) Diana
+--Sangerinde (B) Sabrina
+--mandlig korsanger/danser 1 (K1) Hans
+--mandlig korsanger/danser 2 (K2) FUZU
+-Kvindelig danser 1 (D1) FUHR
+-Kvindelig danser 2 (D2) Eva
+-Darth Vader (DV) Poul
+-Mandlig tilbeder (T) Niels
+-Mandlig tilbeder (T) Casper
+-Mandlig tilbeder (T) Philip

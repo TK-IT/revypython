@@ -1,0 +1,75 @@
+\documentclass[a4paper]{article}
+ \usepackage[utf8]{inputenc} %% Vi vil bruge danske bogstaver
+ \usepackage[danish]{babel} %% ... og skrive dansk
+ \usepackage{palatino} %% En pæn skrift
+ \usepackage{revy} %% Vi bruger revy.sty til sange. Det er pænt
+ \usepackage{verbatim}
+ \usepackage[pdftex]{graphicx}
+ \usepackage{multicol}
+ \usepackage{tket}
+ \usepackage{amssymb,amsmath,amsfonts}
+ \usepackage{url}
+
+\usepackage[    protrusion=true,
+            expansion=true,
+            final,
+            babel
+                ]{microtype}
+
+
+ %% For komplekst C i CERM og VC, sætter GF til det rigtige år. Husk at bruge \TKprefix om alle titler, selv dem fra i år
+ \TKsetup{	cermC = \ensuremath{\mathbb{C}}, %
+ 			vcC =  \ensuremath{\mathbb{C}}}
+ %% Eventuelt flere pakker efter behag
+
+\def\repon{\ensuremath{\|{\colon}}~\ignorespaces}
+\def\repoff{\unskip~\ensuremath{{\colon}\|}}
+
+\begin{document}
+
+
+%Indholdsfortegnelse
+\newpage
+\tableofcontents
+\newpage
+
+\input{fisk/lydtest}
+
+\newpage
+
+\input{sange/diller}
+
+\newpage
+
+\input{sange/Kemiiluften}
+
+\newpage
+
+\input{sketches/alicebob}
+
+\newpage
+
+\begin{Sketch}{Liste over Roller}
+\begin{multicols}{2}
+\input{lister/roller}
+\end{multicols}
+\end{Sketch}
+
+
+
+\newpage
+\begin{Sketch}{Liste over rekvisitter}
+\begin{multicols}{2}
+\input{lister/rekvisitter}
+\end{multicols}
+\end{Sketch}
+
+
+\newpage
+\begin{Sketch}{Liste over lyde}
+\begin{multicols}{2}
+\input{lister/lyde}
+\end{multicols}
+\end{Sketch}
+
+\end{document}
