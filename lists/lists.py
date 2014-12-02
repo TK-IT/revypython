@@ -13,7 +13,7 @@ Dette script gennererer tre filer, samt koerer pdflatex paa manus:
 - roller.tex: En liste over samtlige roller i revyen
 - rekvisitter.tex: En liste over samtlige rekvisitter i revyen
 - sange.txt: En liste over samtlige originalsange i revyen.
-- Antallet af roller bliver skrevet ud i slutningen af roller.tex. Dette kan nok 
+- Antallet af roller bliver skrevet ud i slutningen af roller.tex. Dette kan nok
 ikke bruges til vildt meget.
 
 Det kan anbefales at lave noget mulitculoumn paa roller og rekvisitter.
@@ -53,10 +53,10 @@ for line in manus:
 		#lige praecist dette er meget primitivt og burde laves smart/rigtigt!
 		filename= line[7:-2] + '.tex'
 		fil = codecs.open(filename, encoding=ENCODING)
-		
+
 		#variabler der fortaeller om linjen er en rolle eller rekvisit.
 		rollecount = 0
-		rekvisitcount = 0 
+		rekvisitcount = 0
 		lydcount = 0
 		titel = ""
 		for filline in fil:
@@ -65,14 +65,14 @@ for line in manus:
 				index = filline.rfind('{')
 				indexend = filline.rfind('}')
 				titel = filline[index + 1:indexend]
-				
+
 				## Hvis det er en sang finder vi titlen paa originalsangen
 				if filline[1:12] == 'begin{Sang}':
 					sang = filline[filline.rfind('[') + 1:filline.rfind(']')]
 					sange.write(sang + '\n')
 			#for begge disse gaelder af hvis count er 0 har vi ikke set noget
 			#1 hvis vi har set begin. alle items vil da blive skrevet
-			#hvis count er 2 er vi kommet til end og afslutter listen	
+			#hvis count er 2 er vi kommet til end og afslutter listen
 			#Vi skriver foerst titlen hernede da det foerst er her vi er sikre paa der er en
 			#rolleliste eller rekvisitliste i sketchen
 			if 'Persongalleri' in filline:
@@ -98,7 +98,7 @@ for line in manus:
 					    \setlength{\parsep}{0mm}%
 					}""" + '\n')
 				if rekvisitcount == 2:
-					rekvisitter.write("""\end{list}%\n""")        
+					rekvisitter.write("""\end{list}%\n""")
 			if 'Lydeffekter' in filline:
 				lydcount += 1
 				if lydcount == 1:
@@ -111,8 +111,8 @@ for line in manus:
 					}""" + '\n')
 				if lydcount == 2:
 					lyde.write("""\end{list}%\n""")
-					
-			#Det er her items bliver tilfoejet	
+
+			#Det er her items bliver tilfoejet
 			#Hvis vi har finder et item finder vi lige ud af hvor det skal staa
 			#Dette tjekkes vha counterne
 			if '\item' in filline:
@@ -123,9 +123,9 @@ for line in manus:
 					rekvisitter.write(filline)
 				if lydcount == 1:
 					lyde.write(filline)
-					
+
 #Print total antal roller
-roller.write("""\n 
+roller.write("""\n
 \\vspace{2cm}
 \n
 Total antal roller i revyen: """ + str(rollecounttotal))
