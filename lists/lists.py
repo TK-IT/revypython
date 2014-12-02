@@ -6,15 +6,14 @@ Antagelser:
 - Du skal oprette en mappe der hedder lister
 - Alle filer er encodet med utf-8
 - Masterdokumentet hedder 'manus.tex'
-- Alle sketches bliver input direkte ind i masterfilen uden .tex endelse og ligger ikke i undermapper
+- Alle sketches bliver input direkte ind i masterfilen uden .tex endelse.
 - Der er en ny linje efter \begin{...}[...]{...} i alle sketches og sange
 
 Dette script gennererer tre filer, samt koerer pdflatex paa manus:
 - roller.tex: En liste over samtlige roller i revyen
 - rekvisitter.tex: En liste over samtlige rekvisitter i revyen
 - sange.txt: En liste over samtlige originalsange i revyen.
-- Antallet af roller bliver skrevet ud i slutningen af roller.tex. Dette kan nok
-ikke bruges til vildt meget.
+- Antallet af roller bliver skrevet ud i slutningen af roller.tex.
 
 Det kan anbefales at lave noget mulitculoumn paa roller og rekvisitter.
 sange.txt er endnu ikke lavet til at blive sat ind i et tex dokument.
