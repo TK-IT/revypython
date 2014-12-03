@@ -1,0 +1,11 @@
+.*.swp
+.swp
+lists/lister/lyde.tex
+lists/lister/rekvisitter.tex
+lists/lister/roller.csv
+lists/lister/roller.tex
+lists/lister/sange.txt
+*.aux
+*.log
+*.pdf
+*.toc
