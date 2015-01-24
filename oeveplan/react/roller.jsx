@@ -53,22 +53,99 @@ var ActsInput = React.createClass({
     }
 });
 
-var Choice = React.createClass({
-    getInitialState: function () {
-        return {};
+var Dropdown = React.createClass({
+    componentDidMount: function () {
+        this.windowClick = function (ev) {
+            // If the user clicks outside our DOM parent, call onClickOutside.
+            var e = ev.target;
+            while (e.parentNode) {
+                if (e === this.getDOMNode().parentNode) {
+                    // Clicked inside a sibling of our DOM node
+                    // => not an outside click.
+                    return;
+                }
+                console.log(e);
+                e = e.parentNode;
+            }
+            if (e === document) {
+                this.props.onClickOutside();
+            }
+        }.bind(this);
+        window.addEventListener('click', this.windowClick, false);
+
+        this.removeClickListener = function () {
+            var r = window.removeEventListener('click', this.windowClick, false);
+        }.bind(this);
     },
-    onChange: function (ev) {
-        this.props.onChange(ev.target.value);
+    componentWillUnmount: function () {
+        this.removeClickListener();
     },
     render: function () {
+        var st = {
+            'position': 'absolute',
+            'top': this.props.top,
+            'left': this.props.left,
+            'zIndex': 1
+        };
+        return <div style={st} className='dropdown'>
+            {this.props.children}
+        </div>;
+    }
+});
+
+var Choice = React.createClass({
+    getInitialState: function () {
+        return {
+            open: false
+        };
+    },
+    close: function () {
+        console.log("Close it!");
+        this.setState(
+            {open: false}
+        );
+    },
+    onClick: function (ev) {
+        ev.preventDefault();
+        this.setState({
+            open: true,
+            top: ev.pageY,
+            left: ev.pageX
+        });
+    },
+    render: function () {
+        var optionClick = function (k, ev) {
+            ev.preventDefault();
+            this.close();
+            this.props.onChange(k);
+        };
+
         var options = this.props.choices.map(
             function (c, i) {
-                return <option key={c.key} value={c.key}>{c.name}</option>;
-            }
+                return <div key={c.key}>
+                    <a onClick={optionClick.bind(this, c.key)}
+                       href='#' className='choice_option'>
+                        {c.name}
+                    </a>
+                </div>;
+            }.bind(this)
         );
-        return <select value={this.props.value} onChange={this.onChange}>
-            {options}
-        </select>;
+        var children = [
+            <a href="#" key='link' onClick={this.onClick}>
+                {this.props.value}
+            </a>
+        ];
+        if (this.state.open) {
+            children.push(
+                <Dropdown key='dropdown' top={0} left={0}
+                          onClickOutside={this.close}>
+                    {options}
+                </Dropdown>
+            );
+        }
+        return <div style={{'position': 'relative'}} className='choices'>
+            {children}
+        </div>;
     }
 });
 
@@ -90,7 +167,7 @@ var Planner = React.createClass({
         } else if (this.state.cells[i].length <= j) {
             return def;
         } else {
-            return parseInt(this.state.cells[i][j]);
+            return this.state.cells[i][j];
         }
     },
     render: function() {
@@ -119,6 +196,7 @@ var Planner = React.createClass({
         header.push(<th key='others'>Andre</th>);
 
         var onChange = function (ii, jj, value) {
+            console.log("Set", ii, jj, "to", value);
             var cells = [];
             for (var i = 0; i < this.state.rows; i += 1) {
                 cells.push([]);
@@ -126,7 +204,7 @@ var Planner = React.createClass({
                     cells[i].push(this.getCell(i, j, null));
                 }
             }
-            cells[ii][jj] = parseInt(value);
+            cells[ii][jj] = value;
             this.setState({'cells': cells});
         };
 
@@ -166,9 +244,16 @@ var Planner = React.createClass({
             }
             for (var j = 0; j < columns.length; j += 1) {
                 var choices = [
-                    {key: 'none', name: '---'}
+                    {key: null, name: '---'}
                 ];
-                var value = this.getCell(i, j, null);
+                var selectedIndex = this.getCell(i, j, null);
+                console.log("selectedIndex is", selectedIndex);
+                var value = (
+                    (selectedIndex === null)
+                    ? '---'
+                    : acts[selectedIndex].name
+                );
+
                 for (var k = 0; k < acts.length; k += 1) {
                     var parts = acts[k].parts.filter(
                         function (part) {
@@ -225,7 +310,7 @@ var Planner = React.createClass({
             Steder: <input valueLink={this.linkState('columns')} />
             Afbud: <input valueLink={this.linkState('absent')} />
             Destruktør: <input valueLink={this.linkState('director')} />
-            <table>
+            <table className='planner'>
             <thead>{header}</thead>
             <tbody>{rows}</tbody>
             </table>
