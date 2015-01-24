@@ -60,7 +60,8 @@ var Planner = React.createClass({
             columns: 'Scenen,Bandet,Aflukket',
             rows: '20,20,20,20,30,30',
             cells: [],
-            songFlags: [false, true, false]
+            songFlags: [false, true, false],
+            absent: ''
         };
     },
     getCell: function (i, j, def) {
@@ -88,6 +89,8 @@ var Planner = React.createClass({
             flags[j] = !flags[j];
             this.setState({songFlags: flags});
         };
+
+        var absent = this.state.absent.split(',');
 
         for (var j = 0; j < columns.length; j += 1) {
             header.push(
@@ -120,6 +123,9 @@ var Planner = React.createClass({
             var timeslotActs = {};
 
             // Create list of actors that are part of this timeslot
+            for (var j = 0; j < absent.length; j += 1) {
+                actors[absent[j]] = 1;
+            }
             for (var j = 0; j < columns.length; j += 1) {
                 var actIndex = this.getCell(i, j, null);
                 timeslotActs[actIndex] = true;
@@ -203,6 +209,7 @@ var Planner = React.createClass({
         return <div>
             Steder: <input valueLink={this.linkState('columns')} />
             Tider: <input valueLink={this.linkState('rows')} />
+            Afbud: <input valueLink={this.linkState('absent')} />
             <table>
             <thead>{header}</thead>
             <tbody>{rows}</tbody>
