@@ -81,7 +81,7 @@ var Planner = React.createClass({
                 function (i) { return parseInt(i); }
             )
             : []);
-        var header = [<th />];
+        var header = [<th key='key' />];
 
         var songChange = function (j, b) {
             var flags = [].slice.call(this.state.songFlags);
@@ -91,14 +91,14 @@ var Planner = React.createClass({
 
         for (var j = 0; j < columns.length; j += 1) {
             header.push(
-                <th>
+                <th key={j}>
                     <input type="checkbox" onChange={songChange.bind(this, j)}
                            checked={!!this.state.songFlags[j]} />
                     {columns[j]}
                 </th>
             );
         }
-        header.push(<th>Konflikter</th>);
+        header.push(<th key='conflicts'>Konflikter</th>);
 
         var onChange = function (ii, jj, ev) {
             var cells = [];
@@ -115,7 +115,7 @@ var Planner = React.createClass({
 
         var rows = [];
         for (var i = 0; i < rowKeys.length; i += 1) {
-            var row = [<td>{rowKeys[i]}</td>];
+            var row = [<td key='key'>{rowKeys[i]}</td>];
             var actors = {};  // all actors that are part of this timeslot
             var timeslotActs = {};
 
@@ -145,7 +145,7 @@ var Planner = React.createClass({
             }
             for (var j = 0; j < columns.length; j += 1) {
                 var options = [
-                    <option value={null}>---</option>
+                    <option key='none' value={null}>---</option>
                 ];
                 var value = this.getCell(i, j, null);
                 for (var k = 0; k < acts.length; k += 1) {
@@ -175,11 +175,11 @@ var Planner = React.createClass({
                         }
                     }
                     options.push(
-                        <option value={k}>{text}</option>
+                        <option key={k} value={k}>{text}</option>
                     );
                 }
                 row.push(
-                    <td>
+                    <td key={j}>
                     <select value={value}
                             onChange={onChange.bind(this, i, j)}>
                     {options}
@@ -195,9 +195,9 @@ var Planner = React.createClass({
                     conflicts.push(actor);
                 }
             }
-            row.push(<td>{conflicts.join(', ')}</td>);
+            row.push(<td key='conflicts'>{conflicts.join(', ')}</td>);
 
-            rows.push(<tr>{row}</tr>);
+            rows.push(<tr key={i}>{row}</tr>);
         }
 
         return <div>
