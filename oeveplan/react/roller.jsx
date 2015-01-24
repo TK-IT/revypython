@@ -102,6 +102,7 @@ var Planner = React.createClass({
             );
         }
         header.push(<th key='conflicts'>Konflikter</th>);
+        header.push(<th key='others'>Andre</th>);
 
         var onChange = function (ii, jj, ev) {
             var cells = [];
@@ -202,6 +203,7 @@ var Planner = React.createClass({
                 }
             }
             row.push(<td key='conflicts'>{conflicts.join(', ')}</td>);
+            row.push(<td key='others'>{conflicts.join(', ')}</td>);
 
             rows.push(<tr key={i}>{row}</tr>);
         }
