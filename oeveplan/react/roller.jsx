@@ -100,18 +100,11 @@ var Choice = React.createClass({
         };
     },
     close: function () {
-        console.log("Close it!");
-        this.setState(
-            {open: false}
-        );
+        this.setState({open: false});
     },
     onClick: function (ev) {
         ev.preventDefault();
-        this.setState({
-            open: true,
-            top: ev.pageY,
-            left: ev.pageX
-        });
+        this.setState({open: true});
     },
     render: function () {
         var optionClick = function (k, ev) {
@@ -122,7 +115,7 @@ var Choice = React.createClass({
 
         var options = this.props.choices.map(
             function (c, i) {
-                return <div key={c.key}>
+                return <div key={c.key === null ? 'null' : c.key}>
                     <a onClick={optionClick.bind(this, c.key)}
                        href='#' className='choice_option'>
                         {c.name}
@@ -133,6 +126,81 @@ var Choice = React.createClass({
         var children = [
             <a href="#" key='link' onClick={this.onClick}>
                 {this.props.value}
+            </a>
+        ];
+        if (this.state.open) {
+            children.push(
+                <Dropdown key='dropdown' top={0} left={0}
+                          onClickOutside={this.close}>
+                    {options}
+                </Dropdown>
+            );
+        }
+        return <div style={{'position': 'relative'}} className='choices'>
+            {children}
+        </div>;
+    }
+});
+
+var MultiChoice = React.createClass({
+    getInitialState: function () {
+        return {
+            open: false,
+            selected: []
+        };
+    },
+    close: function () {
+        var chosen = [];
+        for (var i = 0; i < this.state.selected.length; ++i) {
+            if (this.state.selected[i]) {
+                chosen.push(this.props.choices[i].key);
+            }
+        }
+        this.props.onChange(chosen);
+        this.setState({open: false});
+    },
+    onClick: function (ev) {
+        ev.preventDefault();
+        var selected = this.props.choices.map(
+            function (c, i) {
+                return this.props.value.indexOf(c.key) !== -1;
+            }.bind(this)
+        );
+        this.setState({open: true, selected: selected});
+    },
+    render: function () {
+        var optionClick = function (k, ev) {
+            ev.preventDefault();
+            this.close();
+            this.props.onChange(k);
+        };
+
+        var onChange = function (i, ev) {
+            var value = ev.target.value;
+            this.state.selected[i] = value;
+            this.replaceState(this.state);
+        }
+
+        var options = this.props.choices.map(
+            function (c, i) {
+                return <div key={c.key}>
+                    <label>
+                        <input type="checkbox"
+                               onChange={onChange.bind(this, i)}
+                               checked={this.state.selected[i]} />
+                        {' '}
+                        {c.name}
+                    </label>
+                </div>;
+            }.bind(this)
+        );
+        var valueString = this.props.value.join(', ');
+        if (!valueString) {
+            valueString = '---';
+        }
+        var children = [
+            <a href="#" key='link' onClick={this.onClick}>
+                {valueString}
             </a>
         ];
         if (this.state.open) {
@@ -170,10 +238,24 @@ var Planner = React.createClass({
             return this.state.cells[i][j];
         }
     },
+    getAllActors: function () {
+        var actors = [];
+        for (var i = 0; i < this.props.acts.length; i += 1) {
+            var act = this.props.acts[i];
+            for (var j = 0; j < act.parts.length; j += 1) {
+                var part = act.parts[j];
+                if (actors.indexOf(part.actor) === -1) {
+                    actors.push(part.actor);
+                }
+            }
+        }
+        return actors;
+    },
     render: function() {
         var acts = this.props.acts;
         var columns = this.state.columns.split(',');
         var header = [];
+        var allActors = this.getAllActors();
 
         var songChange = function (j, b) {
             var flags = [].slice.call(this.state.songFlags);
@@ -247,7 +329,6 @@ var Planner = React.createClass({
                     {key: null, name: '---'}
                 ];
                 var selectedIndex = this.getCell(i, j, null);
-                console.log("selectedIndex is", selectedIndex);
                 var value = (
                     (selectedIndex === null)
                     ? '---'
@@ -301,7 +382,11 @@ var Planner = React.createClass({
                 }
             }
             row.push(<td key='conflicts'>{conflicts.join(', ')}</td>);
-            row.push(<td key='others'>{conflicts.join(', ')}</td>);
+            row.push(
+                <td key='others'>
+                    <MultiChoice value={[]} choices={[{key: 1, name: 2}, {key: 3, name: 4}]} onChange={function () {}}/>
+                </td>
+            );
 
             rows.push(<tr key={i}>{row}</tr>);
         }
