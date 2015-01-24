@@ -53,6 +53,25 @@ var ActsInput = React.createClass({
     }
 });
 
+var Choice = React.createClass({
+    getInitialState: function () {
+        return {};
+    },
+    onChange: function (ev) {
+        this.props.onChange(ev.target.value);
+    },
+    render: function () {
+        var options = this.props.choices.map(
+            function (c, i) {
+                return <option key={c.key} value={c.key}>{c.name}</option>;
+            }
+        );
+        return <select value={this.props.value} onChange={this.onChange}>
+            {options}
+        </select>;
+    }
+});
+
 var Planner = React.createClass({
     mixins: [React.addons.LinkedStateMixin],
     getInitialState: function () {
@@ -99,7 +118,7 @@ var Planner = React.createClass({
         header.push(<th key='conflicts'>Konflikter</th>);
         header.push(<th key='others'>Andre</th>);
 
-        var onChange = function (ii, jj, ev) {
+        var onChange = function (ii, jj, value) {
             var cells = [];
             for (var i = 0; i < this.state.rows; i += 1) {
                 cells.push([]);
@@ -107,8 +126,7 @@ var Planner = React.createClass({
                     cells[i].push(this.getCell(i, j, null));
                 }
             }
-            cells[ii][jj] = parseInt(ev.target.value);
-            console.log(cells);
+            cells[ii][jj] = parseInt(value);
             this.setState({'cells': cells});
         };
 
@@ -147,8 +165,8 @@ var Planner = React.createClass({
                 }
             }
             for (var j = 0; j < columns.length; j += 1) {
-                var options = [
-                    <option key='none' value={null}>---</option>
+                var choices = [
+                    {key: 'none', name: '---'}
                 ];
                 var value = this.getCell(i, j, null);
                 for (var k = 0; k < acts.length; k += 1) {
@@ -177,16 +195,15 @@ var Planner = React.createClass({
                             text += ' (' + actActors.join(', ') + ')';
                         }
                     }
-                    options.push(
-                        <option key={k} value={k}>{text}</option>
+                    choices.push(
+                        {key: k, name: text}
                     );
                 }
                 row.push(
                     <td key={j}>
-                    <select value={value}
-                            onChange={onChange.bind(this, i, j)}>
-                    {options}
-                    </select>
+                    <Choice value={value}
+                            choices={choices}
+                            onChange={onChange.bind(this, i, j)} />
                     </td>
                 );
             }
