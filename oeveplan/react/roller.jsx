@@ -58,7 +58,7 @@ var Planner = React.createClass({
     getInitialState: function () {
         return {
             columns: 'Scenen,Bandet,Aflukket',
-            rows: '20,20,20,20,30,30',
+            rows: 20,
             cells: [],
             songFlags: [false, true, false],
             absent: '',
@@ -77,13 +77,7 @@ var Planner = React.createClass({
     render: function() {
         var acts = this.props.acts;
         var columns = this.state.columns.split(',');
-        var rowKeys = (
-            (this.state.rows !== '')
-            ? this.state.rows.split(',').map(
-                function (i) { return parseInt(i); }
-            )
-            : []);
-        var header = [<th key='key' />];
+        var header = [];
 
         var songChange = function (j, b) {
             var flags = [].slice.call(this.state.songFlags);
@@ -107,7 +101,7 @@ var Planner = React.createClass({
 
         var onChange = function (ii, jj, ev) {
             var cells = [];
-            for (var i = 0; i < rowKeys.length; i += 1) {
+            for (var i = 0; i < this.state.rows; i += 1) {
                 cells.push([]);
                 for (var j = 0; j < columns.length; j += 1) {
                     cells[i].push(this.getCell(i, j, null));
@@ -119,8 +113,8 @@ var Planner = React.createClass({
         };
 
         var rows = [];
-        for (var i = 0; i < rowKeys.length; i += 1) {
-            var row = [<td key='key'>{rowKeys[i]}</td>];
+        for (var i = 0; i < this.state.rows; i += 1) {
+            var row = [];
             var actors = {};  // all actors that are part of this timeslot
             var timeslotActs = {};
 
@@ -212,7 +206,6 @@ var Planner = React.createClass({
 
         return <div>
             Steder: <input valueLink={this.linkState('columns')} />
-            Tider: <input valueLink={this.linkState('rows')} />
             Afbud: <input valueLink={this.linkState('absent')} />
             Destruktør: <input valueLink={this.linkState('director')} />
             <table>
