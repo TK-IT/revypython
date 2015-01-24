@@ -61,7 +61,8 @@ var Planner = React.createClass({
             rows: '20,20,20,20,30,30',
             cells: [],
             songFlags: [false, true, false],
-            absent: ''
+            absent: '',
+            director: ''
         };
     },
     getCell: function (i, j, def) {
@@ -127,6 +128,7 @@ var Planner = React.createClass({
             for (var j = 0; j < absent.length; j += 1) {
                 actors[absent[j]] = 1;
             }
+            actors[this.state.director] = 1;
             for (var j = 0; j < columns.length; j += 1) {
                 var actIndex = this.getCell(i, j, null);
                 timeslotActs[actIndex] = true;
@@ -212,6 +214,7 @@ var Planner = React.createClass({
             Steder: <input valueLink={this.linkState('columns')} />
             Tider: <input valueLink={this.linkState('rows')} />
             Afbud: <input valueLink={this.linkState('absent')} />
+            Destruktør: <input valueLink={this.linkState('director')} />
             <table>
             <thead>{header}</thead>
             <tbody>{rows}</tbody>
