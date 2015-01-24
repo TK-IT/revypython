@@ -12,7 +12,6 @@ var ActsInput = React.createClass({
         ).map(
             function (s) { return s.split('\t'); }
         );
-        console.log(rows);
         var act = null;
         var actName = null;
         var result = [];
@@ -55,24 +54,159 @@ var ActsInput = React.createClass({
 });
 
 var Planner = React.createClass({
+    mixins: [React.addons.LinkedStateMixin],
     getInitialState: function () {
-        return {};
+        return {
+            columns: 'Scenen,Bandet,Aflukket',
+            rows: '20,20,20,20,30,30',
+            cells: [],
+            songFlags: [false, true, false]
+        };
     },
-    renderPart: function (part) {
-        return <li>{part.name} (kind {part.kind} played by {part.actor})</li>;
-    },
-    renderAct: function (act) {
-        return <div>
-            {act.name}
-            <ul>
-                {act.parts.map(this.renderPart)}
-            </ul>
-        </div>;
+    getCell: function (i, j, def) {
+        if (this.state.cells.length <= i) {
+            return def;
+        } else if (this.state.cells[i].length <= j) {
+            return def;
+        } else {
+            return parseInt(this.state.cells[i][j]);
+        }
     },
     render: function() {
-        var acts = this.props.acts.map(this.renderAct);
+        var acts = this.props.acts;
+        var columns = this.state.columns.split(',');
+        var rowKeys = (
+            (this.state.rows !== '')
+            ? this.state.rows.split(',').map(
+                function (i) { return parseInt(i); }
+            )
+            : []);
+        var header = [<th />];
+
+        var songChange = function (j, b) {
+            var flags = [].slice.call(this.state.songFlags);
+            flags[j] = !flags[j];
+            this.setState({songFlags: flags});
+        };
+
+        for (var j = 0; j < columns.length; j += 1) {
+            header.push(
+                <th>
+                    <input type="checkbox" onChange={songChange.bind(this, j)}
+                           checked={!!this.state.songFlags[j]} />
+                    {columns[j]}
+                </th>
+            );
+        }
+        header.push(<th>Konflikter</th>);
+
+        var onChange = function (ii, jj, ev) {
+            var cells = [];
+            for (var i = 0; i < rowKeys.length; i += 1) {
+                cells.push([]);
+                for (var j = 0; j < columns.length; j += 1) {
+                    cells[i].push(this.getCell(i, j, null));
+                }
+            }
+            cells[ii][jj] = parseInt(ev.target.value);
+            console.log(cells);
+            this.setState({'cells': cells});
+        };
+
+        var rows = [];
+        for (var i = 0; i < rowKeys.length; i += 1) {
+            var row = [<td>{rowKeys[i]}</td>];
+            var actors = {};  // all actors that are part of this timeslot
+            var timeslotActs = {};
+
+            // Create list of actors that are part of this timeslot
+            for (var j = 0; j < columns.length; j += 1) {
+                var actIndex = this.getCell(i, j, null);
+                timeslotActs[actIndex] = true;
+                var act = (actIndex !== null) && acts[actIndex];
+                var parts = act && act.parts;
+                if (parts && this.state.songFlags[j]) {
+                    parts = parts.filter(
+                        function (part) {
+                            return part.kind.indexOf('sang') !== -1;
+                        }
+                    );
+                }
+                var actActors = parts && parts.map(
+                    function (part) { return part.actor; }
+                );
+                if (actActors) {
+                    actActors.forEach(
+                        function (actor) {
+                            actors[actor] = actors[actor] + 1 || 1;
+                        }
+                    );
+                }
+            }
+            for (var j = 0; j < columns.length; j += 1) {
+                var options = [
+                    <option value={null}>---</option>
+                ];
+                var value = this.getCell(i, j, null);
+                for (var k = 0; k < acts.length; k += 1) {
+                    var parts = acts[k].parts.filter(
+                        function (part) {
+                            return actors[part.actor];
+                        }
+                    );
+                    if (this.state.songFlags[j]) {
+                        parts = parts.filter(
+                            function (part) {
+                                return part.kind.indexOf('sang') !== -1;
+                            }
+                        );
+                    }
+                    var actActors = parts.map(
+                        function (part) {
+                            return part.actor;
+                        }
+                    );
+                    var text = acts[k].name;
+                    if (!timeslotActs[k]) {
+                        var cnt = actActors.length;
+                        text = '[' + cnt + '] ' + text;
+                        if (cnt > 0) {
+                            text += ' (' + actActors.join(', ') + ')';
+                        }
+                    }
+                    options.push(
+                        <option value={k}>{text}</option>
+                    );
+                }
+                row.push(
+                    <td>
+                    <select value={value}
+                            onChange={onChange.bind(this, i, j)}>
+                    {options}
+                    </select>
+                    </td>
+                );
+            }
+
+            // Add conflicts cell
+            var conflicts = [];
+            for (var actor in actors) {
+                if (actors[actor] > 1) {
+                    conflicts.push(actor);
+                }
+            }
+            row.push(<td>{conflicts.join(', ')}</td>);
+
+            rows.push(<tr>{row}</tr>);
+        }
+
         return <div>
-            {acts}
+            Steder: <input valueLink={this.linkState('columns')} />
+            Tider: <input valueLink={this.linkState('rows')} />
+            <table>
+            <thead>{header}</thead>
+            <tbody>{rows}</tbody>
+            </table>
         </div>;
     }
 });
