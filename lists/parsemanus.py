@@ -38,12 +38,16 @@ def parsetexfile(texfile):
             # Set flag that every item should go to props
             sounditem = True
         elif striped_line.startswith('\\item '):
-            # item should go in right array
+            # item should go in right array.
+            # With or without '\item'?
             if propitem:
                 pass
-            if roleitem:
+            elif roleitem:
                 pass
-            if sounditem:
+            elif sounditem:
+                pass
+            else:
+                # Unregonized item. Should this be reported?
                 pass
         elif striped_line.startswith('\end{'):
             # set flags to false. This should work always also in spite
@@ -55,11 +59,13 @@ def parsetexfile(texfile):
             # Find time on act
             pass
         elif striped_line.startswith('\\bandkommentar{'):
-            # Bandcomment is lines untill corresponding '}'
-            # Should we set a flag again
-            pass
+            # Bandcomment is lines untill corresponding '}'.
+            #This might be in this line, or in any succeding lines.
+            bandcommentline = True
         elif bandcommentline:
             pass
+        else:
+
 
     return current_act_dict
 
