@@ -11,6 +11,12 @@ def parsetexfile(texfile):
         'props': [],
         'sounds': []
     }
+
+    propitem = False
+    roleitem = False
+    sounditem = False
+    bandcommentline = False
+
     for line in texfile:
         # Remove trailing spaces and tabs
         striped_line = line.strip()
@@ -19,30 +25,40 @@ def parsetexfile(texfile):
             # Find name in this line
             pass
         elif striped_line.startswith('\\begin{Sang}'):
-            # find name and set song to True, Also find melody
+            # find name and set song to True
+            # Also find melody
             pass
         elif striped_line.startswith('\\begin{Persongalleri}'):
             # set flag that every item should go to roles
-            pass
+            roleitem = True
         elif striped_line.startswith('\\begin{Rekvisitter}'):
             # Set flag that every item should go to props
-            pass
+            propitem = True
         elif striped_line.startswith('\\begin{Lydeffekter}'):
             # Set flag that every item should go to props
-            pass
+            sounditem = True
         elif striped_line.startswith('\\item '):
             # item should go in right array
-            pass
+            if propitem:
+                pass
+            if roleitem:
+                pass
+            if sounditem:
+                pass
         elif striped_line.startswith('\end{'):
             # set flags to false. This should work always also in spite
             # of multiply \end{ in the document.
-            pass
+            propitem = False
+            roleitem = False
+            sounditem = False
         elif striped_line.startswith('\\tid{'):
             # Find time on act
             pass
         elif striped_line.startswith('\\bandkommentar{'):
             # Bandcomment is lines untill corresponding '}'
             # Should we set a flag again
+            pass
+        elif bandcommentline:
             pass
 
     return current_act_dict
