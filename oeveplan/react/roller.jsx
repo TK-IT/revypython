@@ -1,54 +1,70 @@
 // vim:set ft=javascript sw=4 et:
 'use strict';
 
+function unique(x) {
+    var sorted = [].slice.call(x);
+    sorted.sort();
+    var k = 0;
+    for (var i = 1; i < sorted.length; ++i) {
+        if (sorted[k] != sorted[i]) {
+            sorted[++k] = sorted[i];
+        }
+    }
+    return sorted.slice(0, k + 1);
+}
+
+function Revue(actsString) {
+    var lines = actsString ? actsString.split('\n') : [];
+    var rows = lines.filter(
+        function (s) { return !!s; }
+    ).map(
+        function (s) { return s.split('\t'); }
+    );
+    var act = null;
+    var actName = null;
+    this.acts = [];
+    var actors = [];
+    for (var i = 0; i < rows.length; i += 1) {
+        var row = rows[i];
+        if (row[0] !== actName) {
+            act = {
+                name: row[0],
+                parts: []
+            };
+            actName = act.name;
+            this.acts.push(act);
+        }
+        act.parts.push({
+            name: row[1],
+            kind: row[2],
+            actor: row[3]
+        });
+        actors.push(row[3]);
+    }
+    this.actors = unique(actors);
+}
+
+Revue.prototype.stringify = function Revue_stringify() {
+    return JSON.stringify({acts: this.acts, actors: this.actors});
+};
+
 var ActsInput = React.createClass({
     getInitialState: function () {
-        return {actsString: '', acts: []};
-    },
-    getActs: function (actsString) {
-        var lines = actsString.split('\n');
-        var rows = lines.filter(
-            function (s) { return !!s; }
-        ).map(
-            function (s) { return s.split('\t'); }
-        );
-        var act = null;
-        var actName = null;
-        var result = [];
-        for (var i = 0; i < rows.length; i += 1) {
-            var row = rows[i];
-            if (row[0] !== actName) {
-                act = {
-                    name: row[0],
-                    parts: []
-                };
-                actName = act.name;
-                result.push(act);
-            }
-            act.parts.push({
-                name: row[1],
-                kind: row[2],
-                actor: row[3]
-            });
-        }
-        return result;
+        return {acts: '', revueString: ''};
     },
     render: function() {
         return <div>
-            <textarea value={this.state.actsString}
+            <textarea value={this.state.acts}
                       onChange={this.actsStringChange} />
-            <textarea value={JSON.stringify(this.state.acts)} readOnly={true} />
+            <textarea value={this.state.revueString} readOnly={true} />
         </div>;
     },
     actsStringChange: function (event) {
         var s = event.target.value;
-        if (s !== this.state.actsString) {
-            var acts = this.getActs(s)
-            this.setState({
-                'actsString': s,
-                'acts': acts
-            });
-            this.props.onChange(acts);
+        if (s !== this.state.acts) {
+            var r = new Revue(s);
+            this.setState({'acts': s, 'revueString': r.stringify()});
+            this.props.onChange(r);
         }
     }
 });
@@ -141,6 +157,14 @@ var Choice = React.createClass({
         </div>;
     }
 });
+
+/*
+var ActorChoice = React.createClass({
+    render: function () {
+        return <Choice
+    }
+});
+*/
 
 var MultiChoice = React.createClass({
     getInitialState: function () {
@@ -406,7 +430,7 @@ var Planner = React.createClass({
 var Rollefordeling = React.createClass({
     mixins: [React.addons.LinkedStateMixin],
     getInitialState: function () {
-        return {acts: []};
+        return {acts: new Revue()};
     },
     setActs: function (acts) {
         this.setState({'acts': acts});
@@ -414,7 +438,7 @@ var Rollefordeling = React.createClass({
     render: function () {
         return <div>
             <ActsInput onChange={this.setActs} />
-            <Planner acts={this.state.acts} />
+            <Planner acts={this.state.acts.acts} />
         </div>
     }
 });
