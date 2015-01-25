@@ -1,5 +1,5 @@
 """
-Convert rollefordeling.txt to rollefordeling.csv
+Convert rollefordeling.txt to rollefordeling.tsv
 """
 
 import re
