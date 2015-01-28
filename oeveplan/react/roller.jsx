@@ -13,6 +13,21 @@ function unique(x) {
     return sorted.slice(0, k + 1);
 }
 
+function duplicates(x) {
+    var res = [].slice.call(x);
+    res.sort();
+    var prev = null;
+    var k = 0;
+    for (var i = 0; i < res.length; i += 1) {
+        if (res[i] !== prev) {
+            prev = res[i];
+        } else {
+            res[k++] = res[i];
+        }
+    }
+    return unique(res.slice(0, k));
+}
+
 function Revue(actsString) {
     var lines = actsString ? actsString.split('\n') : [];
     var rows = lines.filter(
@@ -37,7 +52,8 @@ function Revue(actsString) {
         act.parts.push({
             name: row[1],
             kind: row[2],
-            actor: row[3]
+            actor: row[3],
+            singer: (row[2].indexOf('sang') !== -1)
         });
         actors.push(row[3]);
     }
@@ -158,14 +174,6 @@ var Choice = React.createClass({
     }
 });
 
-/*
-var ActorChoice = React.createClass({
-    render: function () {
-        return <Choice
-    }
-});
-*/
-
 var MultiChoice = React.createClass({
     getInitialState: function () {
         return {
@@ -199,10 +207,10 @@ var MultiChoice = React.createClass({
             this.props.onChange(k);
         };
 
-        var onChange = function (i, ev) {
-            var value = ev.target.value;
-            this.state.selected[i] = value;
-            this.replaceState(this.state);
+        var onChange = function (i) {
+            var sel = this.state.selected.slice();
+            sel[i] = !sel[i];
+            this.setState({selected: sel});
         }
 
         var options = this.props.choices.map(
@@ -241,26 +249,179 @@ var MultiChoice = React.createClass({
     }
 });
 
+var ActorChoice = React.createClass({
+    choiceChange: function (k) {
+        this.props.onChange(k);
+    },
+    render: function () {
+        var choices = this.props.actors.map(
+            function (actor, i) {
+                return {key: actor, name: actor};
+            }
+        );
+        if (this.props.blank) {
+            choices.splice(0, 0, {key: '', name: '---'});
+        }
+        return <Choice choices={choices} onChange={this.choiceChange}
+                       value={this.props.value} />;
+    }
+});
+
+var MultiActorChoice = React.createClass({
+    choiceChange: function (k) {
+        this.props.onChange(k);
+    },
+    render: function () {
+        var choices = this.props.actors.map(
+            function (actor, i) {
+                return {key: actor, name: actor};
+            }
+        );
+        return <MultiChoice
+            choices={choices}
+            onChange={this.choiceChange}
+            value={this.props.value} />;
+    }
+});
+
+var SpecificAct = React.createClass({
+    render: function () {
+        function act_to_choice(act, idx) {
+            var conflicts = [];
+            for (var j = 0; j < act.parts.length; j += 1) {
+                var part = act.parts[j];
+                if (!this.props.singers || part.singer) {
+                    if (this.props.people.indexOf(part.actor) !== -1) {
+                        conflicts.push(part.actor);
+                    }
+                }
+            }
+            var label = '[' + conflicts.length + '] ' + act.name;
+            if (conflicts.length > 0) {
+                conflicts.sort();
+                label += ' (' + conflicts.join(', ') + ')';
+            }
+
+            // The `key` here is what ends up in PlannerRow.state.acts
+            return {key: idx, name: label};
+        }
+        var choices = this.props.revue.acts.map(act_to_choice.bind(this));
+        choices.unshift({key: null, name: '---'});
+        console.log("The value is", this.props.value);
+        var value = (this.props.value === null) ? '---'
+            : this.props.revue.acts[this.props.value].name;
+        return <Choice value={value}
+                       choices={choices}
+                       onChange={this.props.onChange} />;
+    }
+});
+
+var PlannerRow = React.createClass({
+    propTypes: {
+        columns: React.PropTypes.arrayOf(React.PropTypes.shape({
+            key: React.PropTypes.string,
+            singers: React.PropTypes.bool
+        })),
+        revue: React.PropTypes.instanceOf(Revue)
+    },
+    getInitialState: function () {
+        return {
+            acts: {},
+            others: []
+        };
+    },
+    setAct: function (idx, act) {
+        var acts = {};
+        for (var i = 0; i < this.props.columns.length; i += 1) {
+            var k = this.props.columns[i].key;
+            var v = (k in this.state.acts) ? this.state.acts[k] : null;
+            acts[k] = (idx === i) ? act : v;
+        }
+        console.log("Set act", idx, "to", act);
+        console.log("acts:", acts);
+        this.setState({'acts': acts});
+    },
+    setOthers: function (others) {
+        this.setState({'others': others});
+    },
+    getColumnPeople: function (idx) {
+        if (idx === 'others') {
+            return this.state.others;
+        }
+        var column = this.props.columns[idx];
+        if (!(column.key in this.state.acts)) return [];
+        var act = this.state.acts[column.key];
+        if (act === null) return [];
+        var parts = this.props.revue.acts[act].parts;
+        if (column.singers) {
+            parts = parts && parts.filter(
+                function (part) {
+                    return part.kind.indexOf('sang') !== -1;
+                }
+            );
+        }
+        console.log("Parts is", parts);
+        var actors = parts && parts.map(function (part) { return part.actor; });
+        console.log("Actors", actors);
+        return actors || [];
+    },
+    renderColumn: function (idx, people) {
+        if (idx === 'others') {
+            var choices = this.props.revue.actors.map(
+                function (actor, i) {
+                    if (people.indexOf(actor) !== -1 && this.state.others.indexOf(actor) === -1) {
+                        return {key: actor, name: '{' + actor + '}'};
+                    } else {
+                        return {key: actor, name: actor};
+                    }
+                }.bind(this)
+            );
+            return <MultiChoice value={this.state.others}
+                                onChange={this.setOthers}
+                                choices={choices} />
+        }
+        var column = this.props.columns[idx];
+        var act = (column.key in this.state.acts) ? this.state.acts[column.key] : null;
+        return <SpecificAct people={people} revue={this.props.revue}
+                            onChange={this.setAct.bind(this, idx)}
+                            singers={column.singers}
+                            value={act} />
+    },
+    render: function () {
+        var peopleSets = [];
+        peopleSets.push(this.props.usedPeople);
+        for (var i = 0; i < this.props.columns.length; i += 1) {
+            peopleSets.push(this.getColumnPeople(i));
+        }
+        peopleSets.push(this.getColumnPeople('others'));
+        var people = [].concat.apply([], peopleSets);
+
+        var columns = [];
+        for (var i = 0; i < this.props.columns.length; i += 1) {
+            columns.push(this.renderColumn(i, people));
+        }
+        columns.push(this.renderColumn('others', people));
+        columns.push(duplicates(people).join(', '));
+
+        var cells = columns.map(
+            function (o, i) {
+                return <td key={i}>{o}</td>;
+            }
+        );
+        return <tr>{cells}</tr>;
+    }
+});
+
 var Planner = React.createClass({
     mixins: [React.addons.LinkedStateMixin],
     getInitialState: function () {
         return {
-            columns: 'Scenen,Bandet,Aflukket',
+            columns: 'Scenen,I aflukket,Bandet (d01)',
             rows: 20,
-            cells: [],
-            songFlags: [false, true, false],
-            absent: '',
+            songFlags: [false, false, true],
+            absent: [],
             director: ''
         };
-    },
-    getCell: function (i, j, def) {
-        if (this.state.cells.length <= i) {
-            return def;
-        } else if (this.state.cells[i].length <= j) {
-            return def;
-        } else {
-            return this.state.cells[i][j];
-        }
     },
     getAllActors: function () {
         var actors = [];
@@ -275,6 +436,12 @@ var Planner = React.createClass({
         }
         return actors;
     },
+    setAbsent: function (a) {
+        this.setState({absent: a});
+    },
+    setDirector: function (d) {
+        this.setState({director: d});
+    },
     render: function() {
         var acts = this.props.acts;
         var columns = this.state.columns.split(',');
@@ -287,7 +454,7 @@ var Planner = React.createClass({
             this.setState({songFlags: flags});
         };
 
-        var absent = this.state.absent.split(',');
+        var absent = this.state.absent;
 
         for (var j = 0; j < columns.length; j += 1) {
             header.push(
@@ -298,127 +465,38 @@ var Planner = React.createClass({
                 </th>
             );
         }
-        header.push(<th key='conflicts'>Konflikter</th>);
         header.push(<th key='others'>Andre</th>);
+        header.push(<th key='conflicts'>Konflikter</th>);
 
-        var onChange = function (ii, jj, value) {
-            console.log("Set", ii, jj, "to", value);
-            var cells = [];
-            for (var i = 0; i < this.state.rows; i += 1) {
-                cells.push([]);
-                for (var j = 0; j < columns.length; j += 1) {
-                    cells[i].push(this.getCell(i, j, null));
-                }
-            }
-            cells[ii][jj] = value;
-            this.setState({'cells': cells});
-        };
-
+        var plannerRowColumns = columns.map(
+            function (name, j) {
+                return {key: name, singers: this.state.songFlags[j]};
+            }.bind(this)
+        );
+        var usedPeople = this.state.absent.concat([this.state.director]);
         var rows = [];
         for (var i = 0; i < this.state.rows; i += 1) {
-            var row = [];
-            var actors = {};  // all actors that are part of this timeslot
-            var timeslotActs = {};
-
-            // Create list of actors that are part of this timeslot
-            for (var j = 0; j < absent.length; j += 1) {
-                actors[absent[j]] = 1;
-            }
-            actors[this.state.director] = 1;
-            for (var j = 0; j < columns.length; j += 1) {
-                var actIndex = this.getCell(i, j, null);
-                timeslotActs[actIndex] = true;
-                var act = (actIndex !== null) && acts[actIndex];
-                var parts = act && act.parts;
-                if (parts && this.state.songFlags[j]) {
-                    parts = parts.filter(
-                        function (part) {
-                            return part.kind.indexOf('sang') !== -1;
-                        }
-                    );
-                }
-                var actActors = parts && parts.map(
-                    function (part) { return part.actor; }
-                );
-                if (actActors) {
-                    actActors.forEach(
-                        function (actor) {
-                            actors[actor] = actors[actor] + 1 || 1;
-                        }
-                    );
-                }
-            }
-            for (var j = 0; j < columns.length; j += 1) {
-                var choices = [
-                    {key: null, name: '---'}
-                ];
-                var selectedIndex = this.getCell(i, j, null);
-                var value = (
-                    (selectedIndex === null)
-                    ? '---'
-                    : acts[selectedIndex].name
-                );
-
-                for (var k = 0; k < acts.length; k += 1) {
-                    var parts = acts[k].parts.filter(
-                        function (part) {
-                            return actors[part.actor];
-                        }
-                    );
-                    if (this.state.songFlags[j]) {
-                        parts = parts.filter(
-                            function (part) {
-                                return part.kind.indexOf('sang') !== -1;
-                            }
-                        );
-                    }
-                    var actActors = parts.map(
-                        function (part) {
-                            return part.actor;
-                        }
-                    );
-                    var text = acts[k].name;
-                    if (!timeslotActs[k]) {
-                        var cnt = actActors.length;
-                        text = '[' + cnt + '] ' + text;
-                        if (cnt > 0) {
-                            text += ' (' + actActors.join(', ') + ')';
-                        }
-                    }
-                    choices.push(
-                        {key: k, name: text}
-                    );
-                }
-                row.push(
-                    <td key={j}>
-                    <Choice value={value}
-                            choices={choices}
-                            onChange={onChange.bind(this, i, j)} />
-                    </td>
-                );
-            }
-
-            // Add conflicts cell
-            var conflicts = [];
-            for (var actor in actors) {
-                if (actors[actor] > 1) {
-                    conflicts.push(actor);
-                }
-            }
-            row.push(<td key='conflicts'>{conflicts.join(', ')}</td>);
-            row.push(
-                <td key='others'>
-                    <MultiChoice value={[]} choices={[{key: 1, name: 2}, {key: 3, name: 4}]} onChange={function () {}}/>
-                </td>
-            );
-
-            rows.push(<tr key={i}>{row}</tr>);
+            rows.push(
+                <PlannerRow columns={plannerRowColumns}
+                            revue={this.props.revue}
+                            usedPeople={usedPeople} key={i} />);
         }
 
         return <div>
             Steder: <input valueLink={this.linkState('columns')} />
-            Afbud: <input valueLink={this.linkState('absent')} />
-            Destruktør: <input valueLink={this.linkState('director')} />
+            <div>
+                Afbud:
+                <MultiActorChoice actors={this.props.revue.actors}
+                                  value={this.state.absent}
+                                  onChange={this.setAbsent} />
+            </div>
+            <div>
+                Destruktør:
+                <ActorChoice actors={this.props.revue.actors}
+                             value={this.state.director || '---'}
+                             blank={true}
+                             onChange={this.setDirector} />
+            </div>
             <table className='planner'>
             <thead>{header}</thead>
             <tbody>{rows}</tbody>
@@ -430,15 +508,15 @@ var Planner = React.createClass({
 var Rollefordeling = React.createClass({
     mixins: [React.addons.LinkedStateMixin],
     getInitialState: function () {
-        return {acts: new Revue()};
+        return {revue: new Revue()};
     },
-    setActs: function (acts) {
-        this.setState({'acts': acts});
+    setActs: function (revue) {
+        this.setState({'revue': revue});
     },
     render: function () {
         return <div>
             <ActsInput onChange={this.setActs} />
-            <Planner acts={this.state.acts.acts} />
+            <Planner revue={this.state.revue} acts={this.state.revue.acts} />
         </div>
     }
 });
