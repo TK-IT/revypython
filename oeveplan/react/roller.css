@@ -1,4 +1,9 @@
 /* vim: set sw=4 et: */
+body {
+    margin: 24px;
+    font-family: sans-serif;
+}
+
 .dropdown {
     margin: 0;
     padding: 5px;
@@ -21,7 +26,7 @@
 }
 
 .choices > a:hover {
-    background-color: #eef;
+    background-color: #fff4bf;
 }
 
 .choice_option {
@@ -32,4 +37,16 @@
 
 .choice_option:hover {
     background-color: #eef;
+}
+
+.planner thead tr {
+    background-color: #eee;
+}
+
+.planner tbody tr {
+    border-bottom: 1px solid #ccc;
+}
+
+.planner tbody tr:nth-child(2n) {
+    background-color: #f8f8f8;
 }

@@ -505,7 +505,7 @@ var Planner = React.createClass({
     }
 });
 
-var Rollefordeling = React.createClass({
+var Main = React.createClass({
     mixins: [React.addons.LinkedStateMixin],
     getInitialState: function () {
         return {revue: new Revue()};
@@ -515,13 +515,20 @@ var Rollefordeling = React.createClass({
     },
     render: function () {
         return <div>
+            <h1>Øveplan</h1>
+            <p>
+            1. Indlæs rollefordelingen fra regneark:
+            </p>
             <ActsInput onChange={this.setActs} />
+            <p>
+            2. Konstruér øveplan:
+            </p>
             <Planner revue={this.state.revue} acts={this.state.revue.acts} />
         </div>
     }
 });
 
 React.render(
-    <Rollefordeling />,
+    <Main />,
     document.body
 );
