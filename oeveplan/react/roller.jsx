@@ -28,6 +28,12 @@ function duplicates(x) {
     return unique(res.slice(0, k));
 }
 
+function attrgetter(k) {
+    return function f(o) {
+        return o[k];
+    };
+}
+
 function Revue(actsString) {
     var lines = actsString ? actsString.split('\n') : [];
     var rows = lines.filter(
@@ -354,14 +360,10 @@ var PlannerRow = React.createClass({
         if (act === null) return [];
         var parts = this.props.revue.acts[act].parts;
         if (column.singers) {
-            parts = parts && parts.filter(
-                function (part) {
-                    return part.kind.indexOf('sang') !== -1;
-                }
-            );
+            parts = parts && parts.filter(attrgetter('singer'));
         }
         console.log("Parts is", parts);
-        var actors = parts && parts.map(function (part) { return part.actor; });
+        var actors = parts && parts.map(attrgetter('actor'));
         console.log("Actors", actors);
         return actors || [];
     },
