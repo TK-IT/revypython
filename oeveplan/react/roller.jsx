@@ -1,6 +1,13 @@
 // vim:set ft=javascript sw=4 et:
 'use strict';
 
+function keycmp(key) {
+    return function cmp(g1, g2) {
+        var k1 = key(g1), k2 = key(g2);
+        return (k1 < k2) ? -1 : (k1 > k2) ? 1 : 0;
+    }
+}
+
 function unique(x) {
     var sorted = [].slice.call(x);
     sorted.sort();
@@ -119,13 +126,7 @@ var Dropdown = React.createClass({
         this.removeClickListener();
     },
     render: function () {
-        var st = {
-            'position': 'absolute',
-            'top': this.props.top,
-            'left': this.props.left,
-            'zIndex': 1
-        };
-        return <div style={st} className='dropdown'>
+        return <div className='dropdown'>
             {this.props.children}
         </div>;
     }
@@ -153,9 +154,13 @@ var Choice = React.createClass({
 
         var options = this.props.choices.map(
             function (c, i) {
-                return <div key={c.key === null ? 'null' : c.key}>
+                var classes = React.addons.classSet({
+                    'choice_option': true,
+                    'conflicts': c.conflicts
+                });
+                return <div key={c.key === null ? 'null' : c.key} className='dropdown-item'>
                     <a onClick={optionClick.bind(this, c.key)}
-                       href='#' className='choice_option'>
+                       href='#' className={classes}>
                         {c.name}
                     </a>
                 </div>;
@@ -168,13 +173,17 @@ var Choice = React.createClass({
         ];
         if (this.state.open) {
             children.push(
-                <Dropdown key='dropdown' top={0} left={0}
+                <Dropdown key='dropdown'
                           onClickOutside={this.close}>
                     {options}
                 </Dropdown>
             );
         }
-        return <div style={{'position': 'relative'}} className='choices'>
+        var classes = React.addons.classSet({
+            'choices': true,
+            'choices-active': this.state.open
+        });
+        return <div className={classes}>
             {children}
         </div>;
     }
@@ -221,7 +230,7 @@ var MultiChoice = React.createClass({
 
         var options = this.props.choices.map(
             function (c, i) {
-                return <div key={c.key}>
+                return <div key={c.key} className='dropdown-item'>
                     <label>
                         <input type="checkbox"
                                onChange={onChange.bind(this, i)}
@@ -243,13 +252,17 @@ var MultiChoice = React.createClass({
         ];
         if (this.state.open) {
             children.push(
-                <Dropdown key='dropdown' top={0} left={0}
+                <Dropdown key='dropdown'
                           onClickOutside={this.close}>
                     {options}
                 </Dropdown>
             );
         }
-        return <div style={{'position': 'relative'}} className='choices'>
+        var classes = React.addons.classSet({
+            'choices': true,
+            'choices-active': this.state.open
+        });
+        return <div className={classes}>
             {children}
         </div>;
     }
@@ -309,9 +322,18 @@ var SpecificAct = React.createClass({
             }
 
             // The `key` here is what ends up in PlannerRow.state.acts
-            return {key: idx, name: label};
+            return {
+                key: idx,
+                original_name: act.name,
+                name: label,
+                'conflicts': conflicts.length
+            };
         }
         var choices = this.props.revue.acts.map(act_to_choice.bind(this));
+        function key(c) {
+            return c.original_name;
+        }
+        choices.sort(keycmp(key));
         choices.unshift({key: null, name: '---'});
         console.log("The value is", this.props.value);
         var value = (this.props.value === null) ? '---'
@@ -346,6 +368,7 @@ var PlannerRow = React.createClass({
         console.log("Set act", idx, "to", act);
         console.log("acts:", acts);
         this.setState({'acts': acts});
+        this.props.onChange(acts);
     },
     setOthers: function (others) {
         this.setState({'others': others});
@@ -422,7 +445,8 @@ var Planner = React.createClass({
             rows: 20,
             songFlags: [false, false, true],
             absent: [],
-            director: ''
+            director: '',
+            rowData: []
         };
     },
     getAllActors: function () {
@@ -443,6 +467,29 @@ var Planner = React.createClass({
     },
     setDirector: function (d) {
         this.setState({director: d});
+    },
+    rowChange: function (i, d) {
+        var rowData = [].slice.call(this.state.rowData);
+        rowData[i] = d;
+        this.setState({'rowData': rowData});
+    },
+    getActCounts: function () {
+        var counts = [];
+        for (var i = 0; i < this.state.rowData.length; ++i) {
+            var row = this.state.rowData[i];
+            for (var k in row) {
+                var v = row[k];
+                if (v !== null) {
+                    counts[v] = (counts[v] || 0) + 1;
+                }
+            }
+        }
+        var acts = [];
+        for (var i = 0; i < this.props.acts.length; ++i) {
+            var count = counts[i] || 0;
+            acts.push({'act': this.props.acts[i], 'count': count});
+        }
+        return acts;
     },
     render: function() {
         var acts = this.props.acts;
@@ -469,6 +516,8 @@ var Planner = React.createClass({
         }
         header.push(<th key='others'>Andre</th>);
         header.push(<th key='conflicts'>Konflikter</th>);
+        var cols = header.map(function (o) { return <col width="*" key={o.key} />; });
+        console.log(cols);
 
         var plannerRowColumns = columns.map(
             function (name, j) {
@@ -478,11 +527,17 @@ var Planner = React.createClass({
         var usedPeople = this.state.absent.concat([this.state.director]);
         var rows = [];
         for (var i = 0; i < this.state.rows; i += 1) {
+            var onChange = this.rowChange.bind(this, i);
             rows.push(
                 <PlannerRow columns={plannerRowColumns}
                             revue={this.props.revue}
-                            usedPeople={usedPeople} key={i} />);
+                            usedPeople={usedPeople} key={i}
+                            onChange={onChange} />);
         }
+
+        var actCounts = this.getActCounts().map(function (o) {
+            return <li>{o.count}: {o.act.name}</li>;
+        });
 
         return <div>
             Steder: <input valueLink={this.linkState('columns')} />
@@ -500,9 +555,16 @@ var Planner = React.createClass({
                              onChange={this.setDirector} />
             </div>
             <table className='planner'>
-            <thead>{header}</thead>
+            <colgroup>{cols}</colgroup>
+            <thead><tr>{header}</tr></thead>
             <tbody>{rows}</tbody>
             </table>
+            <div>
+            Revynumre:
+            <ul>
+            {actCounts}
+            </ul>
+            </div>
         </div>;
     }
 });
