@@ -12,6 +12,8 @@ ENCODING = 'utf-8'
 LISTS = 'Persongalleri Rekvisitter Lydeffekter'.split()
 SCENES = 'Sang Sketch'.split()
 MACROS = [
+    ('begin_band', r'\\begin{Bandkommentar}'),
+    ('end_band', r'\\end{Bandkommentar}'),
     ('begin_list', r'\\begin{(?:%s)}' % '|'.join(LISTS)),
     ('end_list', r'\\end{(?:%s)}' % '|'.join(LISTS)),
     ('begin_scene',
@@ -20,12 +22,14 @@ MACROS = [
     ('end_scene', r'\\end{(?:%s)}' % '|'.join(SCENES)),
     ('item', r'\\item *[^\n]+'),
     ('input', r'\\input{[^}]*}'),
+    ('text', r'^.*$'),
 ]
 
 # Regular expression built from MACROS.
 # Each (k, r)-pair in MACROS becomes a capture group in the regex.
 PARSER = re.compile(
-    '|'.join('(?P<%s>%s)' % macro for macro in MACROS))
+    '|'.join('(?P<%s>%s)' % macro for macro in MACROS),
+    re.M)
 
 
 def parse(filename):
@@ -59,6 +63,7 @@ def parse_manus(filename):
     and subkeys
     parts.Persongalleri, parts.Rekvisitter, parts.Lydeffekter.
     """
+    current_text = None
     current_list = None
     current = None
     for key, value, match in parse(filename):
@@ -68,6 +73,7 @@ def parse_manus(filename):
                 'title': match.group('title'),
                 'melody': match.group('melody'),
                 'parts': {key: [] for key in LISTS},
+                'band': [],
             }
         elif key == 'end_scene':
             if not current['title'].startswith('Liste over '):
@@ -77,9 +83,16 @@ def parse_manus(filename):
             current_list = current['parts'][part]
         elif key == 'end_list':
             current_list = None
+        elif key == 'begin_band':
+            current_text = current['band']
+        elif key == 'end_band':
+            current_text = None
         elif key == 'item':
             if current_list is not None:
                 current_list.append(value[5:].strip())
+        elif key == 'text':
+            if current_text is not None:
+                current_text.append(match.group(0))
 
 
 def write_list(scenes, filename, list_name, marker):
@@ -189,7 +202,13 @@ def main():
     with codecs.open('lister/sange.txt', 'w', encoding=ENCODING) as fp:
         for scene in scenes:
             if scene['kind'] == 'Sang':
-                fp.write('%s\n' % scene['melody'])
+                fp.write(79 * '=' + '\n')
+                fp.write('%s\n' % (scene['title'],))
+                fp.write('Melodi: %s\n' % (scene['melody'],))
+                if scene['band']:
+                    fp.write(''.join('%s\n' % line for line in scene['band']))
+                else:
+                    print("%r: Ingen bandkommentarer!" % (scene['title'],))
 
     with codecs.open('lister/roller.csv', 'w', encoding=ENCODING) as fp:
         # fp.write('Titel\tRolle\tStr.\tType\tRevyist\n')
