@@ -165,8 +165,11 @@ def main():
                          (scene['title'], part, scene_kind))
 
     # Run pdflatex twice to make sure table of contents is correct
-    subprocess.call(('pdflatex', 'manus.tex'))
-    subprocess.call(('pdflatex', 'manus.tex'))
+    try:
+        subprocess.check_call(('pdflatex', '-interaction', 'batchmode', 'manus.tex'))
+        subprocess.check_call(('pdflatex', '-interaction', 'batchmode', 'manus.tex'))
+    except subprocess.CalledProcessError:
+        print("\npdflatex fejlede :-(")
 
 
 if __name__ == "__main__":
