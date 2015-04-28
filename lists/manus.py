@@ -24,6 +24,7 @@ MACROS = [
     ('item', r'\\item *[^\n]+'),
     ('input', r'\\input{[^}]*}'),
     ('tid', r'\\tid{[^}]*}'),
+    ('sceneskift', r'\\(?:forscene|fuldscene){[^}]*}'),
 ]
 
 # Regular expression built from MACROS.
@@ -82,6 +83,7 @@ def parse_manus(filename):
                 'parts': {key: [] for key in LISTS},
                 'band': [],
                 'tid': None,
+                'sceneskift': [],
             }
         elif key == 'end_scene':
             if not current['title'].startswith('Liste over '):
@@ -103,6 +105,11 @@ def parse_manus(filename):
         elif key is None:
             if current_text is not None:
                 current_text.append(value)
+        elif key == 'sceneskift':
+            brace = value.index('{')
+            kind = value[1:brace]
+            props = value[brace + 1:-1]
+            current['sceneskift'].append((kind, props))
 
 
 def write_list(scenes, filename, list_name, marker):
@@ -249,6 +256,27 @@ def main():
             for part in scene['parts']['Persongalleri']:
                 fp.write('"%s"\t"%s"\t"Stor"\t"%s"\t\n' %
                          (scene['title'], part, scene_kind))
+
+    with codecs.open('lister/sceneskift.csv', 'w', encoding=ENCODING) as fp:
+        prev = None
+        prev_title = None
+        for scene in scenes:
+            if not scene['sceneskift']:
+                print('%r: Ingen sceneskift' % (scene['title'],))
+                continue
+            first_kind = scene['sceneskift'][0][0]
+            if first_kind == prev == 'fuldscene':
+                print('%r -> %r: Fuld scene til fuld scene i overgang' %
+                      (prev_title, scene['title']))
+                prev = None
+            for kind, props in scene['sceneskift']:
+                if kind == prev == 'fuldscene':
+                    print('%r: Fuld scene til fuld scene' %
+                          (scene['title'],))
+                fp.write('%s\t%s\t%s\n' %
+                         (scene['title'], kind, props))
+                prev = kind
+            prev_title = scene['title']
 
     try:
         command = ('pdflatex', '-interaction', 'batchmode', 'manus.tex')
