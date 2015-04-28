@@ -70,7 +70,8 @@ def parse_manus(filename):
                 'parts': {key: [] for key in LISTS},
             }
         elif key == 'end_scene':
-            yield current
+            if not current['title'].startswith('Liste over '):
+                yield current
         elif key == 'begin_list':
             part = value[7:-1]
             current_list = current['parts'][part]
@@ -167,6 +168,8 @@ def main():
             if title == 'Navn':
                 print('%r: Ugyldigt navn!' % (title,))
             parts = []
+            if not scene['parts']['Persongalleri']:
+                print("%r: Ingen roller!" % (title,))
             for part in scene['parts']['Persongalleri']:
                 part = part.strip()
                 part = re.sub(r'^[([][A-Z]+[0-9]*[])]|[([][A-Z]+[0-9]*[])]$',
