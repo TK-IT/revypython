@@ -115,6 +115,12 @@ def write_list(scenes, filename, list_name, marker):
                 % count)
 
 
+def remove_latex(s):
+    s = s.strip()
+    s = re.sub(r'_', ' ', s).strip()
+    s = re.sub(r'\$', '', s).strip()
+    return s
+
 def main():
     scenes = list(parse_manus('manus.tex'))
 
@@ -150,6 +156,25 @@ def main():
         list_name='Lydeffekter',
         marker=r'\ForwardToEnd',
         )
+
+    with codecs.open('lister/rolleprioritering.txt', 'w', encoding=ENCODING) as fp:
+        for scene in scenes:
+            title = scene['title']
+            title = remove_latex(title)
+            title = title.strip(' !?.')
+            parts = []
+            for part in scene['parts']['Persongalleri']:
+                part = part.strip()
+                part = re.sub(r'^[([][A-Z]+[0-9]*[])]|[([][A-Z]+[0-9]*[])]$',
+                              '', part).strip()
+                part = re.sub(r'\([^)]*\)$',
+                              '', part).strip()
+                part = remove_latex(part)
+                if part in parts:
+                    print("%r: Duplikatrolle %r" % (title, part))
+                parts.append(part)
+
+                fp.write('%s: %s\n' % (title, part))
 
     with codecs.open('lister/sange.txt', 'w', encoding=ENCODING) as fp:
         for scene in scenes:
