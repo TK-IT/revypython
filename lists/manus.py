@@ -260,9 +260,11 @@ def main():
         # fp.write('Titel\tRolle\tStr.\tType\tRevyist\n')
         for scene in scenes:
             scene_kind = scene['kind']
+            title = remove_latex(scene['title'])
             for part in scene['parts']['Persongalleri']:
+                part = remove_latex(part)
                 fp.write('"%s"\t"%s"\t"Stor"\t"%s"\t\n' %
-                         (scene['title'], part, scene_kind))
+                         (title, part, scene_kind))
 
     print('\nsceneskift.csv')
     with codecs.open('lister/sceneskift.csv', 'w', encoding=ENCODING) as fp:
