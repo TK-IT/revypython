@@ -32,7 +32,8 @@ with open('lister/rolleprioritering.txt') as fp:
         scenes.setdefault(scene, [])
         scenes[scene].append(part)
 
-Choice = collections.namedtuple('Choice', 'scene part revyist priority')
+Choice = collections.namedtuple(
+    'Choice', 'scene part revyist priority forfatter')
 
 with open('rolleprioriteringer.txt') as fp:
     revyist = None
@@ -44,10 +45,17 @@ with open('rolleprioriteringer.txt') as fp:
             scene, choices = line.split(':', 1)
             priority += 1
             scene = string_key(scene)
+            choices = choices.strip()
+            if choices.lower().endswith('(f)'):
+                forfatter = True
+                choices = choices[:-3].strip()
+            else:
+                forfatter = False
+
             choices = [string_key(part) for part in choices.split(',')]
             choices = [choice for choice in choices if choice]
             for part in choices or scenes[scene]:
-                choice = Choice(scene=scene, part=part,
+                choice = Choice(scene=scene, part=part, forfatter=forfatter,
                                 revyist=revyist, priority=priority)
                 parts[scene, part].append(choice)
                 # print('%d\t%d\t%s\t%s\t%s' %
@@ -58,5 +66,8 @@ for scene, part in parts_order:
     print('%s: %s' % (scene_names[scene], part_names[scene, part]))
     aa = sorted(parts[scene, part], key=lambda a: a.priority)
     for a in aa:
-        print('%d %s' % (a.priority, a.revyist))
+        print('%s%d %s' %
+              ('(F) ' if a.forfatter else '', a.priority, a.revyist))
+    if not aa:
+        print("(ingen)")
     print('')
