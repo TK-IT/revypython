@@ -2,6 +2,7 @@
 import re
 import json
 import codecs
+import datetime
 import subprocess
 
 
@@ -22,7 +23,7 @@ MACROS = [
     ('end_scene', r'\\end{(?:%s)}' % '|'.join(SCENES)),
     ('item', r'\\item *[^\n]+'),
     ('input', r'\\input{[^}]*}'),
-    ('text', r'^.*$'),
+    ('tid', r'\\tid{[^}]*}'),
 ]
 
 # Regular expression built from MACROS.
@@ -44,7 +45,13 @@ def parse(filename):
         return
 
     with fp:
-        for o in PARSER.finditer(fp.read()):
+        i = 0
+        s = fp.read()
+        for o in PARSER.finditer(s):
+            j = o.start()
+            if i != j:
+                yield (None, s[i:j], None)
+            i = j
             key = o.lastgroup
             value = o.group(key)
             if key == 'input':
@@ -74,6 +81,7 @@ def parse_manus(filename):
                 'melody': match.group('melody'),
                 'parts': {key: [] for key in LISTS},
                 'band': [],
+                'tid': None,
             }
         elif key == 'end_scene':
             if not current['title'].startswith('Liste over '):
@@ -90,9 +98,11 @@ def parse_manus(filename):
         elif key == 'item':
             if current_list is not None:
                 current_list.append(value[5:].strip())
-        elif key == 'text':
+        elif key == 'tid':
+            current['tid'] = value[5:-1]
+        elif key is None:
             if current_text is not None:
-                current_text.append(match.group(0))
+                current_text.append(value)
 
 
 def write_list(scenes, filename, list_name, marker):
