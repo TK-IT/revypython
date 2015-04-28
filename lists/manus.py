@@ -145,6 +145,7 @@ def remove_latex(s):
     s = re.sub(r'\$', '', s).strip()
     return s
 
+
 def main():
     scenes = list(parse_manus('manus.tex'))
 
@@ -249,10 +250,11 @@ def main():
                 fp.write('"%s"\t"%s"\t"Stor"\t"%s"\t\n' %
                          (scene['title'], part, scene_kind))
 
-    # Run pdflatex twice to make sure table of contents is correct
     try:
-        subprocess.check_call(('pdflatex', '-interaction', 'batchmode', 'manus.tex'))
-        subprocess.check_call(('pdflatex', '-interaction', 'batchmode', 'manus.tex'))
+        command = ('pdflatex', '-interaction', 'batchmode', 'manus.tex')
+        # Run pdflatex twice to make sure table of contents is correct
+        subprocess.check_call(command)
+        subprocess.check_call(command)
     except subprocess.CalledProcessError:
         print("\npdflatex fejlede :-(")
 
