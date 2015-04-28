@@ -9,3 +9,4 @@ lists/lister/sange.txt
 *.log
 *.pdf
 *.toc
+.~lock.*#
