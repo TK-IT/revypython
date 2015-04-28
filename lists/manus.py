@@ -181,7 +181,7 @@ def main():
         marker=r'\ForwardToEnd',
         )
 
-    with codecs.open('lister/rolleprioritering.txt', 'w', encoding=ENCODING) as fp:
+    with codecs.open('lister/rolleliste.txt', 'w', encoding=ENCODING) as fp:
         for scene in scenes:
             title = scene['title']
             title = remove_latex(title)

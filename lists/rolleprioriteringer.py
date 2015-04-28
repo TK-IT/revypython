@@ -17,7 +17,7 @@ part_names = {}
 parts_order = []
 parts = {}
 
-with open('lister/rolleprioritering.txt') as fp:
+with open('lister/rolleliste.txt') as fp:
     for i, line in enumerate(fp):
         o = re.match(r'([^:]+): (.*)\n', line)
         if o is None:
