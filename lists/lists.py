@@ -157,10 +157,12 @@ def main():
                 fp.write('%s\n' % scene['melody'])
 
     with codecs.open('lister/roller.csv', 'w', encoding=ENCODING) as fp:
-        fp.write('Titel\tRolle\n')
+        # fp.write('Titel\tRolle\tStr.\tType\tRevyist\n')
         for scene in scenes:
+            scene_kind = scene['kind']
             for part in scene['parts']['Persongalleri']:
-                fp.write('"%s"\t"%s"\n' % (scene['title'], part))
+                fp.write('"%s"\t"%s"\t"Stor"\t"%s"\t\n' %
+                         (scene['title'], part, scene_kind))
 
     # Run pdflatex twice to make sure table of contents is correct
     subprocess.call(('pdflatex', 'manus.tex'))
