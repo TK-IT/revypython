@@ -220,6 +220,27 @@ def main():
                 else:
                     print("%r: Ingen bandkommentarer!" % (scene['title'],))
 
+    with codecs.open('lister/tid.txt', 'w', encoding=ENCODING) as fp:
+        total_seconds = 0
+        fail = []
+        for scene in scenes:
+            if scene['tid'] is None:
+                print("%r mangler tid! JEG MANGLER BARE TIDEN!" %
+                      (scene['title'],))
+                fail.append(scene['title'])
+            else:
+                try:
+                    minute, second = scene['tid'].split(':', 1)
+                    total_seconds += float(minute) * 60 + float(second)
+                except:
+                    print("%r: Ugyldig tid %r" % (scene['title'], scene['tid']))
+                    fail.append(scene['title'])
+            fp.write('%s %s\n' % (scene['tid'], scene['title']))
+        fp.write('I alt: %s%s\n' %
+                 (datetime.timedelta(seconds=total_seconds),
+                  ''.join(' + %s' % title for title in fail)))
+
+
     with codecs.open('lister/roller.csv', 'w', encoding=ENCODING) as fp:
         # fp.write('Titel\tRolle\tStr.\tType\tRevyist\n')
         for scene in scenes:
