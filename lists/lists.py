@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 import re
+import json
 import codecs
 import subprocess
 
@@ -116,6 +117,9 @@ def write_list(scenes, filename, list_name, marker):
 
 def main():
     scenes = list(parse_manus('manus.tex'))
+
+    with open('lister/scenes.json', 'w') as fp:
+        json.dump(scenes, fp, indent=2, sort_keys=True)
 
     # for scene in scenes:
     #     if scene['title'].startswith('Liste over '):
