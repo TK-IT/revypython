@@ -162,6 +162,10 @@ def main():
             title = scene['title']
             title = remove_latex(title)
             title = title.strip(' !?.')
+            if ':' in title:
+                print("%r: Kolon er forbudt i titel!" % (title,))
+            if title == 'Navn':
+                print('%r: Ugyldigt navn!' % (title,))
             parts = []
             for part in scene['parts']['Persongalleri']:
                 part = part.strip()
@@ -170,9 +174,12 @@ def main():
                 part = re.sub(r'\([^)]*\)$',
                               '', part).strip()
                 part = remove_latex(part)
-                if part in parts:
+                if part.lower() in parts:
                     print("%r: Duplikatrolle %r" % (title, part))
-                parts.append(part)
+                parts.append(part.lower())
+                if ',' in part:
+                    print("%r: %r: Komma er forbudt i rollenavn!" %
+                          (title, part))
 
                 fp.write('%s: %s\n' % (title, part))
 
