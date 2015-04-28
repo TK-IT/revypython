@@ -148,7 +148,7 @@ def main():
     write_list(
         scenes, 'lister/lyde.tex',
         list_name='Lydeffekter',
-        marker=r'\Tape',
+        marker=r'\ForwardToEnd',
         )
 
     with codecs.open('lister/sange.txt', 'w', encoding=ENCODING) as fp:
