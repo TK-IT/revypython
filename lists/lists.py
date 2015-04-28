@@ -18,7 +18,7 @@ MACROS = [
      r'\\begin{(?P<scenekind>%s)}(?:\[(?P<melody>[^]]+)\])?{(?P<title>[^}]+)}'
      % '|'.join(SCENES)),
     ('end_scene', r'\\end{(?:%s)}' % '|'.join(SCENES)),
-    ('item', r'\\item [^\n]+'),
+    ('item', r'\\item *[^\n]+'),
     ('input', r'\\input{[^}]*}'),
 ]
 
@@ -78,7 +78,7 @@ def parse_manus(filename):
             current_list = None
         elif key == 'item':
             if current_list is not None:
-                current_list.append(value[6:])
+                current_list.append(value[5:].strip())
 
 
 def write_list(scenes, filename, list_name, marker):
