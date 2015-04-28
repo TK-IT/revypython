@@ -189,6 +189,7 @@ def main():
         marker=r'\ForwardToEnd',
         )
 
+    print('\nrolleliste.txt')
     with codecs.open('lister/rolleliste.txt', 'w', encoding=ENCODING) as fp:
         for scene in scenes:
             title = scene['title']
@@ -217,6 +218,7 @@ def main():
 
                 fp.write('%s: %s\n' % (title, part))
 
+    print('\nsange.txt')
     with codecs.open('lister/sange.txt', 'w', encoding=ENCODING) as fp:
         for scene in scenes:
             if scene['kind'] == 'Sang':
@@ -228,6 +230,7 @@ def main():
                 else:
                     print("%r: Ingen bandkommentarer!" % (scene['title'],))
 
+    print('\ntid.txt')
     with codecs.open('lister/tid.txt', 'w', encoding=ENCODING) as fp:
         total_seconds = 0
         fail = []
@@ -248,7 +251,7 @@ def main():
                  (datetime.timedelta(seconds=total_seconds),
                   ''.join(' + %s' % title for title in fail)))
 
-
+    print('\nroller.csv')
     with codecs.open('lister/roller.csv', 'w', encoding=ENCODING) as fp:
         # fp.write('Titel\tRolle\tStr.\tType\tRevyist\n')
         for scene in scenes:
@@ -257,6 +260,7 @@ def main():
                 fp.write('"%s"\t"%s"\t"Stor"\t"%s"\t\n' %
                          (scene['title'], part, scene_kind))
 
+    print('\nsceneskift.csv')
     with codecs.open('lister/sceneskift.csv', 'w', encoding=ENCODING) as fp:
         prev = None
         prev_title = None
@@ -278,6 +282,7 @@ def main():
                 prev = kind
             prev_title = scene['title']
 
+    print('\npdflatex')
     try:
         command = ('pdflatex', '-interaction', 'batchmode', 'manus.tex')
         # Run pdflatex twice to make sure table of contents is correct
