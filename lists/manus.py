@@ -53,7 +53,7 @@ def parse(filename):
             j = o.start()
             if i != j:
                 yield (None, s[i:j], None)
-            i = j
+            i = o.end()
             key = o.lastgroup
             value = o.group(key)
             if key == 'input':
