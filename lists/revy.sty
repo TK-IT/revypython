@@ -7,6 +7,7 @@
 %\RequirePackage{bbding}
 \RequirePackage{marvosym}
 %\RequirePackage{wasysym}
+\RequirePackage{comment}
 
 
 
@@ -35,9 +36,7 @@
 \newcommand{\forscene}[1]{$(\rightarrow \leftarrow)$}
 \newcommand{\tid}[1]{}
 
-% Gem bandkommentar i en dummy box. \bgroup...\egroup svarer til {...}
-\newsavebox{\devnull}
-\newenvironment{Bandkommentar}{\savebox{\devnull}\bgroup}{\egroup}
+\excludecomment{Bandkommentar}
 
 \define@key{revy}{center}[true]{%
   \setboolean{revy@centerPerson}{#1}%
