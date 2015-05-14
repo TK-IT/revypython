@@ -51,6 +51,7 @@ function Revue(actsString) {
     var act = null;
     var actName = null;
     this.acts = [];
+    var actorsCasing = {};
     var actors = [];
     for (var i = 0; i < rows.length; i += 1) {
         var row = rows[i];
@@ -62,10 +63,15 @@ function Revue(actsString) {
             actName = act.name;
             this.acts.push(act);
         }
+        var actor = row[3];
+        var actorLower = actor.toLowerCase();
+        if (!(actorLower in actorsCasing)) {
+            actorsCasing[actorLower] = actor;
+        }
         act.parts.push({
             name: row[1],
             kind: row[2],
-            actor: row[3],
+            actor: actorsCasing[actorLower],
             singer: (row[2].indexOf('sang') !== -1)
         });
         actors.push(row[3]);
