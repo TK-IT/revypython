@@ -66,6 +66,9 @@ function Revue(actsString) {
         var actor = row[3];
         var actorLower = actor.toLowerCase();
         if (!(actorLower in actorsCasing)) {
+            if (actorLower.substring(0, 2) == 'fu' && actorLower.length == 4) {
+                actor = actor.toUpperCase();
+            }
             actorsCasing[actorLower] = actor;
         }
         act.parts.push({
