@@ -26,6 +26,7 @@ MACROS = [
     ('input', r'\\input{[^}]*}'),
     ('tid', r'\\tid{[^}]*}'),
     ('sceneskift', r'\\(?:forscene|fuldscene){[^}]*}'),
+    ('comment', r'%.*'),
 ]
 
 # Regular expression built from MACROS.
