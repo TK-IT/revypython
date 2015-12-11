@@ -79,7 +79,22 @@ function Revue(actsString) {
         });
         actors.push(row[3]);
     }
+    for (var i = 0; i < this.acts.length; i += 1) {
+        this.acts[i].kind = get_act_kind(this.acts[i]);
+    }
     this.actors = unique(actors);
+}
+
+function get_act_kind(act) {
+    var song = false;
+    var fisk = true;
+    for (var i = 0; i < act.parts.length; i += 1) {
+        if (act.parts[i].singer) song = true;
+        if (act.parts[i].kind.indexOf('Stor') !== -1) fisk = false;
+    }
+    if (song) return 'Sang';
+    else if (fisk) return 'Fisk';
+    else return 'Sketch';
 }
 
 Revue.prototype.stringify = function Revue_stringify() {
