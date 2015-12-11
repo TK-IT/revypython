@@ -508,12 +508,16 @@ var Planner = React.createClass({
                 }
             }
         }
-        var acts = [];
+        var actsByKind = {};
         for (var i = 0; i < this.props.acts.length; ++i) {
-            var count = counts[i] || 0;
-            acts.push({'act': this.props.acts[i], 'count': count});
+            actsByKind[this.props.acts[i].kind] = [];
         }
-        return acts;
+        for (var i = 0; i < this.props.acts.length; ++i) {
+            var a = this.props.acts[i];
+            var count = counts[i] || 0;
+            actsByKind[a.kind].push({'act': a, 'count': count});
+        }
+        return actsByKind;
     },
     render: function() {
         var acts = this.props.acts;
@@ -559,9 +563,14 @@ var Planner = React.createClass({
                             onChange={onChange} />);
         }
 
-        var actCounts = this.getActCounts().map(function (o) {
-            return <li>{o.count}: {o.act.name}</li>;
-        });
+        var actCountsByKind = this.getActCounts();
+        var actCounts = [];
+        for (var k in actCountsByKind) {
+            var c = actCountsByKind[k].map(function (a) {
+                return <li>{a.count}: {a.act.name}</li>;
+            });
+            actCounts.push(<ul>{c}</ul>);
+        }
 
         return <div>
             Steder: <input valueLink={this.linkState('columns')} />
@@ -585,10 +594,8 @@ var Planner = React.createClass({
             </table>
             <div>
             Revynumre:
-            <ul>
-            {actCounts}
-            </ul>
             </div>
+            {actCounts}
         </div>;
     }
 });
