@@ -566,6 +566,9 @@ var Planner = React.createClass({
         var actCountsByKind = this.getActCounts();
         var actCounts = [];
         for (var k in actCountsByKind) {
+            actCountsByKind[k].sort(keycmp(function (a) {
+                return a.act.name;
+            }));
             var c = actCountsByKind[k].map(function (a) {
                 return <li>{a.count}: {a.act.name}</li>;
             });
