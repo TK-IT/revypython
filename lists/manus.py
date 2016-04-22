@@ -238,7 +238,7 @@ def main():
     print('\nsange.txt')
     with codecs.open('lister/sange.txt', 'w', encoding=ENCODING) as fp:
         for scene in scenes:
-            if scene['kind'] == 'Sang':
+            if scene['kind'] == 'Sang' or scene['band']:
                 fp.write(79 * '=' + '\n')
                 fp.write('%s\n' % (scene['title'],))
                 fp.write('Melodi: %s\n' % (scene['melody'],))
