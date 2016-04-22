@@ -210,7 +210,6 @@ def main():
             if not scene['parts']['Persongalleri']:
                 print("%r: Ingen roller!" % (title,))
             for part in scene['parts']['Persongalleri']:
-                part = part.strip()
                 if r'\dreng' in part and r'\pige' in part:
                     print(r"%r: %r: Både \dreng og \pige" %
                           (title, part))
@@ -218,6 +217,7 @@ def main():
                     males += 1
                 elif r'\pige' in part:
                     females += 1
+                part = re.sub(r'\\dreng|\\pige', '', part).strip()
                 part = re.sub(r'^[([][A-Z]+[0-9]*[])]|[([][A-Z]+[0-9]*[])]$',
                               '', part).strip()
                 part = re.sub(r'\([^)]*\)$',
