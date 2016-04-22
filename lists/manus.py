@@ -146,8 +146,8 @@ def write_list(scenes, filename, list_name, marker):
         if list_name == 'Persongalleri':
             count = sum(len(scene['parts'][list_name]) for scene in scenes)
             fp.write(
-                '\n\\vspace{2cm}\n\nTotal antal roller i revyen: %s'
-                % count)
+                '\n\\vspace{2cm}\n\n' +
+                '\\noindent Total antal roller i revyen: %s\n\n' % count)
 
 
 def remove_latex(s):
