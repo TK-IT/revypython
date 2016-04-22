@@ -241,7 +241,7 @@ def main():
         fail = []
         for scene in scenes:
             if scene['tid'] is None:
-                print("%r mangler tid! JEG MANGLER BARE TIDEN!" %
+                print(r"%r har ikke angivet \tid" %
                       (scene['title'],))
                 fail.append(scene['title'])
             else:
