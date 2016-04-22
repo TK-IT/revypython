@@ -231,6 +231,9 @@ def main():
                           (title, part))
 
                 fp.write('%s: %s\n' % (title, part))
+    with codecs.open('lister/roller.tex', 'a', encoding=ENCODING) as fp:
+        fp.write(r'\noindent Kønsfordeling: %s \dreng, %s \pige' %
+                 (males, females) + '\n')
 
     print('\nsange.txt')
     with codecs.open('lister/sange.txt', 'w', encoding=ENCODING) as fp:
