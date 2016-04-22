@@ -176,6 +176,15 @@ def main():
     #                 print('  - %s' % v)
     #             print('')
 
+    male_text = r'\dreng'
+    female_text = r'\pige'
+    males = females = 0
+
+    for scene in scenes:
+        names = scene['parts']['Persongalleri']
+        males += sum(male_text in name for name in names)
+        females += sum(female_text in name for name in names)
+
     write_list(
         scenes, 'lister/roller.tex',
         list_name='Persongalleri',
