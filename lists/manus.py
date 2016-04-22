@@ -176,15 +176,6 @@ def main():
     #                 print('  - %s' % v)
     #             print('')
 
-    male_text = r'\dreng'
-    female_text = r'\pige'
-    males = females = 0
-
-    for scene in scenes:
-        names = scene['parts']['Persongalleri']
-        males += sum(male_text in name for name in names)
-        females += sum(female_text in name for name in names)
-
     write_list(
         scenes, 'lister/roller.tex',
         list_name='Persongalleri',
@@ -203,6 +194,8 @@ def main():
         marker=r'\ForwardToEnd',
         )
 
+    males = females = 0
+
     print('\nrolleliste.txt')
     with codecs.open('lister/rolleliste.txt', 'w', encoding=ENCODING) as fp:
         for scene in scenes:
@@ -218,6 +211,13 @@ def main():
                 print("%r: Ingen roller!" % (title,))
             for part in scene['parts']['Persongalleri']:
                 part = part.strip()
+                if r'\dreng' in part and r'\pige' in part:
+                    print(r"%r: %r: Både \dreng og \pige" %
+                          (title, part))
+                elif r'\dreng' in part:
+                    males += 1
+                elif r'\pige' in part:
+                    females += 1
                 part = re.sub(r'^[([][A-Z]+[0-9]*[])]|[([][A-Z]+[0-9]*[])]$',
                               '', part).strip()
                 part = re.sub(r'\([^)]*\)$',
