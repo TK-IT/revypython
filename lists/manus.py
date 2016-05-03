@@ -268,6 +268,25 @@ def main():
                  (datetime.timedelta(seconds=total_seconds),
                   ''.join(' + %s' % title for title in fail)))
 
+    print('\ntidslinje.tex')
+    with codecs.open('lister/tidslinje.tex', 'w', encoding=ENCODING) as fp:
+        total_seconds = 0
+        fail = []
+        for scene in scenes:
+            if scene['tid'] is None:
+                total_seconds = 120
+                output_tid = '???'
+            else:
+                try:
+                    minute, second = scene['tid'].split(':', 1)
+                    total_seconds += float(minute) * 60 + float(second)
+                    output_tid = scene['tid']
+                except:
+                    total_seconds = 300
+                    output_tid = '???'
+            width = total_seconds * 0.5  # 60 seconds = 30pt
+            fp.write(r'\block{%spt}{%s %s}' % (width, output_tid, scene['title']))
+
     print('\nroller.csv')
     with codecs.open('lister/roller.csv', 'w', encoding=ENCODING) as fp:
         # fp.write('Titel\tRolle\tStr.\tType\tRevyist\n')

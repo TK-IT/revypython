@@ -1,0 +1,32 @@
+\documentclass[a4paper]{memoir}
+
+\usepackage{graphicx}
+
+\newsavebox{\letters}
+\savebox{\letters}{abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ}
+\newsavebox{\blocktmp}
+\newlength{\blocktextwidth}
+\newcommand{\block}[2]{%
+  \framebox[#1][l]{%
+    \setlength{\blocktextwidth}{\dimexpr #1-2\fboxsep}%
+    \vphantom{\usebox{\letters}}%
+    \savebox{\blocktmp}{#2}%
+    \ifdim\blocktextwidth<\wd\blocktmp
+    \resizebox{\blocktextwidth}{\ht\blocktmp}{#2}%
+    \else
+    #2%
+    \fi
+    %\rule[-1mm]{0pt}{1mm}%
+  }%
+}
+
+\pagestyle{empty}
+\setlrmarginsandblock{20pt}{*}{1}
+\setulmarginsandblock{40pt}{*}{1}
+\checkandfixthelayout
+
+\begin{document}
+\raggedright
+\noindent
+\input{lister/tidslinje}
+\end{document}
