@@ -292,18 +292,20 @@ def main():
         fail = []
         for scene in scenes:
             if scene['tid'] is None:
-                total_seconds = 120
+                seconds = 120
                 output_tid = '???'
             else:
                 try:
                     minute, second = scene['tid'].split(':', 1)
-                    total_seconds += float(minute) * 60 + float(second)
+                    seconds = float(minute) * 60 + float(second)
+                    total_seconds += seconds
                     output_tid = scene['tid']
                 except:
-                    total_seconds = 300
+                    seconds = 300
                     output_tid = '???'
-            width = total_seconds * 0.5  # 60 seconds = 30pt
-            fp.write(r'\block{%spt}{%s %s}' % (width, output_tid, scene['title']))
+            width = seconds * 0.5  # 60 seconds = 30pt
+            fp.write(r'\block{%spt}{%s %s}' %
+                     (width, output_tid, scene['title']) + '\n')
 
     print('\nroller.csv')
     with codecs.open('lister/roller.csv', 'w', encoding=ENCODING) as fp:
