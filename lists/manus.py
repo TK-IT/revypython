@@ -3,6 +3,7 @@ import os
 import re
 import json
 import codecs
+import argparse
 import datetime
 import subprocess
 
@@ -164,6 +165,8 @@ def remove_latex(s):
 
 
 def main():
+    parser = argparse.ArgumentParser()
+    args = parser.parse_args()
     scenes = list(parse_manus('manus.tex'))
 
     print('\nscenes.json')
