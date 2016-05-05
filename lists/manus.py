@@ -304,8 +304,8 @@ def main():
                     seconds = 300
                     output_tid = '???'
             width = seconds * 1  # 60 seconds = 60pt
-            fp.write(r'\block{%spt}{%s %s}' %
-                     (width, output_tid, scene['title']) + '\n')
+            fp.write(r'\%s{%spt}{%s %s}' %
+                     (scene['kind'], width, output_tid, scene['title']) + '\n')
 
     print('\nroller.csv')
     with codecs.open('lister/roller.csv', 'w', encoding=ENCODING) as fp:

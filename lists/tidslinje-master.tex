@@ -1,6 +1,6 @@
 \documentclass[a4paper]{memoir}
 \usepackage[utf8]{inputenc}
-
+\usepackage{xcolor}
 \usepackage{graphicx}
 
 \newsavebox{\letters}
@@ -20,6 +20,8 @@
     %\rule[-1mm]{0pt}{1mm}%
   }%
 }
+\newcommand{\Sketch}{\block}
+\newcommand{\Sang}[2]{\block{#1}{\textcolor{red}{#2}}}
 
 \pagestyle{empty}
 \setstocksize{210mm}{297mm}
