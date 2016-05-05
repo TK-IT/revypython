@@ -42,6 +42,12 @@ def parse(filename):
     Handles recursive input using recursion.
     """
 
+    if isinstance(filename, list):
+        for f in filename:
+            for each in parse(f):
+                yield each
+        return
+
     try:
         fp = codecs.open(filename, encoding=ENCODING)
     except FileNotFoundError:
