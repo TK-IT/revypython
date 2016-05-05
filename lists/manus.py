@@ -292,7 +292,7 @@ def main():
         fail = []
         for scene in scenes:
             if scene['tid'] is None:
-                seconds = 120
+                seconds = 300
                 output_tid = '???'
             else:
                 try:
@@ -303,7 +303,7 @@ def main():
                 except:
                     seconds = 300
                     output_tid = '???'
-            width = seconds * 0.5  # 60 seconds = 30pt
+            width = seconds * 1  # 60 seconds = 60pt
             fp.write(r'\block{%spt}{%s %s}' %
                      (width, output_tid, scene['title']) + '\n')
 
