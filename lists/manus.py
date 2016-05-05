@@ -340,14 +340,15 @@ def main():
                 prev = kind
             prev_title = scene['title']
 
-    print('\npdflatex')
-    try:
-        command = ('pdflatex', '-interaction', 'batchmode', 'manus.tex')
-        # Run pdflatex twice to make sure table of contents is correct
-        subprocess.check_call(command)
-        subprocess.check_call(command)
-    except subprocess.CalledProcessError:
-        print("\npdflatex fejlede :-(")
+    if args.directory is None:
+        print('\npdflatex')
+        try:
+            command = ('pdflatex', '-interaction', 'batchmode', 'manus.tex')
+            # Run pdflatex twice to make sure table of contents is correct
+            subprocess.check_call(command)
+            subprocess.check_call(command)
+        except subprocess.CalledProcessError:
+            print("\npdflatex fejlede :-(")
 
 
 if __name__ == "__main__":
