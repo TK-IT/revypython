@@ -166,8 +166,17 @@ def remove_latex(s):
 
 def main():
     parser = argparse.ArgumentParser()
+    parser.add_argument('-d', '--directory')
     args = parser.parse_args()
-    scenes = list(parse_manus('manus.tex'))
+
+    if args.directory is not None:
+        filenames = os.listdir(args.directory)
+        paths = [os.path.join(args.directory, f)
+                 for f in filenames
+                 if f.endswith('.tex')]
+        scenes = list(parse_manus(paths))
+    else:
+        scenes = list(parse_manus('manus.tex'))
 
     print('\nscenes.json')
     with open('lister/scenes.json', 'w') as fp:
