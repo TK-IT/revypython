@@ -71,9 +71,9 @@ def main():
                 avoid = True
             if scene not in scene_names:
                 if ':' in line:
-                    print('Ukendt sketch/sang %r' % (scene,))
+                    print('%s: Ukendt sketch/sang %r' % (revyist, scene))
                 else:
-                    print('Hvad betyder %r?' % (line,))
+                    print('%s: Hvad betyder %r?' % (revyist, line))
                 continue
             if not avoid:
                 priority += 1
