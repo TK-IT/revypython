@@ -82,6 +82,10 @@ def main():
                 continue
             if not avoid:
                 priority += 1
+            if revyist is None:
+                print("Ignorerer linjen %r " % (line,) +
+                      "da der ikke har været noget navn endnu")
+                continue
 
             for part in choices or scenes[scene]:
                 choice = Choice(scene=scene, part=part, forfatter=forfatter,
