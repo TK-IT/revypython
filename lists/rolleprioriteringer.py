@@ -99,7 +99,7 @@ def main():
         for scene, part in parts_order:
             fp.write('%s: %s\n' % (scene_names[scene], part_names[scene, part]))
             aa = parts[scene, part]
-            aa = filter(lambda a: a.priority <= args.max_priority, aa)
+            aa = filter(lambda a: a.priority <= args.max_priority or a.priority == 10000, aa)
             aa = sorted(aa, key=lambda a: a.priority)
             for a in aa:
                 fp.write('%s%s %s\n' %
