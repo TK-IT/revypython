@@ -411,18 +411,22 @@ var SpecificAct = React.createClass({
                 key: idx,
                 original_name: act.name,
                 name: label,
+                kind: act.kind,
                 'conflicts': conflicts.length
             };
         }
-        var choices = this.props.revue.acts.map(act_to_choice.bind(this));
+        var acts = [].slice.call(this.props.revue.acts);
+        var choices = acts.map(act_to_choice.bind(this));
+        if (this.props.singers)
+            choices = choices.filter(function (a) { return a.kind === 'Sang'; });
         function key(c) {
-            return c.original_name;
+            return [c.kind, c.original_name];
         }
         choices.sort(keycmp(key));
         choices.unshift({key: null, name: '---', conflicts: 0});
         console.log("The value is", this.props.value);
         var value = (this.props.value === null) ? '---'
-            : this.props.revue.acts[this.props.value].name;
+            : acts[this.props.value].name;
         return <Choice value={value}
                        choices={choices}
                        onChange={this.props.onChange} />;
