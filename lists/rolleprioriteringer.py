@@ -1,4 +1,5 @@
 import re
+import argparse
 import itertools
 import collections
 
@@ -12,6 +13,9 @@ def string_key(s):
     return s.strip().lower()
 
 def main():
+    parser = argparse.ArgumentParser()
+    args = parser.parse_args()
+
     scene_names = {}
     scenes = {}
     part_names = {}
