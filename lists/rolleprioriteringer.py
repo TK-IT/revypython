@@ -82,7 +82,10 @@ def main():
                 choice = Choice(scene=scene, part=part, forfatter=forfatter,
                                 revyist=revyist,
                                 priority=10000 if avoid else priority)
-                parts[scene, part].append(choice)
+                try:
+                    parts[scene, part].append(choice)
+                except KeyError:
+                    print("%s: Ukendt rolle %r i %r" % (revyist, part, scene))
                 # print('%d\t%d\t%s\t%s\t%s' %
                 #       (i + 1, priority, revyist, scene_names[scene],
                 #        part_names[scene, choice]))
