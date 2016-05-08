@@ -284,6 +284,7 @@ def main():
         total_seconds = 0
         fail = []
         for scene in scenes:
+            fp.write('%7s ' % datetime.timedelta(seconds=total_seconds))
             if scene['tid'] is None:
                 print(r"%r har ikke angivet \tid" %
                       (scene['title'],))
