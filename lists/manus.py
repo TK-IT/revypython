@@ -303,7 +303,6 @@ def main():
 
     print('\ntidslinje.tex')
     with codecs.open('lister/tidslinje.tex', 'w', encoding=ENCODING) as fp:
-        total_seconds = 0
         fail = []
         for scene in scenes:
             if scene['tid'] is None:
@@ -313,7 +312,6 @@ def main():
                 try:
                     minute, second = scene['tid'].split(':', 1)
                     seconds = float(minute) * 60 + float(second)
-                    total_seconds += seconds
                     output_tid = scene['tid']
                 except:
                     seconds = 300
