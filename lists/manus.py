@@ -229,6 +229,9 @@ def main():
     with codecs.open('lister/rolleliste.txt', 'w', encoding=ENCODING) as fp:
         for scene in scenes:
             title = scene['title']
+            title = re.sub(r'\$ \\cdot \$', '', title)
+            if title.startswith('Fuck det sexistiske'):
+                title = 'Fuck det sexistiske samfund'
             title = remove_latex(title)
             title = title.strip(' !?.')
             if ':' in title:
