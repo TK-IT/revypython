@@ -634,9 +634,9 @@ var Planner = React.createClass({
                 return a.act.name;
             }));
             var c = actCountsByKind[k].map(function (a) {
-                return <li>{a.count}: {a.act.name}</li>;
+                return <li key={a.act.name}>{a.count}: {a.act.name}</li>;
             });
-            actCounts.push(<ul>{c}</ul>);
+            actCounts.push(<ul key={k}>{c}</ul>);
         }
 
         var csvRows = [];
