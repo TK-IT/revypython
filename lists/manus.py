@@ -53,7 +53,7 @@ def parse(filename):
 
     try:
         fp = codecs.open(filename, encoding=ENCODING)
-    except FileNotFoundError:
+    except OSError:
         return
 
     with fp:
