@@ -473,12 +473,10 @@ var PlannerRow = React.createClass({
         if (act === null) return [];
         var parts = this.props.revue.acts[act].parts;
         if (column.singers) {
-            parts = parts && parts.filter(attrgetter('singer'));
+            parts = parts.filter(attrgetter('singer'));
         }
-        console.log("Parts is", parts);
-        var actors = parts && parts.map(attrgetter('actor'));
-        console.log("Actors", actors);
-        return actors || [];
+        var actors = parts.map(attrgetter('actor'));
+        return actors;
     },
     renderColumn: function (idx, people) {
         if (idx === 'others') {
