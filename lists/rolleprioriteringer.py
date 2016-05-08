@@ -50,6 +50,7 @@ def main():
         revyist = None
         for i, line in enumerate(fp):
             line = line.strip()
+            line = line.strip('\ufeff')  # Strip byte order mark
             if not line:
                 continue
             if line.startswith('Navn:'):
