@@ -386,7 +386,7 @@ var SpecificAct = React.createClass({
         revue: React.PropTypes.shape({
             acts: React.PropTypes.array.isRequired
         }).isRequired,
-        value: React.PropTypes.string,
+        value: React.PropTypes.number,
         onChange: React.PropTypes.func.isRequired
     },
     render: function () {
