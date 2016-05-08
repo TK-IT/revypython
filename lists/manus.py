@@ -358,9 +358,8 @@ def main():
     if not args.all and args.directory is None:
         print('\npdflatex')
         try:
-            command = ('pdflatex', '-interaction', 'batchmode', 'manus.tex')
+            command = ('latexmk', '-pdf', '-interaction=batchmode', 'manus.tex')
             # Run pdflatex twice to make sure table of contents is correct
-            subprocess.check_call(command)
             subprocess.check_call(command)
         except subprocess.CalledProcessError:
             print("\npdflatex fejlede :-(")
