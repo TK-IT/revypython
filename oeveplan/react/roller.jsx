@@ -41,6 +41,15 @@ function attrgetter(k) {
     };
 }
 
+// http://ecmanaut.blogspot.dk/2006/07/encoding-decoding-utf8-in-javascript.html
+function encode_utf8(s) {
+    return unescape(encodeURIComponent(s));
+}
+
+function decode_utf8(s) {
+    return decodeURIComponent(escape(s));
+}
+
 function parse_roles(rolesString) {
     var lines = rolesString ? rolesString.split('\n') : [];
     var rows = lines.filter(
@@ -621,7 +630,7 @@ var Planner = React.createClass({
                 this.state.rowData[i].others.join(', '));
         }
         var csv = csvRows.map(function (r) { return r.join('\t') + '\n'; }).join('');
-        var dataURI = 'data:text/csv;base64,' + window.btoa(csv);
+        var dataURI = 'data:text/csv;base64,' + window.btoa(encode_utf8(csv));
         var download = <a href={dataURI} download={'oeveplan.csv'}>Download CSV</a>;
 
         return <div>
