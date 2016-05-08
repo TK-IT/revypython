@@ -56,6 +56,7 @@ def main():
                 line = line[:-3].strip()
             else:
                 forfatter = False
+            avoid = False
             if ':' in line:
                 scene, choices = line.split(':', 1)
                 scene = string_key(scene)
@@ -65,14 +66,22 @@ def main():
             else:
                 scene = string_key(line)
                 choices = None
-                if scene not in scene_names:
+            if scene not in scene_names and scene.startswith('ikke '):
+                scene = scene[5:].strip()
+                avoid = True
+            if scene not in scene_names:
+                if ':' in line:
+                    print('Ukendt sketch/sang %r' % (scene,))
+                else:
                     print('Hvad betyder %r?' % (line,))
-                    continue
-            priority += 1
+                continue
+            if not avoid:
+                priority += 1
 
             for part in choices or scenes[scene]:
                 choice = Choice(scene=scene, part=part, forfatter=forfatter,
-                                revyist=revyist, priority=priority)
+                                revyist=revyist,
+                                priority=10000 if avoid else priority)
                 parts[scene, part].append(choice)
                 # print('%d\t%d\t%s\t%s\t%s' %
                 #       (i + 1, priority, revyist, scene_names[scene],
@@ -83,8 +92,10 @@ def main():
             fp.write('%s: %s\n' % (scene_names[scene], part_names[scene, part]))
             aa = sorted(parts[scene, part], key=lambda a: a.priority)
             for a in aa:
-                fp.write('%s%d %s\n' %
-                      ('(F) ' if a.forfatter else '', a.priority, a.revyist))
+                fp.write('%s%s %s\n' %
+                         ('(F) ' if a.forfatter else '',
+                          'IKKE' if a.priority == 10000 else a.priority,
+                          a.revyist))
             if not aa:
                 fp.write("(ingen)\n")
             fp.write('\n')
