@@ -169,6 +169,7 @@ def remove_latex(s):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('-d', '--directory')
+    parser.add_argument('-a', '--all', action='store_true')
     args = parser.parse_args()
 
     if args.directory is not None:
@@ -176,6 +177,14 @@ def main():
         paths = [os.path.join(args.directory, f)
                  for f in filenames
                  if f.endswith('.tex')]
+        scenes = list(parse_manus(paths))
+    elif args.all:
+        paths = []
+        for d in 'sange sketches fisk'.split():
+            filenames = os.listdir(d)
+            paths += [os.path.join(d, f)
+                      for f in filenames
+                      if f.endswith('.tex')]
         scenes = list(parse_manus(paths))
     else:
         scenes = list(parse_manus('manus.tex'))
@@ -342,7 +351,7 @@ def main():
                 prev = kind
             prev_title = scene['title']
 
-    if args.directory is None:
+    if not args.all and args.directory is None:
         print('\npdflatex')
         try:
             command = ('pdflatex', '-interaction', 'batchmode', 'manus.tex')
