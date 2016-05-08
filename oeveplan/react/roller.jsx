@@ -41,8 +41,8 @@ function attrgetter(k) {
     };
 }
 
-function Revue(actsString) {
-    var lines = actsString ? actsString.split('\n') : [];
+function parse_roles(rolesString) {
+    var lines = rolesString ? rolesString.split('\n') : [];
     var rows = lines.filter(
         function (s) { return !!s; }
     ).map(
@@ -50,7 +50,7 @@ function Revue(actsString) {
     );
     var act = null;
     var actName = null;
-    this.acts = [];
+    var acts = [];
     var actorsCasing = {};
     var actors = [];
     for (var i = 0; i < rows.length; i += 1) {
@@ -61,7 +61,7 @@ function Revue(actsString) {
                 parts: []
             };
             actName = act.name;
-            this.acts.push(act);
+            acts.push(act);
         }
         var actor = row[3];
         var actorLower = actor.toLowerCase();
@@ -79,10 +79,11 @@ function Revue(actsString) {
         });
         actors.push(row[3]);
     }
-    for (var i = 0; i < this.acts.length; i += 1) {
-        this.acts[i].kind = get_act_kind(this.acts[i]);
+    for (var i = 0; i < acts.length; i += 1) {
+        acts[i].kind = get_act_kind(acts[i]);
     }
-    this.actors = unique(actors);
+    actors = unique(actors);
+    return {"acts": acts, "actors": actors};
 }
 
 function get_act_kind(act) {
@@ -97,28 +98,17 @@ function get_act_kind(act) {
     else return 'Sketch';
 }
 
-Revue.prototype.stringify = function Revue_stringify() {
-    return JSON.stringify({acts: this.acts, actors: this.actors});
-};
-
-var ActsInput = React.createClass({
-    getInitialState: function () {
-        return {acts: '', revueString: ''};
-    },
+var RolesInput = React.createClass({
     render: function() {
+        // Use an uncontrolled textarea for simplicity
         return <div>
-            <textarea value={this.state.acts}
-                      onChange={this.actsStringChange} />
-            <textarea value={this.state.revueString} readOnly={true} />
+            <textarea onChange={this.rolesStringChange} />
         </div>;
     },
-    actsStringChange: function (event) {
+    rolesStringChange: function (event) {
         var s = event.target.value;
-        if (s !== this.state.acts) {
-            var r = new Revue(s);
-            this.setState({'acts': s, 'revueString': r.stringify()});
-            this.props.onChange(r);
-        }
+        var r = parse_roles(s);
+        this.props.onChange(r);
     }
 });
 
@@ -157,6 +147,15 @@ var Dropdown = React.createClass({
 });
 
 var Choice = React.createClass({
+    propTypes: {
+        value: React.PropTypes.any.isRequired,
+        onChange: React.PropTypes.func.isRequired,
+        choices: React.PropTypes.arrayOf(React.PropTypes.shape({
+            conflicts: React.PropTypes.any.isRequired,
+            key: React.PropTypes.any,
+            name: React.PropTypes.string
+        })).isRequired
+    },
     getInitialState: function () {
         return {
             open: false
@@ -214,6 +213,15 @@ var Choice = React.createClass({
 });
 
 var MultiChoice = React.createClass({
+    propTypes: {
+        value: React.PropTypes.array.isRequired,
+        onChange: React.PropTypes.func.isRequired,
+        choices: React.PropTypes.arrayOf(React.PropTypes.shape({
+            //conflicts: React.PropTypes.any.isRequired,
+            key: React.PropTypes.any,
+            name: React.PropTypes.string
+        })).isRequired
+    },
     getInitialState: function () {
         return {
             open: false,
@@ -293,17 +301,23 @@ var MultiChoice = React.createClass({
 });
 
 var ActorChoice = React.createClass({
+    propTypes: {
+        value: React.PropTypes.string.isRequired,
+        onChange: React.PropTypes.func.isRequired,
+        actors: React.PropTypes.arrayOf(React.PropTypes.string).isRequired,
+        blank: React.PropTypes.bool
+    },
     choiceChange: function (k) {
         this.props.onChange(k);
     },
     render: function () {
         var choices = this.props.actors.map(
             function (actor, i) {
-                return {key: actor, name: actor};
+                return {key: actor, name: actor, conflicts: 0};
             }
         );
         if (this.props.blank) {
-            choices.splice(0, 0, {key: '', name: '---'});
+            choices.splice(0, 0, {key: '', name: '---', conflicts: 0});
         }
         return <Choice choices={choices} onChange={this.choiceChange}
                        value={this.props.value} />;
@@ -311,6 +325,11 @@ var ActorChoice = React.createClass({
 });
 
 var MultiActorChoice = React.createClass({
+    propTypes: {
+        value: React.PropTypes.array.isRequired,
+        onChange: React.PropTypes.func.isRequired,
+        actors: React.PropTypes.arrayOf(React.PropTypes.string).isRequired
+    },
     choiceChange: function (k) {
         this.props.onChange(k);
     },
@@ -328,6 +347,15 @@ var MultiActorChoice = React.createClass({
 });
 
 var SpecificAct = React.createClass({
+    propTypes: {
+        singers: React.PropTypes.bool.isRequired,
+        people: React.PropTypes.arrayOf(React.PropTypes.string).isRequired,
+        revue: React.PropTypes.shape({
+            acts: React.PropTypes.array.isRequired
+        }).isRequired,
+        value: React.PropTypes.string,
+        onChange: React.PropTypes.func.isRequired
+    },
     render: function () {
         function act_to_choice(act, idx) {
             var conflicts = [];
@@ -358,7 +386,7 @@ var SpecificAct = React.createClass({
             return c.original_name;
         }
         choices.sort(keycmp(key));
-        choices.unshift({key: null, name: '---'});
+        choices.unshift({key: null, name: '---', conflicts: 0});
         console.log("The value is", this.props.value);
         var value = (this.props.value === null) ? '---'
             : this.props.revue.acts[this.props.value].name;
@@ -370,40 +398,41 @@ var SpecificAct = React.createClass({
 
 var PlannerRow = React.createClass({
     propTypes: {
+        value: React.PropTypes.shape({
+            columns: React.PropTypes.object.isRequired,
+            others: React.PropTypes.array.isRequired
+        }).isRequired,
         columns: React.PropTypes.arrayOf(React.PropTypes.shape({
             key: React.PropTypes.string,
             singers: React.PropTypes.bool
-        })),
-        revue: React.PropTypes.instanceOf(Revue)
-    },
-    getInitialState: function () {
-        return {
-            acts: {},
-            others: []
-        };
+        })).isRequired,
+        revue: React.PropTypes.shape({
+            acts: React.PropTypes.array.isRequired,
+            actors: React.PropTypes.array.isRequired
+        }).isRequired,
+        onChange: React.PropTypes.func.isRequired,
+        usedPeople: React.PropTypes.array.isRequired
     },
     setAct: function (idx, act) {
-        var acts = {};
+        var oldColumns = this.props.value.columns;
+        var columns = {};
         for (var i = 0; i < this.props.columns.length; i += 1) {
             var k = this.props.columns[i].key;
-            var v = (k in this.state.acts) ? this.state.acts[k] : null;
-            acts[k] = (idx === i) ? act : v;
+            if (idx === i) columns[k] = act;
+            else if (k in oldColumns) columns[k] = oldColumns[k];
         }
-        console.log("Set act", idx, "to", act);
-        console.log("acts:", acts);
-        this.setState({'acts': acts});
-        this.props.onChange(acts);
+        this.props.onChange({"columns": columns, "others": this.props.value.others});
     },
     setOthers: function (others) {
-        this.setState({'others': others});
+        this.props.onChange({"columns": this.props.value.columns, "others": others});
     },
     getColumnPeople: function (idx) {
         if (idx === 'others') {
-            return this.state.others;
+            return this.props.value.others;
         }
         var column = this.props.columns[idx];
-        if (!(column.key in this.state.acts)) return [];
-        var act = this.state.acts[column.key];
+        if (!(column.key in this.props.value.columns)) return [];
+        var act = this.props.value.columns[column.key];
         if (act === null) return [];
         var parts = this.props.revue.acts[act].parts;
         if (column.singers) {
@@ -418,19 +447,19 @@ var PlannerRow = React.createClass({
         if (idx === 'others') {
             var choices = this.props.revue.actors.map(
                 function (actor, i) {
-                    if (people.indexOf(actor) !== -1 && this.state.others.indexOf(actor) === -1) {
+                    if (people.indexOf(actor) !== -1 && this.props.value.others.indexOf(actor) === -1) {
                         return {key: actor, name: '{' + actor + '}'};
                     } else {
                         return {key: actor, name: actor};
                     }
                 }.bind(this)
             );
-            return <MultiChoice value={this.state.others}
+            return <MultiChoice value={this.props.value.others}
                                 onChange={this.setOthers}
                                 choices={choices} />
         }
         var column = this.props.columns[idx];
-        var act = (column.key in this.state.acts) ? this.state.acts[column.key] : null;
+        var act = (column.key in this.props.value.columns) ? this.props.value.columns[column.key] : null;
         return <SpecificAct people={people} revue={this.props.revue}
                             onChange={this.setAct.bind(this, idx)}
                             singers={column.singers}
@@ -501,8 +530,9 @@ var Planner = React.createClass({
         var counts = [];
         for (var i = 0; i < this.state.rowData.length; ++i) {
             var row = this.state.rowData[i];
-            for (var k in row) {
-                var v = row[k];
+            if (!row) continue;
+            for (var k in row.columns) {
+                var v = row.columns[k];
                 if (v !== null) {
                     counts[v] = (counts[v] || 0) + 1;
                 }
@@ -556,11 +586,13 @@ var Planner = React.createClass({
         var rows = [];
         for (var i = 0; i < this.state.rows; i += 1) {
             var onChange = this.rowChange.bind(this, i);
+            var v = this.state.rowData[i] ? this.state.rowData[i] :
+                {columns: {}, others: []};
             rows.push(
                 <PlannerRow columns={plannerRowColumns}
                             revue={this.props.revue}
                             usedPeople={usedPeople} key={i}
-                            onChange={onChange} />);
+                            onChange={onChange} value={v} />);
         }
 
         var actCountsByKind = this.getActCounts();
@@ -581,12 +613,12 @@ var Planner = React.createClass({
             if (!this.state.rowData[i]) continue;
             csvRows.push(
                 columns.map(function (k) {
-                    return this.state.rowData[i][k]
-                        ? acts[this.state.rowData[i][k]].name
+                    return this.state.rowData[i].columns[k]
+                        ? acts[this.state.rowData[i].columns[k]].name
                         : '';
                 }.bind(this)));
             // csvRows[csvRows.length-1].push(
-            //     this.state.rowData[i]['others'].join(', '));
+            //     this.state.rowData[i].others.join(', '));
         }
         var csv = csvRows.map(function (r) { return r.join('\t') + '\n'; }).join('');
         var dataURI = 'data:text/csv;base64,' + window.btoa(csv);
@@ -624,9 +656,9 @@ var Planner = React.createClass({
 var Main = React.createClass({
     mixins: [React.addons.LinkedStateMixin],
     getInitialState: function () {
-        return {revue: new Revue()};
+        return {revue: parse_roles('')};
     },
-    setActs: function (revue) {
+    setRoles: function (revue) {
         this.setState({'revue': revue});
     },
     render: function () {
@@ -635,7 +667,7 @@ var Main = React.createClass({
             <p>
             1. Indlæs rollefordelingen fra regneark:
             </p>
-            <ActsInput onChange={this.setActs} />
+            <RolesInput onChange={this.setRoles} />
             <p>
             2. Konstruér øveplan:
             </p>
