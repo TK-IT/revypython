@@ -65,7 +65,7 @@ function parse_roles(rolesString) {
         }
     ).filter(function (s) { return s[3]; });
 
-    if (rows.length > 0 && rows[0][0] === 'Nummer') rows.unshift();
+    if (rows.length > 0 && rows[0][0] === 'Nummer') rows.shift();
     var act = null;
     var actName = null;
     var acts = [];
