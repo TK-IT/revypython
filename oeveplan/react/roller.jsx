@@ -575,18 +575,22 @@ var Planner = React.createClass({
             actCounts.push(<ul>{c}</ul>);
         }
 
-        /*
         var csvRows = [];
         csvRows.push(columns);
         for (var i = 0; i < rows.length; ++i) {
-            console.log(rows[i]);
-            break;
-            //csvRows.push(rows[i].renderColumns());
+            if (!this.state.rowData[i]) continue;
+            csvRows.push(
+                columns.map(function (k) {
+                    return this.state.rowData[i][k]
+                        ? acts[this.state.rowData[i][k]].name
+                        : '';
+                }.bind(this)));
+            // csvRows[csvRows.length-1].push(
+            //     this.state.rowData[i]['others'].join(', '));
         }
         var csv = csvRows.map(function (r) { return r.join('\t') + '\n'; }).join('');
         var dataURI = 'data:text/csv;base64,' + window.btoa(csv);
         var download = <a href={dataURI} download={'oeveplan.csv'}>Download CSV</a>;
-        */
 
         return <div>
             Steder: <input valueLink={this.linkState('columns')} />
@@ -608,6 +612,7 @@ var Planner = React.createClass({
             <thead><tr>{header}</tr></thead>
             <tbody>{rows}</tbody>
             </table>
+            <div>{download}</div>
             <div>
             Revynumre:
             </div>
