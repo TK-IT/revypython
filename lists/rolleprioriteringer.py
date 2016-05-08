@@ -14,6 +14,7 @@ def string_key(s):
 
 def main():
     parser = argparse.ArgumentParser()
+    parser.add_argument('-n', '--max-priority', type=int, default=float('inf'))
     args = parser.parse_args()
 
     scene_names = {}
@@ -98,6 +99,7 @@ def main():
         for scene, part in parts_order:
             fp.write('%s: %s\n' % (scene_names[scene], part_names[scene, part]))
             aa = parts[scene, part]
+            aa = filter(lambda a: a.priority <= args.max_priority, aa)
             aa = sorted(aa, key=lambda a: a.priority)
             for a in aa:
                 fp.write('%s%s %s\n' %
