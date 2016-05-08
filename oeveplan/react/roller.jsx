@@ -156,7 +156,6 @@ var Dropdown = React.createClass({
                     // => not an outside click.
                     return;
                 }
-                console.log(e);
                 e = e.parentNode;
             }
             if (e === document) {
@@ -424,7 +423,6 @@ var SpecificAct = React.createClass({
         }
         choices.sort(keycmp(key));
         choices.unshift({key: null, name: '---', conflicts: 0});
-        console.log("The value is", this.props.value);
         var value = (this.props.value === null) ? '---'
             : acts[this.props.value].name;
         return <Choice value={value}
@@ -610,7 +608,6 @@ var Planner = React.createClass({
         header.push(<th key='others'>Andre</th>);
         header.push(<th key='conflicts'>Konflikter</th>);
         var cols = header.map(function (o) { return <col width="*" key={o.key} />; });
-        console.log(cols);
 
         var plannerRowColumns = columns.map(
             function (name, j) {
