@@ -1,7 +1,12 @@
+# encoding: utf8
+from __future__ import unicode_literals
 import re
+import codecs
 import argparse
 import itertools
 import collections
+
+ENCODING = 'utf-8'
 
 # Reserved symbols:
 # Act titles: colon
@@ -23,7 +28,7 @@ def main():
     parts_order = []
     parts = {}
 
-    with open('lister/rolleliste.txt') as fp:
+    with codecs.open('lister/rolleliste.txt', encoding=ENCODING) as fp:
         for i, line in enumerate(fp):
             o = re.match(r'([^:]+): (.*)\n', line)
             if o is None:
@@ -41,7 +46,7 @@ def main():
     Choice = collections.namedtuple(
         'Choice', 'scene part revyist priority forfatter')
 
-    with open('rolleprioriteringer.txt') as fp:
+    with codecs.open('rolleprioriteringer.txt', encoding=ENCODING) as fp:
         revyist = None
         for i, line in enumerate(fp):
             line = line.strip()
@@ -99,7 +104,7 @@ def main():
                 #       (i + 1, priority, revyist, scene_names[scene],
                 #        part_names[scene, choice]))
 
-    with open('lister/rolleprioriteringer.txt', 'w') as fp:
+    with codecs.open('lister/rolleprioriteringer.txt', 'w', encoding=ENCODING) as fp:
         for scene, part in parts_order:
             fp.write('%s: %s\n' % (scene_names[scene], part_names[scene, part]))
             aa = parts[scene, part]
