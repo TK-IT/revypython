@@ -617,8 +617,8 @@ var Planner = React.createClass({
                         ? acts[this.state.rowData[i].columns[k]].name
                         : '';
                 }.bind(this)));
-            // csvRows[csvRows.length-1].push(
-            //     this.state.rowData[i].others.join(', '));
+            csvRows[csvRows.length-1].push(
+                this.state.rowData[i].others.join(', '));
         }
         var csv = csvRows.map(function (r) { return r.join('\t') + '\n'; }).join('');
         var dataURI = 'data:text/csv;base64,' + window.btoa(csv);
