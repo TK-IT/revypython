@@ -108,7 +108,7 @@ function parse_roles(rolesString) {
             name: row[1],
             kind: row[2],
             actor: actorsCasing[actorLower],
-            singer: (row[2].indexOf('sang') !== -1)
+            singer: (row[2].toLowerCase().indexOf('sang') !== -1)
         });
         actors.push(row[3]);
     }
