@@ -97,7 +97,8 @@ def main():
     with open('lister/rolleprioriteringer.txt', 'w') as fp:
         for scene, part in parts_order:
             fp.write('%s: %s\n' % (scene_names[scene], part_names[scene, part]))
-            aa = sorted(parts[scene, part], key=lambda a: a.priority)
+            aa = parts[scene, part]
+            aa = sorted(aa, key=lambda a: a.priority)
             for a in aa:
                 fp.write('%s%s %s\n' %
                          ('(F) ' if a.forfatter else '',
