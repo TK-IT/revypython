@@ -174,7 +174,7 @@ def read_legend():
 
 def write_legend(legend):
     with open('legend.json', 'w') as fp:
-        json.dump(legend, fp, sort_keys=True, indent=0, ensure_ascii=True)
+        json.dump(legend, fp, sort_keys=True, indent=0, ensure_ascii=False)
 
 
 def add_legend(scenes):
