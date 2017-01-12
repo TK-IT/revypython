@@ -357,7 +357,8 @@ def main():
         print('\npdflatex')
         try:
             command = ('latexmk', '-pdf', '-interaction=batchmode', 'manus.tex')
-            # Run pdflatex twice to make sure table of contents is correct
+            subprocess.check_call(command)
+            command = ('latexmk', '-pdf', '-interaction=batchmode', 'tidslinje-master.tex')
             subprocess.check_call(command)
         except subprocess.CalledProcessError:
             print("\npdflatex fejlede :-(")
