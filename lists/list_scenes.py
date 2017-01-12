@@ -7,7 +7,7 @@ def main():
             for f in sorted(os.listdir(d), key=str.lower):
                 base, ext = os.path.splitext(f)
                 if ext == '.tex':
-                    print("\\input{%s/%s}" % (d, base))
+                    print("\\input{%s/%s}\\newpage" % (d, base))
 
 
 if __name__ == '__main__':
