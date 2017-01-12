@@ -62,7 +62,7 @@ def parse(filename):
         for o in PARSER.finditer(s):
             j = o.start()
             if i != j:
-                yield (None, s[i:j], None)
+                yield (None, s[i:j], None, filename)
             i = o.end()
             key = o.lastgroup
             value = o.group(key)
@@ -71,7 +71,7 @@ def parse(filename):
                 for each in parse(value[7:-1] + '.tex'):
                     yield each
             else:
-                yield (key, value, o)
+                yield (key, value, o, filename)
 
 
 def parse_manus(filename):
@@ -85,7 +85,7 @@ def parse_manus(filename):
     current_text = None
     current_list = None
     current = None
-    for key, value, match in parse(filename):
+    for key, value, match, current_file in parse(filename):
         if key == 'begin_scene':
             current = {
                 'kind': match.group('scenekind'),
@@ -95,6 +95,7 @@ def parse_manus(filename):
                 'band': [],
                 'tid': None,
                 'sceneskift': [],
+                'filename': current_file,
             }
         elif key == 'end_scene':
             if not current['title'].startswith('Liste over '):
@@ -166,6 +167,29 @@ def remove_latex(s):
     return s
 
 
+def read_legend():
+    with open('legend.json') as fp:
+        return json.load(fp)
+
+
+def write_legend(legend):
+    with open('legend.json', 'w') as fp:
+        json.dump(legend, fp, sort_keys=True, indent=0)
+
+
+def add_legend(scenes):
+    legend = read_legend()
+    for scene in scenes:
+        try:
+            s = legend[scene['title']]
+        except KeyError:
+            s = ''
+        scene['legend'] = s or scene['title']
+        legend[scene['title']] = (
+            scene['legend'] if scene['legend'] != scene['title'] else '')
+    write_legend(legend)
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('-d', '--directory')
@@ -188,6 +212,8 @@ def main():
         scenes = list(parse_manus(paths))
     else:
         scenes = list(parse_manus('manus.tex'))
+
+    add_legend(scenes)
 
     print('\nscenes.json')
     with open('lister/scenes.json', 'w') as fp:
@@ -228,23 +254,23 @@ def main():
     print('\nrolleliste.txt')
     with codecs.open('lister/rolleliste.txt', 'w', encoding=ENCODING) as fp:
         for scene in scenes:
-            title = scene['title']
+            title = scene['legend']
             title = re.sub(r'\$ \\cdot \$', '', title)
             if title.startswith('Fuck det sexistiske'):
                 title = 'Fuck det sexistiske samfund'
             title = remove_latex(title)
             title = title.strip(' !?.')
             if ':' in title:
-                print("%r: Kolon er forbudt i titel!" % (title,))
+                print("%r: Kolon er forbudt i titel!" % (scene['filename'],))
             if title == 'Navn':
-                print('%r: Ugyldigt navn!' % (title,))
+                print('%r: Ugyldigt navn!' % (scene['filename'],))
             parts = []
             if not scene['parts']['Persongalleri']:
-                print("%r: Ingen roller!" % (title,))
+                print("%r: Ingen roller!" % (scene['filename'],))
             for part in scene['parts']['Persongalleri']:
                 if r'\dreng' in part and r'\pige' in part:
                     print(r"%r: %r: Både \dreng og \pige" %
-                          (title, part))
+                          (scene['filename'], part))
                 elif r'\dreng' in part:
                     males += 1
                 elif r'\pige' in part:
@@ -256,11 +282,11 @@ def main():
                               '', part).strip()
                 part = remove_latex(part)
                 if part.lower() in parts:
-                    print("%r: Duplikatrolle %r" % (title, part))
+                    print("%r: Duplikatrolle %r" % (scene['filename'], part))
                 parts.append(part.lower())
                 if ',' in part:
                     print("%r: %r: Komma er forbudt i rollenavn!" %
-                          (title, part))
+                          (scene['filename'], part))
 
                 fp.write('%s: %s\n' % (title, part))
     with codecs.open('lister/roller.tex', 'a', encoding=ENCODING) as fp:
@@ -277,7 +303,7 @@ def main():
                 if scene['band']:
                     fp.write(''.join('%s\n' % line for line in scene['band']))
                 else:
-                    print("%r: Ingen bandkommentarer!" % (scene['title'],))
+                    print("%r: Ingen bandkommentarer!" % (scene['filename'],))
 
     print('\ntid.txt')
     with codecs.open('lister/tid.txt', 'w', encoding=ENCODING) as fp:
@@ -287,19 +313,19 @@ def main():
             fp.write('%7s ' % datetime.timedelta(seconds=total_seconds))
             if scene['tid'] is None:
                 print(r"%r har ikke angivet \tid" %
-                      (scene['title'],))
-                fail.append(scene['title'])
+                      (scene['filename'],))
+                fail.append(scene['legend'])
             else:
                 try:
                     minute, second = scene['tid'].split(':', 1)
                     total_seconds += float(minute) * 60 + float(second)
                 except:
-                    print("%r: Ugyldig tid %r" % (scene['title'], scene['tid']))
-                    fail.append(scene['title'])
-            fp.write('%s %s\n' % (scene['tid'], scene['title']))
+                    print("%r: Ugyldig tid %r" % (scene['filename'], scene['tid']))
+                    fail.append(scene['legend'])
+            fp.write('%s %s\n' % (scene['tid'], scene['legend']))
         fp.write('I alt: %s%s\n' %
                  (datetime.timedelta(seconds=total_seconds),
-                  ''.join(' + %s' % title for title in fail)))
+                  ''.join(' + %s' % legend for legend in fail)))
 
     print('\ntidslinje.tex')
     with codecs.open('lister/tidslinje.tex', 'w', encoding=ENCODING) as fp:
@@ -318,18 +344,18 @@ def main():
                     output_tid = '???'
             width = seconds * 1  # 60 seconds = 60pt
             fp.write(r'\%s{%spt}{%s %s}' %
-                     (scene['kind'], width, output_tid, scene['title']) + '\n')
+                     (scene['kind'], width, output_tid, scene['legend']) + '\n')
 
     print('\nroller.csv')
     with codecs.open('lister/roller.csv', 'w', encoding=ENCODING) as fp:
         # fp.write('Titel\tRolle\tStr.\tType\tRevyist\n')
         for scene in scenes:
             scene_kind = scene['kind']
-            title = remove_latex(scene['title'])
+            legend = remove_latex(scene['legend'])
             for part in scene['parts']['Persongalleri']:
                 part = remove_latex(part)
                 fp.write('"%s"\t"%s"\t"Stor"\t"%s"\t\n' %
-                         (title, part, scene_kind))
+                         (legend, part, scene_kind))
 
     print('\nsceneskift.csv')
     with codecs.open('lister/sceneskift.csv', 'w', encoding=ENCODING) as fp:
@@ -337,21 +363,21 @@ def main():
         prev_title = None
         for scene in scenes:
             if not scene['sceneskift']:
-                print('%r: Ingen sceneskift' % (scene['title'],))
+                print('%r: Ingen sceneskift' % (scene['filename'],))
                 continue
             first_kind = scene['sceneskift'][0][0]
             if first_kind == prev == 'fuldscene':
                 print('%r -> %r: Fuld scene til fuld scene i overgang' %
-                      (prev_title, scene['title']))
+                      (prev_title, scene['filename']))
                 prev = None
             for kind, props in scene['sceneskift']:
                 if kind == prev == 'fuldscene':
                     print('%r: Fuld scene til fuld scene' %
-                          (scene['title'],))
+                          (scene['filename'],))
                 fp.write('%s\t%s\t%s\n' %
-                         (scene['title'], kind, props))
+                         (scene['legend'], kind, props))
                 prev = kind
-            prev_title = scene['title']
+            prev_title = scene['legend']
 
     if not args.all and args.directory is None:
         print('\npdflatex')
