@@ -11,6 +11,9 @@
 \RequirePackage{amsmath}
 \RequirePackage{amsfonts}
 \RequirePackage{wasysym}
+\RequirePackage{tikz}
+\RequirePackage{xspace}
+
 
 
 
@@ -401,4 +404,5 @@
 \newcommand{\dreng}{$\mars$}
 \newcommand{\pige}{$\venus$}
 \newcommand{\sangrolle}{$\twonotes$}
-\newcommand{\sketchrolle}{} %TODO: Insert speech bubble symbol
+\newcommand{\sketchrolle}{\tikz \draw[semithick] (0,0) arc [start angle=220, end angle=-100, x
+  radius=0.35em, y radius=0.25em] -- +(-0.3em,-0.1em) -- cycle;\xspace}
