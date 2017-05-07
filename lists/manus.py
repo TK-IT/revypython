@@ -275,6 +275,7 @@ def main():
                     males += 1
                 elif r'\pige' in part:
                     females += 1
+                part = part.strip(' .')
                 part = re.sub(r'\\dreng|\\pige', '', part).strip()
                 part = re.sub(r'^[([][A-Z]+[0-9]*[])]|[([][A-Z]+[0-9]*[])]$',
                               '', part).strip()
