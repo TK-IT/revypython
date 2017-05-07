@@ -67,8 +67,11 @@ def parse(filename):
             key = o.lastgroup
             value = o.group(key)
             if key == 'input':
+                filename = value[7:-1]
+                if '.' not in filename:
+                    filename += '.tex'
                 # Here, we could use `yield from` in Py3k
-                for each in parse(value[7:-1] + '.tex'):
+                for each in parse(filename):
                     yield each
             else:
                 yield (key, value, o, filename)
