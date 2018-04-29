@@ -1,5 +1,7 @@
 # encoding: utf8
+
 from __future__ import unicode_literals
+
 import re
 import codecs
 import argparse
@@ -8,14 +10,17 @@ import collections
 
 ENCODING = 'utf-8'
 
+
 # Reserved symbols:
 # Act titles: colon
 # Part names: comma
 # Reserved names:
 # Act titles: "Navn"
 
+
 def string_key(s):
     return s.strip().lower()
+
 
 def main():
     parser = argparse.ArgumentParser()
