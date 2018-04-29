@@ -99,6 +99,8 @@ def main():
                 continue
 
             for part in choices or scenes[scene]:
+                if (scene, part) not in parts:
+                    part = re.sub(r'(?:\s*\([^)]*\))+$', '', part).strip()
                 choice = Choice(scene=scene, part=part, forfatter=forfatter,
                                 revyist=revyist,
                                 priority=10000 if avoid else priority)
