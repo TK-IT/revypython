@@ -387,9 +387,9 @@ def main():
     if not args.all and args.directory is None:
         print('\npdflatex')
         try:
-            command = ('latexmk', '-pdf', '-interaction=batchmode', 'manus.tex')
+            command = ('latexmk', '-pdf', '-interaction=nonstopmode', 'manus.tex')
             subprocess.check_call(command)
-            command = ('latexmk', '-pdf', '-interaction=batchmode', 'tidslinje-master.tex')
+            command = ('latexmk', '-pdf', '-interaction=nonstopmode', 'tidslinje-master.tex')
             subprocess.check_call(command)
         except subprocess.CalledProcessError:
             print("\npdflatex fejlede :-(")
