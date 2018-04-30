@@ -180,13 +180,37 @@
   \end{list}%
 }
 
+\newcounter{revy@partcount}
+
+\newcommand{\defpersonrolle}[2]{%
+  % \defpersonrolle{42}{Personnavn for rolle nr. 42}
+  \expandafter\global\expandafter\def\csname revy@part#1person\endcsname{#2}%
+}
+\newcommand{\personrolle}{}
+\newcommand{\personrollemissing}[1]{}
+
 \newenvironment{Persongalleri}{%
   \subsection*{Persongalleri}
   \begin{list}{}{%
     \setlength{\itemsep}{0mm}%
     \setlength{\parsep}{0mm}%
   }%
+  \let\revy@item=\item
+  \def\revy@pending{}
+  \renewcommand{\item}{%
+    \revy@pending
+    \addtocounter{revy@partcount}{1}%
+    \ifcsname revy@part\therevy@partcount person\endcsname
+    \edef\revy@pending{\personrolle{\csname revy@part\therevy@partcount person\endcsname}}
+    \else
+    \edef\revy@pending{%
+      \personrollemissing{\therevy@partcount}
+    }
+    \fi
+    \revy@item
+  }%
 }{%
+  \revy@pending
   \end{list}%
 }
 
