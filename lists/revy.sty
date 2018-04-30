@@ -181,13 +181,40 @@
 }
 
 \newcounter{revy@partcount}
+\newcounter{revy@defpartcount}
 
-\newcommand{\defpersonrolle}[2]{%
-  % \defpersonrolle{42}{Personnavn for rolle nr. 42}
-  \expandafter\global\expandafter\def\csname revy@part#1person\endcsname{#2}%
+\newcommand{\personrollereset}{%
+  \setcounter{revy@partcount}{0}%
 }
-\newcommand{\personrolle}{}
+
+\newcommand{\personrolle}[1]{%
+  % \personrolle{Personnavn for rolle nr. 1}
+  % \personrolle{Personnavn for rolle nr. 2}
+  \addtocounter{revy@defpartcount}{1}%
+  \expandafter\global\expandafter\def\csname revy@part\therevy@defpartcount person\endcsname{#1}%
+}
+\newcommand{\printpersonrolle}{}
 \newcommand{\personrollemissing}[1]{}
+
+\newcommand{\personrollelistbegin}{%
+  \let\revy@item=\item
+  \def\revy@pending{}%
+  \renewcommand{\item}{%
+    \revy@pending
+    \addtocounter{revy@partcount}{1}%
+    \ifcsname revy@part\therevy@partcount person\endcsname
+    \edef\revy@pending{\printpersonrolle{\csname revy@part\therevy@partcount person\endcsname}}%
+    \else
+    \edef\revy@pending{%
+      \personrollemissing{\therevy@partcount}%
+    }%
+    \fi
+    \revy@item
+  }%
+}
+\newcommand{\personrollelistend}{%
+  \revy@pending
+}
 
 \newenvironment{Persongalleri}{%
   \subsection*{Persongalleri}
@@ -195,22 +222,9 @@
     \setlength{\itemsep}{0mm}%
     \setlength{\parsep}{0mm}%
   }%
-  \let\revy@item=\item
-  \def\revy@pending{}
-  \renewcommand{\item}{%
-    \revy@pending
-    \addtocounter{revy@partcount}{1}%
-    \ifcsname revy@part\therevy@partcount person\endcsname
-    \edef\revy@pending{\personrolle{\csname revy@part\therevy@partcount person\endcsname}}
-    \else
-    \edef\revy@pending{%
-      \personrollemissing{\therevy@partcount}
-    }
-    \fi
-    \revy@item
-  }%
+  \personrollelistbegin
 }{%
-  \revy@pending
+  \personrollelistend
   \end{list}%
 }
 

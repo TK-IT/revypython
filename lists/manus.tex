@@ -26,7 +26,8 @@
 \begin{document}
 
 \input{personrolle}
-\renewcommand{\personrolle}[1]{\hskip 2ex\relax#1}
+% Indsæt mellemrum før personnavn i parentes
+\renewcommand{\printpersonrolle}[1]{\hskip 2ex\relax(#1)}
 
 
 %Indholdsfortegnelse
