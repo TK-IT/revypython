@@ -349,7 +349,7 @@ def main():
             width = seconds * 1  # 60 seconds = 60pt
             fp.write(r'\%s{%spt}{%s %s}' %
                      (scene['kind'], width, output_tid,
-                      remove_latex(scene['legend'])) + '\n')
+                      scene['legend']) + '\n')
 
     print('\nroller.csv')
     with codecs.open('lister/roller.csv', 'w', encoding=ENCODING) as fp:
