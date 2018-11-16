@@ -331,6 +331,30 @@ def main():
                  (datetime.timedelta(seconds=total_seconds),
                   ''.join(' + %s' % legend for legend in fail)))
 
+    print('\ntid-sange.txt')
+    with codecs.open('lister/tid-sange.txt', 'w', encoding=ENCODING) as fp:
+        total_seconds = 0
+        fail = []
+        for scene in scenes:
+            if scene['kind'] != 'Sang':
+                continue
+            fp.write('%7s ' % datetime.timedelta(seconds=total_seconds))
+            if scene['tid'] is None:
+                print(r"%r har ikke angivet \tid" %
+                      (scene['filename'],))
+                fail.append(scene['legend'])
+            else:
+                try:
+                    minute, second = scene['tid'].split(':', 1)
+                    total_seconds += float(minute) * 60 + float(second)
+                except:
+                    print("%r: Ugyldig tid %r" % (scene['filename'], scene['tid']))
+                    fail.append(scene['legend'])
+            fp.write('%s %s\n' % (scene['tid'], scene['legend']))
+        fp.write('I alt: %s%s\n' %
+                 (datetime.timedelta(seconds=total_seconds),
+                  ''.join(' + %s' % legend for legend in fail)))
+
     print('\ntidslinje.tex')
     with codecs.open('lister/tidslinje.tex', 'w', encoding=ENCODING) as fp:
         fail = []
