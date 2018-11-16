@@ -35,12 +35,13 @@ def main():
 
     with codecs.open('lister/rolleliste.txt', encoding=ENCODING) as fp:
         for i, line in enumerate(fp):
-            o = re.match(r'([^:]+): (.*)\n', line)
+            o = re.match(r'([^:]+):(.*)\n', line)
             if o is None:
                 print(line)
                 raise ValueError("Could not parse line %d" % (i + 1,))
             scene = string_key(o.group(1))
             part = string_key(o.group(2))
+            part = re.sub(r'(?:\s*\([^)]*\))+$', '', part.strip()).strip()
             scene_names[scene] = o.group(1)
             part_names[scene, part] = o.group(2)
             parts_order.append((scene, part))
