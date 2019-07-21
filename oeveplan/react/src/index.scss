@@ -25,11 +25,11 @@ body {
     z-index: 1;
 }
 
-.dropdown-item label {
+.dropdown_item label {
     display: block;
 }
 
-.dropdown-item input {
+.dropdown_item input {
     vertical-align: middle;
     margin-top: 0;
     margin-bottom: 0;
@@ -48,7 +48,7 @@ body {
     background-color: #fff4bf;
 }
 
-.choices.choices-active > a {
+.choices.choices_active > a {
     background-color: #fff4bf;
 }
 
@@ -64,7 +64,7 @@ body {
     color: #c00;
 }
 
-.choice_option:hover, .dropdown-item label:hover {
+.choice_option:hover, .dropdown_item label:hover {
     background-color: #eef;
 }
 
