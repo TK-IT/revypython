@@ -546,7 +546,7 @@ class PlannerState {
   @observable
   director = "";
   @observable
-  rowData: RowData[] = [];
+  rowData: RowData[] = new Array(this.rows).map(() => ({ columns: {}, others: [] }));
 }
 
 const state = new PlannerState();
