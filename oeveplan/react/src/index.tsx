@@ -1,3 +1,5 @@
+import { action, computed, configure, observable } from "mobx";
+import { observer } from "mobx-react";
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 
@@ -139,26 +141,6 @@ function get_act_kind(act: Act) {
   if (song) return "Sang";
   else if (fisk) return "Fisk";
   else return "Sketch";
-}
-
-interface RolesInputProps {
-  onChange: (parsed: { acts: Act[]; actors: string[] }) => void;
-}
-
-class RolesInput extends React.Component<RolesInputProps, {}> {
-  render() {
-    // Use an uncontrolled textarea for simplicity
-    return (
-      <div>
-        <textarea onChange={e => this.rolesStringChange(e.target.value)} />
-      </div>
-    );
-  }
-
-  rolesStringChange(s: string) {
-    const r = parse_roles(s);
-    this.props.onChange(r);
-  }
 }
 
 interface DropdownProps {
@@ -546,48 +528,35 @@ class PlannerRow extends React.Component<PlannerRowProps, {}> {
   }
 }
 
-interface PlannerProps {
-  revue: Revue;
-  acts: Act[];
+class PlannerState {
+  @observable
+  rolesString = "";
+  @computed
+  get revue() {
+    return parse_roles(this.rolesString);
+  }
+  @observable
+  columns = "Scenen,I aflukket,Bandet (d01)";
+  @observable
+  rows = 20;
+  @observable
+  songFlags = [false, false, true];
+  @observable
+  absent: string[] = [];
+  @observable
+  director = "";
+  @observable
+  rowData: RowData[] = [];
 }
 
-class Planner extends React.Component<PlannerProps> {
-  state = {
-    columns: "Scenen,I aflukket,Bandet (d01)",
-    rows: 20,
-    songFlags: [false, false, true],
-    absent: [] as string[],
-    director: "",
-    rowData: [] as RowData[]
-  };
-  getAllActors() {
-    const actors = [];
-    for (let i = 0; i < this.props.acts.length; i += 1) {
-      const act = this.props.acts[i];
-      for (let j = 0; j < act.parts.length; j += 1) {
-        const part = act.parts[j];
-        if (actors.indexOf(part.actor) === -1) {
-          actors.push(part.actor);
-        }
-      }
-    }
-    return actors;
-  }
-  setAbsent(a: string[]) {
-    this.setState({ absent: a });
-  }
-  setDirector(d: string) {
-    this.setState({ director: d });
-  }
-  rowChange(i: number, d: RowData) {
-    const rowData = this.state.rowData.slice();
-    rowData[i] = d;
-    this.setState({ rowData: rowData });
-  }
-  getActCounts() {
+const state = new PlannerState();
+
+@observer
+class Planner extends React.Component<{}, {}> {
+  @computed get actCountsByKind() {
     const counts: number[] = [];
-    for (let i = 0; i < this.state.rowData.length; ++i) {
-      const row = this.state.rowData[i];
+    for (let i = 0; i < state.rowData.length; ++i) {
+      const row = state.rowData[i];
       if (!row) continue;
       for (let k in row.columns) {
         const v = row.columns[k];
@@ -597,26 +566,24 @@ class Planner extends React.Component<PlannerProps> {
       }
     }
     const actsByKind: { [kind: string]: { act: Act; count: number }[] } = {};
-    for (let i = 0; i < this.props.acts.length; ++i) {
-      actsByKind[this.props.acts[i].kind] = [];
+    for (let i = 0; i < state.revue.acts.length; ++i) {
+      actsByKind[state.revue.acts[i].kind] = [];
     }
-    for (let i = 0; i < this.props.acts.length; ++i) {
-      const a = this.props.acts[i];
+    for (let i = 0; i < state.revue.acts.length; ++i) {
+      const a = state.revue.acts[i];
       const count = counts[i] || 0;
       actsByKind[a.kind].push({ act: a, count: count });
     }
     return actsByKind;
   }
   render() {
-    const acts = this.props.acts;
-    const columns = this.state.columns.split(",");
+    const acts = state.revue.acts;
+    const columns = state.columns.split(",");
     const header = [];
 
-    const songChange = (j: number) => {
-      const flags = this.state.songFlags.slice();
-      flags[j] = !flags[j];
-      this.setState({ songFlags: flags });
-    };
+    const songChange = action((j: number) => {
+      state.songFlags[j] = !state.songFlags[j];
+    });
 
     for (let j = 0; j < columns.length; j += 1) {
       header.push(
@@ -624,7 +591,7 @@ class Planner extends React.Component<PlannerProps> {
           <input
             type="checkbox"
             onChange={() => songChange(j)}
-            checked={!!this.state.songFlags[j]}
+            checked={!!state.songFlags[j]}
           />
           {columns[j]}
         </th>
@@ -638,19 +605,19 @@ class Planner extends React.Component<PlannerProps> {
 
     const plannerRowColumns = columns.map((name, j) => ({
       key: name,
-      singers: this.state.songFlags[j]
+      singers: state.songFlags[j]
     }));
-    const usedPeople = this.state.absent.concat([this.state.director]);
+    const usedPeople = state.absent.concat([state.director]);
     const rows = [];
-    for (let i = 0; i < this.state.rows; i += 1) {
-      const onChange = (d: RowData) => this.rowChange(i, d);
-      const v = this.state.rowData[i]
-        ? this.state.rowData[i]
+    for (let i = 0; i < state.rows; i += 1) {
+      const onChange = action((d: RowData) => (state.rowData[i] = d));
+      const v = state.rowData[i]
+        ? state.rowData[i]
         : { columns: {}, others: [] };
       rows.push(
         <PlannerRow
           columns={plannerRowColumns}
-          revue={this.props.revue}
+          revue={state.revue}
           usedPeople={usedPeople}
           key={i}
           onChange={onChange}
@@ -659,7 +626,7 @@ class Planner extends React.Component<PlannerProps> {
       );
     }
 
-    const actCountsByKind = this.getActCounts();
+    const actCountsByKind = this.actCountsByKind;
     const actCounts = [];
     for (let k in actCountsByKind) {
       actCountsByKind[k].sort((a, b) => a.act.name.localeCompare(b.act.name));
@@ -676,14 +643,14 @@ class Planner extends React.Component<PlannerProps> {
     const csvRows = [];
     csvRows.push(columns);
     for (let i = 0; i < rows.length; ++i) {
-      if (!this.state.rowData[i]) continue;
+      if (!state.rowData[i]) continue;
       csvRows.push(
         columns.map(k => {
-          const c = this.state.rowData[i].columns[k];
+          const c = state.rowData[i].columns[k];
           return c ? acts[c].name : "";
         })
       );
-      csvRows[csvRows.length - 1].push(this.state.rowData[i].others.join(", "));
+      csvRows[csvRows.length - 1].push(state.rowData[i].others.join(", "));
     }
     const csv = csvRows
       .map(function(r) {
@@ -701,24 +668,24 @@ class Planner extends React.Component<PlannerProps> {
       <div>
         Steder:{" "}
         <input
-          value={this.state.columns}
-          onChange={e => this.setState({ columns: e.target.value })}
+          value={state.columns}
+          onChange={e => (state.columns = e.target.value)}
         />
         <div>
           Afbud:
           <MultiActorChoice
-            actors={this.props.revue.actors}
-            value={this.state.absent}
-            onChange={v => this.setAbsent(v)}
+            actors={state.revue.actors}
+            value={state.absent}
+            onChange={action((v: string[]) => (state.absent = v))}
           />
         </div>
         <div>
           Destruktør:
           <ActorChoice
-            actors={this.props.revue.actors}
-            value={this.state.director || "---"}
+            actors={state.revue.actors}
+            value={state.director || "---"}
             blank={true}
-            onChange={v => this.setDirector(v)}
+            onChange={action((v: string) => (state.director = v))}
           />
         </div>
         <table className={styles.planner}>
@@ -736,24 +703,28 @@ class Planner extends React.Component<PlannerProps> {
   }
 }
 
+@observer
 class Main extends React.Component {
-  state = { revue: parse_roles("") };
-
-  setRoles(revue: Revue) {
-    this.setState({ revue: revue });
-  }
-
   render() {
     return (
       <div>
         <h1>Øveplan</h1>
         <p>1. Indlæs rollefordelingen fra regneark:</p>
-        <RolesInput onChange={revue => this.setRoles(revue)} />
+        <div>
+          <textarea
+            value={state.rolesString}
+            onChange={action(
+              (e: React.ChangeEvent<HTMLTextAreaElement>) =>
+                (state.rolesString = e.target.value)
+            )}
+          />
+        </div>
         <p>2. Konstruér øveplan:</p>
-        <Planner revue={this.state.revue} acts={this.state.revue.acts} />
+        <Planner />
       </div>
     );
   }
 }
 
+configure({ enforceActions: "strict", computedRequiresReaction: true });
 ReactDOM.render(<Main />, document.body);
