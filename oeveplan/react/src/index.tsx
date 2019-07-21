@@ -727,4 +727,4 @@ class Main extends React.Component {
 }
 
 configure({ enforceActions: "strict", computedRequiresReaction: true });
-ReactDOM.render(<Main />, document.body);
+ReactDOM.render(<Main />, document.getElementById("app"));
