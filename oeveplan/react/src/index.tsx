@@ -538,15 +538,17 @@ class PlannerState {
   @observable
   columns = "Scenen,I aflukket,Bandet (d01)";
   @observable
-  rows = 20;
-  @observable
   songFlags = [false, false, true];
   @observable
   absent: string[] = [];
   @observable
   director = "";
   @observable
-  rowData: RowData[] = new Array(this.rows).map(() => ({ columns: {}, others: [] }));
+  rowData: RowData[] = new Array(20).map(() => ({ columns: {}, others: [] }));
+  @computed
+  get rows() {
+    return this.rowData.length;
+  }
 }
 
 const state = new PlannerState();
