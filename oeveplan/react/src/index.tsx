@@ -311,13 +311,13 @@ class MultiChoice extends React.Component<
 interface ActorChoiceProps {
   value: string;
   onChange: (value: string) => void;
-  actors: string[];
   blank: boolean;
 }
 
+@observer
 class ActorChoice extends React.Component<ActorChoiceProps, {}> {
   render() {
-    const choices = this.props.actors.map(actor => ({
+    const choices = state.revue.actors.map(actor => ({
       key: actor,
       name: actor,
       conflicts: false
@@ -338,12 +338,12 @@ class ActorChoice extends React.Component<ActorChoiceProps, {}> {
 interface MultiActorChoiceProps {
   value: string[];
   onChange: (value: string[]) => void;
-  actors: string[];
 }
 
+@observer
 class MultiActorChoice extends React.Component<MultiActorChoiceProps, {}> {
   render() {
-    const choices = this.props.actors.map(actor => ({
+    const choices = state.revue.actors.map(actor => ({
       key: actor,
       name: actor
     }));
@@ -668,7 +668,6 @@ class Planner extends React.Component<{}, {}> {
         <div>
           Afbud:
           <MultiActorChoice
-            actors={state.revue.actors}
             value={state.absent}
             onChange={action((v: string[]) => (state.absent = v))}
           />
@@ -676,7 +675,6 @@ class Planner extends React.Component<{}, {}> {
         <div>
           Destruktør:
           <ActorChoice
-            actors={state.revue.actors}
             value={state.director || "---"}
             blank={true}
             onChange={action((v: string) => (state.director = v))}
