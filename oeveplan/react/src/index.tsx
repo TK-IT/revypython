@@ -122,34 +122,42 @@ interface RowData {
 const PlannerRow = observer(({ rowIndex }: { rowIndex: number }) => {
   const rowData = state.rowData[rowIndex];
 
-  const renderOthers = (people: string[]) => {
-    const choices = state.revue.actors.map(actor => {
-      if (people.includes(actor) && !rowData.others.includes(actor)) {
-        return { key: actor, name: "{" + actor + "}" };
-      } else {
-        return { key: actor, name: actor };
-      }
-    });
-    return (
-      <MultiChoice
-        value={rowData.others}
-        onChange={action((v: string[]) => (rowData.others = v))}
-        choices={choices}
-      />
-    );
-  };
-
-  const columns = [];
-  for (let i = 0; i < state.columns.length; i += 1) {
-    columns.push(<SpecificAct rowIndex={rowIndex} columnIndex={i} />);
-  }
-  columns.push(renderOthers(state.peopleInRow[rowIndex]));
-  columns.push(duplicates(state.peopleInRow[rowIndex]).join(", "));
-
-  const cells = columns.map(function(o, i) {
-    return <td key={i}>{o}</td>;
+  const othersChoices = state.revue.actors.map(actor => {
+    if (
+      state.peopleInRow[rowIndex].includes(actor) &&
+      !rowData.others.includes(actor)
+    ) {
+      return { key: actor, name: "{" + actor + "}" };
+    } else {
+      return { key: actor, name: actor };
+    }
   });
-  return <tr>{cells}</tr>;
+
+  const others = (
+    <MultiChoice
+      value={rowData.others}
+      onChange={action((v: string[]) => (rowData.others = v))}
+      choices={othersChoices}
+    />
+  );
+
+  const conflicts = duplicates(state.peopleInRow[rowIndex]).join(", ");
+
+  const columns: JSX.Element[] = [];
+  for (let i = 0; i < state.columns.length; i += 1) {
+    columns.push(
+      <td key={i}>
+        <SpecificAct rowIndex={rowIndex} columnIndex={i} />
+      </td>
+    );
+  }
+  return (
+    <tr>
+      {columns}
+      <td>{others}</td>
+      <td>{conflicts}</td>
+    </tr>
+  );
 });
 
 class PlannerState {
