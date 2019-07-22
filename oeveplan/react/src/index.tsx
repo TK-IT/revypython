@@ -122,37 +122,44 @@ interface RowData {
 }
 
 interface PlannerRowProps {
-  value: RowData;
   columns: Array<{
     key: string;
     singers: boolean;
   }>;
-  onChange: (value: RowData) => void;
   usedPeople: string[];
+  rowIndex: number;
 }
 
 @observer
 class PlannerRow extends React.Component<PlannerRowProps, {}> {
+  get rowData() {
+    return state.rowData[this.props.rowIndex];
+  }
+
+  @action
   setAct(idx: number, act: number | null) {
-    const oldColumns = this.props.value.columns;
+    const oldColumns = this.rowData.columns;
     const columns: { [k: string]: number | null } = {};
     for (let i = 0; i < this.props.columns.length; i += 1) {
       const k = this.props.columns[i].key;
       if (idx === i) columns[k] = act;
       else if (k in oldColumns) columns[k] = oldColumns[k];
     }
-    this.props.onChange({ columns: columns, others: this.props.value.others });
+    this.rowData.columns = columns;
   }
+
+  @action
   setOthers(others: string[]) {
-    this.props.onChange({ columns: this.props.value.columns, others: others });
+    this.rowData.others = others;
   }
+
   getColumnPeople(idx: number | "others") {
     if (idx === "others") {
-      return this.props.value.others;
+      return this.rowData.others;
     }
     const column = this.props.columns[idx];
-    if (!(column.key in this.props.value.columns)) return [];
-    const act = this.props.value.columns[column.key];
+    if (!(column.key in this.rowData.columns)) return [];
+    const act = this.rowData.columns[column.key];
     if (act === null) return [];
     let parts = state.revue.acts[act].parts;
     if (column.singers) {
@@ -161,12 +168,13 @@ class PlannerRow extends React.Component<PlannerRowProps, {}> {
     const actors = parts.map(o => o.actor);
     return actors;
   }
+
   renderColumn(idx: number | "others", people: string[]) {
     if (idx === "others") {
       const choices = state.revue.actors.map(actor => {
         if (
           people.indexOf(actor) !== -1 &&
-          this.props.value.others.indexOf(actor) === -1
+          this.rowData.others.indexOf(actor) === -1
         ) {
           return { key: actor, name: "{" + actor + "}" };
         } else {
@@ -175,7 +183,7 @@ class PlannerRow extends React.Component<PlannerRowProps, {}> {
       });
       return (
         <MultiChoice
-          value={this.props.value.others}
+          value={this.rowData.others}
           onChange={v => this.setOthers(v)}
           choices={choices}
         />
@@ -183,8 +191,8 @@ class PlannerRow extends React.Component<PlannerRowProps, {}> {
     }
     const column = this.props.columns[idx];
     const act =
-      column.key in this.props.value.columns
-        ? this.props.value.columns[column.key]
+      column.key in this.rowData.columns
+        ? this.rowData.columns[column.key]
         : null;
     return (
       <SpecificAct
@@ -309,18 +317,13 @@ class Planner extends React.Component<{}, {}> {
     }));
     const usedPeople = state.absent.concat([state.director]);
     const rows: JSX.Element[] = [];
-    for (let i = 0; i < state.rows; i += 1) {
-      const onChange = action((d: RowData) => (state.rowData[i] = d));
-      const v = state.rowData[i]
-        ? state.rowData[i]
-        : { columns: {}, others: [] };
+    for (let i = 0; i < state.rows; ++i) {
       rows.push(
         <PlannerRow
           columns={plannerRowColumns}
           usedPeople={usedPeople}
           key={i}
-          onChange={onChange}
-          value={v}
+          rowIndex={i}
         />
       );
     }
