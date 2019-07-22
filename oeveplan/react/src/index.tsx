@@ -122,10 +122,6 @@ interface RowData {
 }
 
 interface PlannerRowProps {
-  columns: Array<{
-    key: string;
-    singers: boolean;
-  }>;
   usedPeople: string[];
   rowIndex: number;
 }
@@ -140,8 +136,8 @@ class PlannerRow extends React.Component<PlannerRowProps, {}> {
   setAct(idx: number, act: number | null) {
     const oldColumns = this.rowData.columns;
     const columns: { [k: string]: number | null } = {};
-    for (let i = 0; i < this.props.columns.length; i += 1) {
-      const k = this.props.columns[i].key;
+    for (let i = 0; i < state.columns.length; i += 1) {
+      const k = state.columns[i];
       if (idx === i) columns[k] = act;
       else if (k in oldColumns) columns[k] = oldColumns[k];
     }
@@ -154,12 +150,11 @@ class PlannerRow extends React.Component<PlannerRowProps, {}> {
   }
 
   getColumnPeople(idx: number) {
-    const column = this.props.columns[idx];
-    if (!(column.key in this.rowData.columns)) return [];
-    const act = this.rowData.columns[column.key];
+    if (!(state.columns[idx] in this.rowData.columns)) return [];
+    const act = this.rowData.columns[state.columns[idx]];
     if (act === null) return [];
     let parts = state.revue.acts[act].parts;
-    if (column.singers) {
+    if (state.songFlags[idx]) {
       parts = parts.filter(o => o.singer);
     }
     const actors = parts.map(o => o.actor);
@@ -187,16 +182,15 @@ class PlannerRow extends React.Component<PlannerRowProps, {}> {
   }
 
   renderColumn(idx: number, people: string[]) {
-    const column = this.props.columns[idx];
     const act =
-      column.key in this.rowData.columns
-        ? this.rowData.columns[column.key]
+      state.columns[idx] in this.rowData.columns
+        ? this.rowData.columns[state.columns[idx]]
         : null;
     return (
       <SpecificAct
         people={people}
         onChange={act => this.setAct(idx, act)}
-        singers={column.singers}
+        singers={state.songFlags[idx]}
         value={act}
       />
     );
@@ -204,14 +198,14 @@ class PlannerRow extends React.Component<PlannerRowProps, {}> {
   render() {
     const peopleSets = [];
     peopleSets.push(this.props.usedPeople);
-    for (let i = 0; i < this.props.columns.length; i += 1) {
+    for (let i = 0; i < state.columns.length; i += 1) {
       peopleSets.push(this.getColumnPeople(i));
     }
     peopleSets.push(this.rowData.others);
     const people = ([] as string[]).concat.apply([], peopleSets);
 
     const columns = [];
-    for (let i = 0; i < this.props.columns.length; i += 1) {
+    for (let i = 0; i < state.columns.length; i += 1) {
       columns.push(this.renderColumn(i, people));
     }
     columns.push(this.renderOthers(people));
@@ -309,21 +303,10 @@ class Planner extends React.Component<{}, {}> {
   }
 
   renderRows() {
-    const plannerRowColumns = state.columns.map((name, j) => ({
-      key: name,
-      singers: state.songFlags[j]
-    }));
     const usedPeople = state.absent.concat([state.director]);
     const rows: JSX.Element[] = [];
     for (let i = 0; i < state.rows; ++i) {
-      rows.push(
-        <PlannerRow
-          columns={plannerRowColumns}
-          usedPeople={usedPeople}
-          key={i}
-          rowIndex={i}
-        />
-      );
+      rows.push(<PlannerRow usedPeople={usedPeople} key={i} rowIndex={i} />);
     }
     return rows;
   }
