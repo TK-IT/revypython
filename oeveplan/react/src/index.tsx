@@ -169,26 +169,27 @@ class PlannerRow extends React.Component<PlannerRowProps, {}> {
     return actors;
   }
 
-  renderColumn(idx: number | "others", people: string[]) {
-    if (idx === "others") {
-      const choices = state.revue.actors.map(actor => {
-        if (
-          people.indexOf(actor) !== -1 &&
-          this.rowData.others.indexOf(actor) === -1
-        ) {
-          return { key: actor, name: "{" + actor + "}" };
-        } else {
-          return { key: actor, name: actor };
-        }
-      });
-      return (
-        <MultiChoice
-          value={this.rowData.others}
-          onChange={v => this.setOthers(v)}
-          choices={choices}
-        />
-      );
-    }
+  renderOthers(people: string[]) {
+    const choices = state.revue.actors.map(actor => {
+      if (
+        people.indexOf(actor) !== -1 &&
+        this.rowData.others.indexOf(actor) === -1
+      ) {
+        return { key: actor, name: "{" + actor + "}" };
+      } else {
+        return { key: actor, name: actor };
+      }
+    });
+    return (
+      <MultiChoice
+        value={this.rowData.others}
+        onChange={v => this.setOthers(v)}
+        choices={choices}
+      />
+    );
+  }
+
+  renderColumn(idx: number, people: string[]) {
     const column = this.props.columns[idx];
     const act =
       column.key in this.rowData.columns
@@ -216,7 +217,7 @@ class PlannerRow extends React.Component<PlannerRowProps, {}> {
     for (let i = 0; i < this.props.columns.length; i += 1) {
       columns.push(this.renderColumn(i, people));
     }
-    columns.push(this.renderColumn("others", people));
+    columns.push(this.renderOthers(people));
     columns.push(duplicates(people).join(", "));
 
     const cells = columns.map(function(o, i) {
