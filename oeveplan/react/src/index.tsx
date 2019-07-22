@@ -337,10 +337,6 @@ class Planner extends React.Component<{}, {}> {
   }
 
   render() {
-    const cols = [...Array(state.columns.length + 2)].map((_, i) => (
-      <col width="*" key={i} />
-    ));
-
     return (
       <>
         {this.renderIntro()}
@@ -349,7 +345,13 @@ class Planner extends React.Component<{}, {}> {
         {<Director />}
         <div>
           <table className={styles.planner}>
-            <colgroup>{cols}</colgroup>
+            <colgroup>
+              {state.columns.map(c => (
+                <col width="*" key={c} />
+              ))}
+              <col width="*" />
+              <col width="*" />
+            </colgroup>
             <thead>
               <tr>{this.renderHeader()}</tr>
             </thead>
