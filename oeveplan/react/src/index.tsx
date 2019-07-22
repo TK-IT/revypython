@@ -428,7 +428,7 @@ class Planner extends React.Component<{}, {}> {
   }
 
   render() {
-    const cols = Array(state.columns.length + 2).map((_, i) => (
+    const cols = [...Array(state.columns.length + 2)].map((_, i) => (
       <col width="*" key={i} />
     ));
 
