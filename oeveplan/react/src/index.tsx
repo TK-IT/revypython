@@ -56,21 +56,10 @@ function encode_utf8(s: string): string {
   return unescape(encodeURIComponent(s));
 }
 
-// function decode_utf8(s: string): string {
-//     return decodeURIComponent(escape(s));
-// }
-
-function startswith(s: string, p: string): boolean {
-  return s.substring(0, p.length) === p;
-}
-
 function clean_act_name(n: string): string {
   n = n.replace(/ \\cdot /g, "");
   n = n.replace(/\\dots/, "...");
-  if (startswith(n, "Fuck det "))
-    return n.substring(0, 19) + n.substring(n.length - 9);
-  else if (startswith(n, "AU -- hvorfor")) return "Skoleskyderi";
-  else return n;
+  return n;
 }
 
 function parse_roles(rolesString: string): Revue {
