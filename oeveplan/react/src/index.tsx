@@ -59,62 +59,60 @@ class MultiActorChoice extends React.Component<MultiActorChoiceProps, {}> {
 }
 
 interface SpecificActProps {
-  singers: boolean;
-  people: string[];
-  value: number | null;
-  onChange: (value: number | null) => void;
+  rowIndex: number;
+  columnIndex: number;
 }
 
-@observer
-class SpecificAct extends React.Component<SpecificActProps, {}> {
-  render() {
-    let acts = state.revue.acts.map((act, idx) => {
-      const conflicts = [];
-      for (let j = 0; j < act.parts.length; j += 1) {
-        const part = act.parts[j];
-        if (!this.props.singers || part.singer) {
-          if (this.props.people.indexOf(part.actor) !== -1) {
-            conflicts.push(part.actor);
-          }
+const SpecificAct = observer(({ rowIndex, columnIndex }: SpecificActProps) => {
+  let acts = state.revue.acts.map((act, idx) => {
+    const conflicts = [];
+    for (let j = 0; j < act.parts.length; j += 1) {
+      const part = act.parts[j];
+      if (!state.songFlags[columnIndex] || part.singer) {
+        if (state.peopleInRow[rowIndex].includes(part.actor)) {
+          conflicts.push(part.actor);
         }
       }
-      let label = "[" + conflicts.length + "] " + act.name;
-      if (conflicts.length > 0) {
-        conflicts.sort();
-        label += " (" + conflicts.join(", ") + ")";
-      }
+    }
+    let label = "[" + conflicts.length + "] " + act.name;
+    if (conflicts.length > 0) {
+      conflicts.sort();
+      label += " (" + conflicts.join(", ") + ")";
+    }
 
-      // The `key` here is what ends up in PlannerRow.state.acts
-      return {
-        key: String(idx),
-        original_name: act.name,
-        name: label,
-        kind: act.kind,
-        conflicts: conflicts.length > 0
-      };
-    });
-    const value =
-      this.props.value === null ? "---" : acts[this.props.value].original_name;
-    if (this.props.singers) acts = acts.filter(a => a.kind === "Sang");
-    acts.sort((a, b) =>
-      a.kind !== b.kind
-        ? a.kind.localeCompare(b.kind)
-        : a.original_name.localeCompare(b.original_name)
-    );
-    const choices = [
-      { key: null as string | null, name: "---", conflicts: false }
-    ].concat(acts);
-    return (
-      <Choice
-        value={value}
-        choices={choices}
-        onChange={v => {
-          this.props.onChange(v == null ? null : +v);
-        }}
-      />
-    );
-  }
-}
+    // The `key` here is what ends up in PlannerRow.state.acts
+    return {
+      key: String(idx),
+      original_name: act.name,
+      name: label,
+      kind: act.kind,
+      conflicts: conflicts.length > 0
+    };
+  });
+  const rowData = state.rowData[rowIndex];
+  const column = state.columns[columnIndex];
+  const actIndex = rowData.columns[column];
+  const value = actIndex == null ? "---" : acts[actIndex].original_name;
+  if (state.songFlags[columnIndex]) acts = acts.filter(a => a.kind === "Sang");
+  acts.sort((a, b) =>
+    a.kind !== b.kind
+      ? a.kind.localeCompare(b.kind)
+      : a.original_name.localeCompare(b.original_name)
+  );
+  const choices = [
+    { key: null as string | null, name: "---", conflicts: false }
+  ].concat(acts);
+  const onChange = action((act: number | null) => {
+    rowData.columns[column] = act;
+  });
+  return (
+    <Choice
+      value={value}
+      choices={choices}
+      onChange={v => onChange(v == null ? null : +v)}
+    />
+  );
+});
 
 interface RowData {
   columns: { [columnKey: string]: number | null };
@@ -123,22 +121,6 @@ interface RowData {
 
 const PlannerRow = observer(({ rowIndex }: { rowIndex: number }) => {
   const rowData = state.rowData[rowIndex];
-
-  const setAct = action((idx: number, act: number | null) => {
-    rowData.columns[state.columns[idx]] = act;
-  });
-
-  const getColumnPeople = (idx: number) => {
-    if (!(state.columns[idx] in rowData.columns)) return [];
-    const act = rowData.columns[state.columns[idx]];
-    if (act === null) return [];
-    let parts = state.revue.acts[act].parts;
-    if (state.songFlags[idx]) {
-      parts = parts.filter(o => o.singer);
-    }
-    const actors = parts.map(o => o.actor);
-    return actors;
-  };
 
   const renderOthers = (people: string[]) => {
     const choices = state.revue.actors.map(actor => {
@@ -157,26 +139,12 @@ const PlannerRow = observer(({ rowIndex }: { rowIndex: number }) => {
     );
   };
 
-  const people = [...state.absent, state.director];
-  for (let i = 0; i < state.columns.length; i += 1) {
-    people.push(...getColumnPeople(i));
-  }
-  people.push(...rowData.others);
-
   const columns = [];
   for (let i = 0; i < state.columns.length; i += 1) {
-    const act = rowData.columns[state.columns[i]];
-    columns.push(
-      <SpecificAct
-        people={people}
-        onChange={act => setAct(i, act)}
-        singers={state.songFlags[i]}
-        value={act === undefined ? null : act}
-      />
-    );
+    columns.push(<SpecificAct rowIndex={rowIndex} columnIndex={i} />);
   }
-  columns.push(renderOthers(people));
-  columns.push(duplicates(people).join(", "));
+  columns.push(renderOthers(state.peopleInRow[rowIndex]));
+  columns.push(duplicates(state.peopleInRow[rowIndex]).join(", "));
 
   const cells = columns.map(function(o, i) {
     return <td key={i}>{o}</td>;
@@ -237,6 +205,31 @@ class PlannerState {
       actCountsByKind[k].sort((a, b) => a.act.name.localeCompare(b.act.name));
     }
     return actCountsByKind;
+  }
+
+  private getRowPeople(rowIndex: number) {
+    const getCellPeople = (columnIndex: number) => {
+      const act = state.rowData[rowIndex].columns[state.columns[columnIndex]];
+      if (!act) return [];
+      let parts = state.revue.acts[act].parts;
+      if (state.songFlags[columnIndex]) {
+        parts = parts.filter(o => o.singer);
+      }
+      const actors = parts.map(o => o.actor);
+      return actors;
+    };
+
+    const people = [...state.absent, state.director];
+    for (let i = 0; i < state.columns.length; i += 1) {
+      people.push(...getCellPeople(i));
+    }
+    people.push(...state.rowData[rowIndex].others);
+
+    return people;
+  }
+
+  @computed get peopleInRow() {
+    return [...Array(state.rowData.length)].map((_, i) => this.getRowPeople(i));
   }
 }
 
