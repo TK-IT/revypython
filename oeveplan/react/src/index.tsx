@@ -51,11 +51,15 @@ interface SpecificActProps {
 }
 
 const SpecificAct = observer(({ rowIndex, columnIndex }: SpecificActProps) => {
+  const rowData = state.rowData[rowIndex];
+  const column = state.columns[columnIndex];
+  const actIndex = rowData.columns[column];
+
   let acts = state.revue.acts.map((act, idx) => {
     const conflicts = [];
     for (let j = 0; j < act.parts.length; j += 1) {
       const part = act.parts[j];
-      if (!state.songFlags[columnIndex] || part.singer) {
+      if (!state.songFlags[column] || part.singer) {
         if (state.peopleInRow[rowIndex].includes(part.actor)) {
           conflicts.push(part.actor);
         }
@@ -76,11 +80,9 @@ const SpecificAct = observer(({ rowIndex, columnIndex }: SpecificActProps) => {
       conflicts: conflicts.length > 0
     };
   });
-  const rowData = state.rowData[rowIndex];
-  const column = state.columns[columnIndex];
-  const actIndex = rowData.columns[column];
+
   const value = actIndex == null ? "---" : acts[actIndex].original_name;
-  if (state.songFlags[columnIndex]) acts = acts.filter(a => a.kind === "Sang");
+  if (state.songFlags[column]) acts = acts.filter(a => a.kind === "Sang");
   acts.sort((a, b) =>
     a.kind !== b.kind
       ? a.kind.localeCompare(b.kind)
@@ -161,7 +163,7 @@ class PlannerState {
     return this.columnsString.split(",");
   }
   @observable
-  songFlags = [false, false, true];
+  songFlags: { [column: string]: boolean } = { "Bandet (d01)": true };
   @observable
   absent: string[] = [];
   @observable
@@ -204,10 +206,11 @@ class PlannerState {
 
   private getRowPeople(rowIndex: number) {
     const getCellPeople = (columnIndex: number) => {
-      const act = state.rowData[rowIndex].columns[state.columns[columnIndex]];
+      const column = state.columns[columnIndex];
+      const act = state.rowData[rowIndex].columns[column];
       if (!act) return [];
       let parts = state.revue.acts[act].parts;
-      if (state.songFlags[columnIndex]) {
+      if (state.songFlags[column]) {
         parts = parts.filter(o => o.singer);
       }
       const actors = parts.map(o => o.actor);
@@ -233,27 +236,26 @@ const state = new PlannerState();
 @observer
 class Planner extends React.Component<{}, {}> {
   renderHeader() {
-    const header: JSX.Element[] = [];
-
-    const songChange = action((j: number) => {
-      state.songFlags[j] = !state.songFlags[j];
+    const songChange = action((c: string) => {
+      state.songFlags[c] = !state.songFlags[c];
     });
 
-    for (let j = 0; j < state.columns.length; j += 1) {
-      header.push(
-        <th key={j}>
-          <input
-            type="checkbox"
-            onChange={() => songChange(j)}
-            checked={!!state.songFlags[j]}
-          />
-          {state.columns[j]}
-        </th>
-      );
-    }
-    header.push(<th key="others">Andre</th>);
-    header.push(<th key="conflicts">Konflikter</th>);
-    return header;
+    return (
+      <>
+        {state.columns.map(column => (
+          <th key={column}>
+            <input
+              type="checkbox"
+              onChange={() => songChange(column)}
+              checked={!!state.songFlags[column]}
+            />
+            {column}
+          </th>
+        ))}
+        <th>Andre</th>
+        <th>Konflikter</th>
+      </>
+    );
   }
 
   renderRows() {
