@@ -9,32 +9,24 @@ import styles from "./index.scss";
 import { Act, parse_roles } from "./parser";
 import { duplicates, encode_utf8 } from "./util";
 
-interface ActorChoiceProps {
-  value: string;
-  onChange: (value: string) => void;
-  blank: boolean;
-}
-
-@observer
-class ActorChoice extends React.Component<ActorChoiceProps, {}> {
-  render() {
-    const choices = state.revue.actors.map(actor => ({
-      key: actor,
-      name: actor,
-      conflicts: false
-    }));
-    if (this.props.blank) {
-      choices.unshift({ key: "", name: "---", conflicts: false });
-    }
-    return (
+const Director = observer(({}) => {
+  const choices = state.revue.actors.map(actor => ({
+    key: actor,
+    name: actor,
+    conflicts: false
+  }));
+  choices.unshift({ key: "", name: "---", conflicts: false });
+  return (
+    <div>
+      Destruktør:
       <Choice
         choices={choices}
-        onChange={v => this.props.onChange(v as string)}
-        value={this.props.value}
+        onChange={action((v: string | null) => (state.director = v as string))}
+        value={state.director || "---"}
       />
-    );
-  }
-}
+    </div>
+  );
+});
 
 const Absent = observer(({}) => {
   const choices = state.revue.actors.map(actor => ({
@@ -328,19 +320,6 @@ class Planner extends React.Component<{}, {}> {
     );
   }
 
-  renderDirector() {
-    return (
-      <div>
-        Destruktør:
-        <ActorChoice
-          value={state.director || "---"}
-          blank={true}
-          onChange={action((v: string) => (state.director = v))}
-        />
-      </div>
-    );
-  }
-
   renderIntro() {
     return (
       <>
@@ -370,7 +349,7 @@ class Planner extends React.Component<{}, {}> {
         {this.renderIntro()}
         {this.renderColumns()}
         {<Absent />}
-        {this.renderDirector()}
+        {<Director />}
         <div>
           <table className={styles.planner}>
             <colgroup>{cols}</colgroup>
