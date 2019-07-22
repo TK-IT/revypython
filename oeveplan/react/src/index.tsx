@@ -122,7 +122,6 @@ interface RowData {
 }
 
 interface PlannerRowProps {
-  usedPeople: string[];
   rowIndex: number;
 }
 
@@ -197,7 +196,7 @@ class PlannerRow extends React.Component<PlannerRowProps, {}> {
   }
   render() {
     const peopleSets = [];
-    peopleSets.push(this.props.usedPeople);
+    peopleSets.push(state.absent.concat([state.director]));
     for (let i = 0; i < state.columns.length; i += 1) {
       peopleSets.push(this.getColumnPeople(i));
     }
@@ -303,10 +302,9 @@ class Planner extends React.Component<{}, {}> {
   }
 
   renderRows() {
-    const usedPeople = state.absent.concat([state.director]);
     const rows: JSX.Element[] = [];
     for (let i = 0; i < state.rows; ++i) {
-      rows.push(<PlannerRow usedPeople={usedPeople} key={i} rowIndex={i} />);
+      rows.push(<PlannerRow key={i} rowIndex={i} />);
     }
     return rows;
   }
