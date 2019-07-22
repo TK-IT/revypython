@@ -298,7 +298,10 @@ class Planner extends React.Component<{}, {}> {
         Steder:{" "}
         <input
           value={state.columnsString}
-          onChange={e => (state.columnsString = e.target.value)}
+          onChange={action(
+            (e: React.ChangeEvent<HTMLInputElement>) =>
+              (state.columnsString = e.target.value)
+          )}
         />
       </div>
     );
