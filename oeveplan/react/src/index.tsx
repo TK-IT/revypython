@@ -360,14 +360,14 @@ class MultiActorChoice extends React.Component<MultiActorChoiceProps, {}> {
 interface SpecificActProps {
   singers: boolean;
   people: string[];
-  revue: Revue;
   value: number | null;
   onChange: (value: number | null) => void;
 }
 
+@observer
 class SpecificAct extends React.Component<SpecificActProps, {}> {
   render() {
-    let acts = this.props.revue.acts.map((act, idx) => {
+    let acts = state.revue.acts.map((act, idx) => {
       const conflicts = [];
       for (let j = 0; j < act.parts.length; j += 1) {
         const part = act.parts[j];
@@ -416,7 +416,7 @@ class SpecificAct extends React.Component<SpecificActProps, {}> {
 }
 
 interface RowData {
-  columns: { [k: string]: number | null };
+  columns: { [columnKey: string]: number | null };
   others: string[];
 }
 
@@ -426,11 +426,11 @@ interface PlannerRowProps {
     key: string;
     singers: boolean;
   }>;
-  revue: Revue;
   onChange: (value: RowData) => void;
   usedPeople: string[];
 }
 
+@observer
 class PlannerRow extends React.Component<PlannerRowProps, {}> {
   setAct(idx: number, act: number | null) {
     const oldColumns = this.props.value.columns;
@@ -453,7 +453,7 @@ class PlannerRow extends React.Component<PlannerRowProps, {}> {
     if (!(column.key in this.props.value.columns)) return [];
     const act = this.props.value.columns[column.key];
     if (act === null) return [];
-    let parts = this.props.revue.acts[act].parts;
+    let parts = state.revue.acts[act].parts;
     if (column.singers) {
       parts = parts.filter(o => o.singer);
     }
@@ -462,7 +462,7 @@ class PlannerRow extends React.Component<PlannerRowProps, {}> {
   }
   renderColumn(idx: number | "others", people: string[]) {
     if (idx === "others") {
-      const choices = this.props.revue.actors.map(actor => {
+      const choices = state.revue.actors.map(actor => {
         if (
           people.indexOf(actor) !== -1 &&
           this.props.value.others.indexOf(actor) === -1
@@ -488,7 +488,6 @@ class PlannerRow extends React.Component<PlannerRowProps, {}> {
     return (
       <SpecificAct
         people={people}
-        revue={this.props.revue}
         onChange={act => this.setAct(idx, act)}
         singers={column.singers}
         value={act}
@@ -526,7 +525,11 @@ class PlannerState {
     return parse_roles(this.rolesString);
   }
   @observable
-  columns = "Scenen,I aflukket,Bandet (d01)";
+  columnsString = "Scenen,I aflukket,Bandet (d01)";
+  @computed
+  get columns() {
+    return this.columnsString.split(",");
+  }
   @observable
   songFlags = [false, false, true];
   @observable
@@ -570,7 +573,7 @@ class Planner extends React.Component<{}, {}> {
   }
   render() {
     const acts = state.revue.acts;
-    const columns = state.columns.split(",");
+    const columns = state.columns;
     const header = [];
 
     const songChange = action((j: number) => {
@@ -609,7 +612,6 @@ class Planner extends React.Component<{}, {}> {
       rows.push(
         <PlannerRow
           columns={plannerRowColumns}
-          revue={state.revue}
           usedPeople={usedPeople}
           key={i}
           onChange={onChange}
@@ -660,8 +662,8 @@ class Planner extends React.Component<{}, {}> {
       <div>
         Steder:{" "}
         <input
-          value={state.columns}
-          onChange={e => (state.columns = e.target.value)}
+          value={state.columnsString}
+          onChange={e => (state.columnsString = e.target.value)}
         />
         <div>
           Afbud:
