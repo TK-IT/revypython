@@ -56,8 +56,7 @@ const SpecificAct = observer(({ rowIndex, column }: SpecificActProps) => {
 
   let acts = state.revue.acts.map((act, idx) => {
     const conflicts = [];
-    for (let j = 0; j < act.parts.length; j += 1) {
-      const part = act.parts[j];
+    for (const part of act.parts) {
       if (!state.songFlags[column] || part.singer) {
         if (state.peopleInRow[rowIndex].includes(part.actor)) {
           conflicts.push(part.actor);
@@ -173,9 +172,7 @@ class PlannerState {
 
   @computed get actCountsByKind() {
     const counts: number[] = [];
-    for (let i = 0; i < this.rowData.length; ++i) {
-      const row = this.rowData[i];
-      if (!row) continue;
+    for (const row of this.rowData) {
       for (let k in row.columns) {
         const v = row.columns[k];
         if (v !== null) {
@@ -186,8 +183,8 @@ class PlannerState {
     const actCountsByKind: {
       [kind: string]: { act: Act; count: number }[];
     } = {};
-    for (let i = 0; i < this.revue.acts.length; ++i) {
-      actCountsByKind[this.revue.acts[i].kind] = [];
+    for (const a of this.revue.acts) {
+      actCountsByKind[a.kind] = [];
     }
     for (let i = 0; i < this.revue.acts.length; ++i) {
       const a = this.revue.acts[i];
