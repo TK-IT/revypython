@@ -275,22 +275,16 @@ class Planner extends React.Component<{}, {}> {
   }
 
   renderDownload() {
-    const csvRows = [];
-    csvRows.push(state.columns);
-    for (let i = 0; i < state.rowData.length; ++i) {
-      if (!state.rowData[i]) continue;
-      csvRows.push(
-        state.columns.map(k => {
-          const c = state.rowData[i].columns[k];
-          return c ? state.revue.acts[c].name : "";
-        })
-      );
-      csvRows[csvRows.length - 1].push(state.rowData[i].others.join(", "));
-    }
-    const csv = csvRows
-      .map(function(r) {
-        return r.join("\t") + "\n";
-      })
+    const csv = [
+      state.columns,
+      ...state.rowData.map(row => [
+        ...state.columns
+          .map(k => row.columns[k])
+          .map(v => (v == null ? "" : state.revue.acts[v].name)),
+        row.others.join(", ")
+      ])
+    ]
+      .map(r => r.join("\t") + "\n")
       .join("");
     const dataURI = "data:text/csv;base64," + window.btoa(encode_utf8(csv));
     return (
