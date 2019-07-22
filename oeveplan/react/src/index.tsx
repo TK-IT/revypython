@@ -91,57 +91,47 @@ function parse_roles(rolesString: string): Revue {
     });
 
   if (rows.length > 0 && rows[0][0] === "Nummer") rows.shift();
-  let act: Act | null = null;
-  let actName: string | null = null;
   const acts: Act[] = [];
   const actorsCasing: { [actorLower: string]: string } = {};
-  const actors: string[] = [];
-  for (let i = 0; i < rows.length; i += 1) {
-    const row = rows[i];
-    if (act == null || row[0] !== actName) {
-      actName = row[0];
-      act = {
-        name: clean_act_name(row[0]),
-        parts: [],
-        kind: "Fisk" // Dummy
-      };
-      acts.push(act);
-    }
-    let actor = row[3];
-    const actorLower = actor.toLowerCase();
-    if (!(actorLower in actorsCasing)) {
-      if (actorLower.substring(0, 2) == "fu" && actorLower.length == 4) {
-        actor = actor.toUpperCase();
+  for (let i = 0; i < rows.length; ) {
+    let j = i;
+    while (i < rows.length && rows[i][0] === rows[j][0]) ++i;
+    const parts: Part[] = [];
+    for (const row of rows.slice(j, i)) {
+      let actor = row[3];
+      const actorLower = actor.toLowerCase();
+      if (actorLower in actorsCasing) {
+        actor = actorsCasing[actorLower];
+      } else {
+        if (actorLower.substring(0, 2) == "fu" && actorLower.length == 4) {
+          actor = actor.toUpperCase();
+        }
+        actorsCasing[actorLower] = actor;
       }
-      actorsCasing[actorLower] = actor;
+      parts.push({
+        name: row[1],
+        kind: row[2],
+        actor,
+        singer: row[2].toLowerCase().indexOf("sang") !== -1
+      });
     }
-    act.parts.push({
-      name: row[1],
-      kind: row[2],
-      actor: actorsCasing[actorLower],
-      singer: row[2].toLowerCase().indexOf("sang") !== -1
+
+    const name = clean_act_name(rows[j][0]);
+    const kind = parts.some(p => p.singer)
+      ? "Sang"
+      : parts.some(p => p.kind.includes("Stor"))
+      ? "Sketch"
+      : "Fisk";
+    acts.push({
+      name,
+      parts,
+      kind
     });
-    actors.push(row[3]);
   }
-  for (let i = 0; i < acts.length; i += 1) {
-    acts[i].kind = get_act_kind(acts[i]);
-  }
-  return { acts: acts, actors: unique(actors) };
+  return { acts: acts, actors: Object.values(actorsCasing) };
 }
 
 type ActKind = "Sang" | "Fisk" | "Sketch";
-
-function get_act_kind(act: Act) {
-  let song = false;
-  let fisk = true;
-  for (let i = 0; i < act.parts.length; i += 1) {
-    if (act.parts[i].singer) song = true;
-    if (act.parts[i].kind.indexOf("Stor") !== -1) fisk = false;
-  }
-  if (song) return "Sang";
-  else if (fisk) return "Fisk";
-  else return "Sketch";
-}
 
 interface DropdownProps {
   onClickOutside: () => void;
