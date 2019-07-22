@@ -47,12 +47,11 @@ const Absent = observer(({}) => {
 
 interface SpecificActProps {
   rowIndex: number;
-  columnIndex: number;
+  column: string;
 }
 
-const SpecificAct = observer(({ rowIndex, columnIndex }: SpecificActProps) => {
+const SpecificAct = observer(({ rowIndex, column }: SpecificActProps) => {
   const rowData = state.rowData[rowIndex];
-  const column = state.columns[columnIndex];
   const actIndex = rowData.columns[column];
 
   let acts = state.revue.acts.map((act, idx) => {
@@ -132,14 +131,11 @@ const PlannerRow = observer(({ rowIndex }: { rowIndex: number }) => {
 
   const conflicts = duplicates(state.peopleInRow[rowIndex]).join(", ");
 
-  const columns: JSX.Element[] = [];
-  for (let i = 0; i < state.columns.length; i += 1) {
-    columns.push(
-      <td key={i}>
-        <SpecificAct rowIndex={rowIndex} columnIndex={i} />
-      </td>
-    );
-  }
+  const columns = state.columns.map(column => (
+    <td key={column}>
+      <SpecificAct rowIndex={rowIndex} column={column} />
+    </td>
+  ));
   return (
     <tr>
       {columns}
