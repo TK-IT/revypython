@@ -36,27 +36,22 @@ class ActorChoice extends React.Component<ActorChoiceProps, {}> {
   }
 }
 
-interface MultiActorChoiceProps {
-  value: string[];
-  onChange: (value: string[]) => void;
-}
-
-@observer
-class MultiActorChoice extends React.Component<MultiActorChoiceProps, {}> {
-  render() {
-    const choices = state.revue.actors.map(actor => ({
-      key: actor,
-      name: actor
-    }));
-    return (
+const Absent = observer(({}) => {
+  const choices = state.revue.actors.map(actor => ({
+    key: actor,
+    name: actor
+  }));
+  return (
+    <div>
+      Afbud:
       <MultiChoice
         choices={choices}
-        onChange={v => this.props.onChange(v)}
-        value={this.props.value}
+        onChange={action((v: string[]) => (state.absent = v))}
+        value={state.absent}
       />
-    );
-  }
-}
+    </div>
+  );
+});
 
 interface SpecificActProps {
   rowIndex: number;
@@ -333,18 +328,6 @@ class Planner extends React.Component<{}, {}> {
     );
   }
 
-  renderAbsent() {
-    return (
-      <div>
-        Afbud:
-        <MultiActorChoice
-          value={state.absent}
-          onChange={action((v: string[]) => (state.absent = v))}
-        />
-      </div>
-    );
-  }
-
   renderDirector() {
     return (
       <div>
@@ -386,7 +369,7 @@ class Planner extends React.Component<{}, {}> {
       <>
         {this.renderIntro()}
         {this.renderColumns()}
-        {this.renderAbsent()}
+        {<Absent />}
         {this.renderDirector()}
         <div>
           <table className={styles.planner}>
