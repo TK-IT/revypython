@@ -152,13 +152,13 @@ class PlannerState {
     return parse_roles(this.rolesString);
   }
   @observable
-  columnsString = "Scenen,I aflukket,Bandet (d01)";
+  columnsString = "Scenen,Aflukket,Bandet";
   @computed
   get columns() {
     return this.columnsString.split(",");
   }
   @observable
-  songFlags: { [column: string]: boolean } = { "Bandet (d01)": true };
+  songFlags: { [column: string]: boolean } = { Bandet: true };
   @observable
   absent: string[] = [];
   @observable
