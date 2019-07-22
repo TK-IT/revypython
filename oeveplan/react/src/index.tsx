@@ -201,8 +201,7 @@ class PlannerState {
   }
 
   private getRowPeople(rowIndex: number) {
-    const getCellPeople = (columnIndex: number) => {
-      const column = state.columns[columnIndex];
+    const getCellPeople = (column: string) => {
       const act = state.rowData[rowIndex].columns[column];
       if (!act) return [];
       let parts = state.revue.acts[act].parts;
@@ -214,8 +213,8 @@ class PlannerState {
     };
 
     const people = [...state.absent, state.director];
-    for (let i = 0; i < state.columns.length; i += 1) {
-      people.push(...getCellPeople(i));
+    for (const column of state.columns) {
+      people.push(...getCellPeople(column));
     }
     people.push(...state.rowData[rowIndex].others);
 
