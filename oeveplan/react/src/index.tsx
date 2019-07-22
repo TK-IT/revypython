@@ -153,10 +153,7 @@ class PlannerRow extends React.Component<PlannerRowProps, {}> {
     this.rowData.others = others;
   }
 
-  getColumnPeople(idx: number | "others") {
-    if (idx === "others") {
-      return this.rowData.others;
-    }
+  getColumnPeople(idx: number) {
     const column = this.props.columns[idx];
     if (!(column.key in this.rowData.columns)) return [];
     const act = this.rowData.columns[column.key];
@@ -210,7 +207,7 @@ class PlannerRow extends React.Component<PlannerRowProps, {}> {
     for (let i = 0; i < this.props.columns.length; i += 1) {
       peopleSets.push(this.getColumnPeople(i));
     }
-    peopleSets.push(this.getColumnPeople("others"));
+    peopleSets.push(this.rowData.others);
     const people = ([] as string[]).concat.apply([], peopleSets);
 
     const columns = [];
