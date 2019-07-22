@@ -433,7 +433,7 @@ class Planner extends React.Component<{}, {}> {
     ));
 
     return (
-      <div>
+      <>
         {this.renderIntro()}
         {this.renderColumns()}
         {this.renderAbsent()}
@@ -450,7 +450,7 @@ class Planner extends React.Component<{}, {}> {
         {this.renderDownload()}
         <div>Revynumre:</div>
         {this.renderActCounts()}
-      </div>
+      </>
     );
   }
 }
