@@ -259,19 +259,15 @@ class Planner extends React.Component<{}, {}> {
   }
 
   renderActCounts() {
-    const actCountsByKind = state.actCountsByKind;
-    const actCounts = [];
-    for (let k in actCountsByKind) {
-      const c = actCountsByKind[k].map(function(a) {
-        return (
+    return Object.entries(state.actCountsByKind).map(([k, v]) => (
+      <ul key={k}>
+        {v.map(a => (
           <li key={a.act.name}>
             {a.count}: {a.act.name}
           </li>
-        );
-      });
-      actCounts.push(<ul key={k}>{c}</ul>);
-    }
-    return actCounts;
+        ))}
+      </ul>
+    ));
   }
 
   renderDownload() {
