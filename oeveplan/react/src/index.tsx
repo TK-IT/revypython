@@ -238,7 +238,7 @@ class PlannerState {
   @observable
   director = "";
   @observable
-  rowData: RowData[] = new Array(20).map(() => ({ columns: {}, others: [] }));
+  rowData: RowData[] = [...Array(20)].map(() => ({ columns: {}, others: [] }));
   @computed
   get rows() {
     return this.rowData.length;
