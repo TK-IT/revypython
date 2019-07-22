@@ -542,16 +542,11 @@ class PlannerState {
   get rows() {
     return this.rowData.length;
   }
-}
 
-const state = new PlannerState();
-
-@observer
-class Planner extends React.Component<{}, {}> {
   @computed get actCountsByKind() {
     const counts: number[] = [];
-    for (let i = 0; i < state.rowData.length; ++i) {
-      const row = state.rowData[i];
+    for (let i = 0; i < this.rowData.length; ++i) {
+      const row = this.rowData[i];
       if (!row) continue;
       for (let k in row.columns) {
         const v = row.columns[k];
@@ -560,27 +555,36 @@ class Planner extends React.Component<{}, {}> {
         }
       }
     }
-    const actsByKind: { [kind: string]: { act: Act; count: number }[] } = {};
-    for (let i = 0; i < state.revue.acts.length; ++i) {
-      actsByKind[state.revue.acts[i].kind] = [];
+    const actCountsByKind: {
+      [kind: string]: { act: Act; count: number }[];
+    } = {};
+    for (let i = 0; i < this.revue.acts.length; ++i) {
+      actCountsByKind[this.revue.acts[i].kind] = [];
     }
-    for (let i = 0; i < state.revue.acts.length; ++i) {
-      const a = state.revue.acts[i];
+    for (let i = 0; i < this.revue.acts.length; ++i) {
+      const a = this.revue.acts[i];
       const count = counts[i] || 0;
-      actsByKind[a.kind].push({ act: a, count: count });
+      actCountsByKind[a.kind].push({ act: a, count: count });
     }
-    return actsByKind;
+    for (let k in actCountsByKind) {
+      actCountsByKind[k].sort((a, b) => a.act.name.localeCompare(b.act.name));
+    }
+    return actCountsByKind;
   }
-  render() {
-    const acts = state.revue.acts;
-    const columns = state.columns;
-    const header = [];
+}
+
+const state = new PlannerState();
+
+@observer
+class Planner extends React.Component<{}, {}> {
+  renderHeader() {
+    const header: JSX.Element[] = [];
 
     const songChange = action((j: number) => {
       state.songFlags[j] = !state.songFlags[j];
     });
 
-    for (let j = 0; j < columns.length; j += 1) {
+    for (let j = 0; j < state.columns.length; j += 1) {
       header.push(
         <th key={j}>
           <input
@@ -588,22 +592,22 @@ class Planner extends React.Component<{}, {}> {
             onChange={() => songChange(j)}
             checked={!!state.songFlags[j]}
           />
-          {columns[j]}
+          {state.columns[j]}
         </th>
       );
     }
     header.push(<th key="others">Andre</th>);
     header.push(<th key="conflicts">Konflikter</th>);
-    const cols = header.map(o => (
-      <col width="*" key={o.key == null ? "null" : o.key} />
-    ));
+    return header;
+  }
 
-    const plannerRowColumns = columns.map((name, j) => ({
+  renderRows() {
+    const plannerRowColumns = state.columns.map((name, j) => ({
       key: name,
       singers: state.songFlags[j]
     }));
     const usedPeople = state.absent.concat([state.director]);
-    const rows = [];
+    const rows: JSX.Element[] = [];
     for (let i = 0; i < state.rows; i += 1) {
       const onChange = action((d: RowData) => (state.rowData[i] = d));
       const v = state.rowData[i]
@@ -619,11 +623,13 @@ class Planner extends React.Component<{}, {}> {
         />
       );
     }
+    return rows;
+  }
 
-    const actCountsByKind = this.actCountsByKind;
+  renderActCounts() {
+    const actCountsByKind = state.actCountsByKind;
     const actCounts = [];
     for (let k in actCountsByKind) {
-      actCountsByKind[k].sort((a, b) => a.act.name.localeCompare(b.act.name));
       const c = actCountsByKind[k].map(function(a) {
         return (
           <li key={a.act.name}>
@@ -633,15 +639,18 @@ class Planner extends React.Component<{}, {}> {
       });
       actCounts.push(<ul key={k}>{c}</ul>);
     }
+    return actCounts;
+  }
 
+  renderDownload() {
     const csvRows = [];
-    csvRows.push(columns);
-    for (let i = 0; i < rows.length; ++i) {
+    csvRows.push(state.columns);
+    for (let i = 0; i < state.rowData.length; ++i) {
       if (!state.rowData[i]) continue;
       csvRows.push(
-        columns.map(k => {
+        state.columns.map(k => {
           const c = state.rowData[i].columns[k];
-          return c ? acts[c].name : "";
+          return c ? state.revue.acts[c].name : "";
         })
       );
       csvRows[csvRows.length - 1].push(state.rowData[i].others.join(", "));
@@ -652,12 +661,16 @@ class Planner extends React.Component<{}, {}> {
       })
       .join("");
     const dataURI = "data:text/csv;base64," + window.btoa(encode_utf8(csv));
-    const download = (
-      <a href={dataURI} download={"oeveplan.csv"}>
-        Download CSV
-      </a>
+    return (
+      <div>
+        <a href={dataURI} download={"oeveplan.csv"}>
+          Download CSV
+        </a>
+      </div>
     );
+  }
 
+  renderColumns() {
     return (
       <div>
         Steder:{" "}
@@ -665,41 +678,38 @@ class Planner extends React.Component<{}, {}> {
           value={state.columnsString}
           onChange={e => (state.columnsString = e.target.value)}
         />
-        <div>
-          Afbud:
-          <MultiActorChoice
-            value={state.absent}
-            onChange={action((v: string[]) => (state.absent = v))}
-          />
-        </div>
-        <div>
-          Destruktør:
-          <ActorChoice
-            value={state.director || "---"}
-            blank={true}
-            onChange={action((v: string) => (state.director = v))}
-          />
-        </div>
-        <table className={styles.planner}>
-          <colgroup>{cols}</colgroup>
-          <thead>
-            <tr>{header}</tr>
-          </thead>
-          <tbody>{rows}</tbody>
-        </table>
-        <div>{download}</div>
-        <div>Revynumre:</div>
-        {actCounts}
       </div>
     );
   }
-}
 
-@observer
-class Main extends React.Component {
-  render() {
+  renderAbsent() {
     return (
       <div>
+        Afbud:
+        <MultiActorChoice
+          value={state.absent}
+          onChange={action((v: string[]) => (state.absent = v))}
+        />
+      </div>
+    );
+  }
+
+  renderDirector() {
+    return (
+      <div>
+        Destruktør:
+        <ActorChoice
+          value={state.director || "---"}
+          blank={true}
+          onChange={action((v: string) => (state.director = v))}
+        />
+      </div>
+    );
+  }
+
+  renderIntro() {
+    return (
+      <>
         <h1>Øveplan</h1>
         <p>1. Indlæs rollefordelingen fra regneark:</p>
         <div>
@@ -712,11 +722,37 @@ class Main extends React.Component {
           />
         </div>
         <p>2. Konstruér øveplan:</p>
-        <Planner />
+      </>
+    );
+  }
+
+  render() {
+    const cols = Array(state.columns.length + 2).map((_, i) => (
+      <col width="*" key={i} />
+    ));
+
+    return (
+      <div>
+        {this.renderIntro()}
+        {this.renderColumns()}
+        {this.renderAbsent()}
+        {this.renderDirector()}
+        <div>
+          <table className={styles.planner}>
+            <colgroup>{cols}</colgroup>
+            <thead>
+              <tr>{this.renderHeader()}</tr>
+            </thead>
+            <tbody>{this.renderRows()}</tbody>
+          </table>
+        </div>
+        {this.renderDownload()}
+        <div>Revynumre:</div>
+        {this.renderActCounts()}
       </div>
     );
   }
 }
 
 configure({ enforceActions: "always", computedRequiresReaction: true });
-ReactDOM.render(<Main />, document.getElementById("app"));
+ReactDOM.render(<Planner />, document.getElementById("app"));
